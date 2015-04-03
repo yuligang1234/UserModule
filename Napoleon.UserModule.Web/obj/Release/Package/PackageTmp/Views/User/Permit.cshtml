@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <title></title>
+    @RenderPage("~/Views/Shared/Easyui.cshtml")
+    <link href="../../Content/Css/PublicCss/DataGrid.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="searchTool" class="datagrid-toolbar">
+        <table>
+            <tr id="LoadOperate">
+                <td colspan="2">
+                    <div style="float: left;">
+                        <input type="hidden" id="UserId" value='@ViewData["UserId"]' />
+                        <a href="javascript:void(0);" id="FixedAdd" class="easyui-linkbutton" data-options="iconCls:'icon-add',plain:true" style="float: left;">新建</a>
+                        <div class="datagrid-btn-separator"></div>
+                    </div>
+                    <div style="float: left;">
+                        <a href="javascript:void(0);" id="FixedDelete" class="easyui-linkbutton" data-options="iconCls:'icon-remove',plain:true" style="float: left;">删除</a>
+                        <div class="datagrid-btn-separator"></div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div id="gridTool">
+    </div>
+    <div id="myWindow"></div>
+    <script type="text/javascript">
+        seajs.use(["User/Permit", "User/Index"], function (permit, index) {
+            $(function () {
+                var userId = $('#UserId').val();
+                permit.LoadGrid(userId);
+                index.LoadBody(40);
+                $('#FixedAdd').on('click', function () { permit.FixedAdd(userId); });
+                $('#FixedDelete').on('click', permit.FixedDelete);
+            });
+        });
+    </script>
+</body>
+</html>
+
+

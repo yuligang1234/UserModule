@@ -1,0 +1,327 @@
+﻿
+.panel-icon, .tabs-icon, .tree-icon {
+    background: url(../../Image/tabicons.png) no-repeat;
+    width: 16px;
+    line-height: 16px;
+    display: inline-block;
+}
+
+.tu0001 {
+    background-position: 0 0;
+}
+
+.tu0002 {
+    background-position: -16px 0;
+}
+
+.tu0003 {
+    background-position: -32px 0;
+}
+
+.tu0004 {
+    background-position: -48px 0;
+}
+
+.tu0005 {
+    background-position: -64px 0;
+}
+
+.tu0006 {
+    background-position: -80px 0;
+}
+
+.tu0007 {
+    background-position: -96px 0;
+}
+
+.tu0008 {
+    background-position: -112px 0;
+}
+
+.tu0009 {
+    background-position: -128px 0;
+}
+
+.tu0010 {
+    background-position: -144px 0;
+}
+
+.tu0101 {
+    background-position: 0 -16px;
+}
+
+.tu0102 {
+    background-position: -16px -16px;
+}
+
+.tu0103 {
+    background-position: -32px -16px;
+}
+
+.tu0104 {
+    background-position: -48px -16px;
+}
+
+.tu0105 {
+    background-position: -64px -16px;
+}
+
+.tu0106 {
+    background-position: -80px -16px;
+}
+
+.tu0107 {
+    background-position: -96px -16px;
+}
+
+.tu0108 {
+    background-position: -112px -16px;
+}
+
+.tu0109 {
+    background-position: -128px -16px;
+}
+
+.tu0110 {
+    background-position: -144px -16px;
+}
+
+.tu0201 {
+    background-position: 0 -32px;
+}
+
+.tu0202 {
+    background-position: -16px -32px;
+}
+
+.tu0203 {
+    background-position: -32px -32px;
+}
+
+.tu0204 {
+    background-position: -48px -32px;
+}
+
+.tu0205 {
+    background-position: -64px -32px;
+}
+
+.tu0206 {
+    background-position: -80px -32px;
+}
+
+.tu0207 {
+    background-position: -96px -32px;
+}
+
+.tu0208 {
+    background-position: -112px -32px;
+}
+
+.tu0209 {
+    background-position: -128px -32px;
+}
+
+.tu0210 {
+    background-position: -144px -32px;
+}
+
+.tu0301 {
+    background-position: 0 -48px;
+}
+
+.tu0302 {
+    background-position: -16px -48px;
+}
+
+.tu0303 {
+    background-position: -32px -48px;
+}
+
+.tu0304 {
+    background-position: -48px -48px;
+}
+
+.tu0305 {
+    background-position: -64px -48px;
+}
+
+.tu0306 {
+    background-position: -80px -48px;
+}
+
+.tu0307 {
+    background-position: -96px -48px;
+}
+
+.tu0308 {
+    background-position: -112px -48px;
+}
+
+.tu0309 {
+    background-position: -128px -48px;
+}
+
+.tu0310 {
+    background-position: -144px -48px;
+}
+
+.tu0401 {
+    background-position: 0 -64px;
+}
+
+.tu0402 {
+    background-position: -16px -64px;
+}
+
+.tu0403 {
+    background-position: -32px -64px;
+}
+
+.tu0404 {
+    background-position: -48px -64px;
+}
+
+.tu0405 {
+    background-position: -64px -64px;
+}
+
+.tu0406 {
+    background-position: -80px -64px;
+}
+
+.tu0407 {
+    background-position: -96px -64px;
+}
+
+.tu0408 {
+    background-position: -112px -64px;
+}
+
+.tu0409 {
+    background-position: -128px -64px;
+}
+
+.tu0410 {
+    background-position: -144px -64px;
+}
+
+.tu0501 {
+    background-position: 0 -80px;
+}
+
+.tu0502 {
+    background-position: -16px -80px;
+}
+
+.tu0503 {
+    background-position: -32px -80px;
+}
+
+.tu0504 {
+    background-position: -48px -80px;
+}
+
+.tu0505 {
+    background-position: -64px -80px;
+}
+
+.tu0506 {
+    background-position: -80px -80px;
+}
+
+.tu0507 {
+    background-position: -96px -80px;
+}
+
+.tu0508 {
+    background-position: -112px -80px;
+}
+
+.tu0509 {
+    background-position: -128px -80px;
+}
+
+.tu0510 {
+    background-position: -144px -80px;
+}
+
+.tu0601 {
+    background-position: 0 -96px;
+}
+
+.tu0602 {
+    background-position: -16px -96px;
+}
+
+.tu0603 {
+    background-position: -32px -96px;
+}
+
+.tu0604 {
+    background-position: -48px -96px;
+}
+
+.tu0605 {
+    background-position: -64px -96px;
+}
+
+.tu0606 {
+    background-position: -80px -96px;
+}
+
+.tu0607 {
+    background-position: -96px -96px;
+}
+
+.tu0608 {
+    background-position: -112px -96px;
+}
+
+.tu0609 {
+    background-position: -128px -96px;
+}
+
+.tu0610 {
+    background-position: -144px -96px;
+}
+
+.tu0701 {
+    background-position: 0 -112px;
+}
+
+.tu0702 {
+    background-position: -16px -112px;
+}
+
+.tu0703 {
+    background-position: -32px -112px;
+}
+
+.tu0704 {
+    background-position: -48px -112px;
+}
+
+.tu0705 {
+    background-position: -64px -112px;
+}
+
+.tu0706 {
+    background-position: -80px -112px;
+}
+
+.tu0707 {
+    background-position: -96px -112px;
+}
+
+.tu0708 {
+    background-position: -112px -112px;
+}
+
+.tu0709 {
+    background-position: -128px -112px;
+}
+
+.tu0710 {
+    background-position: -144px -112px;
+}

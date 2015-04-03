@@ -1,0 +1,109 @@
+操作用户: admin
+用户IP: ::1
+操作时间: 2015/1/19 9:00:44
+操作类型: 系统错误
+操作地址: http://localhost:11969/User/ChangePw
+操作内容: 在控制器“Napoleon.UserModule.Web.Controllers.UserController”上未找到公共操作方法“ChangePw”。
+____________________________________________________________________
+操作用户: admin
+用户IP: ::1
+操作时间: 2015/1/19 9:02:05
+操作类型: 系统错误
+操作地址: http://localhost:11969/User/Add
+操作内容: 在控制器“Napoleon.UserModule.Web.Controllers.UserController”上未找到公共操作方法“Add”。
+____________________________________________________________________
+操作用户: admin
+用户IP: ::1
+操作时间: 2015/1/19 9:52:22
+操作类型: 系统错误
+操作地址: http://localhost:11969/User/Index
+操作内容: 尝试创建“Napoleon.UserModule.Web.Controllers.UserController”类型的控制器时出错。请确保控制器具有无参数公共构造函数。
+____________________________________________________________________
+操作用户: admin
+用户IP: ::1
+操作时间: 2015/1/19 10:57:33
+操作类型: 系统错误
+操作地址: http://localhost:11969/PublicFunc/Easyui.js
+操作内容: 未找到路径“/PublicFunc/Easyui.js”的控制器或该控制器未实现 IController。
+____________________________________________________________________
+操作用户: admin
+用户IP: ::1
+操作时间: 2015/1/19 10:57:38
+操作类型: 系统错误
+操作地址: http://localhost:11969/PublicFunc/Easyui.js
+操作内容: 未找到路径“/PublicFunc/Easyui.js”的控制器或该控制器未实现 IController。
+____________________________________________________________________
+操作用户: admin
+用户IP: ::1
+操作时间: 2015/1/19 11:01:27
+操作类型: 系统错误
+操作地址: http://localhost:11969/PublicFunc/Easyui.js
+操作内容: 未找到路径“/PublicFunc/Easyui.js”的控制器或该控制器未实现 IController。
+____________________________________________________________________
+操作用户: admin
+用户IP: ::1
+操作时间: 2015/1/19 11:02:00
+操作类型: 系统错误
+操作地址: http://localhost:11969/PublicFunc/Easyui.js
+操作内容: 未找到路径“/PublicFunc/Easyui.js”的控制器或该控制器未实现 IController。
+____________________________________________________________________
+操作用户: admin
+用户IP: ::1
+操作时间: 2015/1/19 11:02:43
+操作类型: 系统错误
+操作地址: http://localhost:11969/PublicFunc/Easyui.js
+操作内容: 未找到路径“/PublicFunc/Easyui.js”的控制器或该控制器未实现 IController。
+____________________________________________________________________
+操作用户: admin
+用户IP: ::1
+操作时间: 2015/1/19 11:04:03
+操作类型: 系统错误
+操作地址: http://localhost:11969/PublicFunc/Easyui.js
+操作内容: 未找到路径“/PublicFunc/Easyui.js”的控制器或该控制器未实现 IController。
+____________________________________________________________________
+操作用户: admin
+用户IP: ::1
+操作时间: 2015/1/19 11:05:24
+操作类型: 系统错误
+操作地址: http://localhost:11969/PublicFunc/Easyui.js
+操作内容: 未找到路径“/PublicFunc/Easyui.js”的控制器或该控制器未实现 IController。
+____________________________________________________________________
+操作用户: admin
+用户IP: ::1
+操作时间: 2015/1/19 11:17:30
+操作类型: 系统错误
+操作地址: http://localhost:11969/User/SaveAdd
+操作内容: 对于“Napoleon.UserModule.Web.Controllers.UserController”中方法“System.Web.Mvc.ActionResult SaveAdd(System.String, System.String, System.String, Int32, System.String, System.Decimal, System.String)”的不可以为 null 的类型“System.Int32”的参数“isUse”，参数字典包含一个 null 项。可选参数必须为引用类型、可以为 null 的类型或声明为可选参数。
+参数名: parameters
+____________________________________________________________________
+操作用户: admin
+用户IP: ::1
+操作时间: 2015/1/19 11:17:39
+操作类型: 系统错误
+操作地址: http://localhost:11969/User/SaveAdd
+操作内容: 对于“Napoleon.UserModule.Web.Controllers.UserController”中方法“System.Web.Mvc.ActionResult SaveAdd(System.String, System.String, System.String, Int32, System.String, System.Decimal, System.String)”的不可以为 null 的类型“System.Int32”的参数“isUse”，参数字典包含一个 null 项。可选参数必须为引用类型、可以为 null 的类型或声明为可选参数。
+参数名: parameters
+____________________________________________________________________
+操作用户: admin
+用户IP: ::1
+操作时间: 2015/1/19 11:18:17
+操作类型: 系统错误
+操作地址: http://localhost:11969/User/SaveAdd
+操作内容: 索引(从零开始)必须大于或等于零，且小于参数列表的大小。
+____________________________________________________________________
+操作用户: admin
+用户IP: ::1
+操作时间: 2015/1/19 14:17:25
+操作类型: 系统错误
+操作地址: http://localhost:11969/User/SaveAdd
+操作内容: 对于“Napoleon.UserModule.Web.Controllers.UserController”中方法“System.Web.Mvc.ActionResult SaveAdd(System.String, System.String, System.String, Int32, System.String, System.Decimal, System.String)”的不可以为 null 的类型“System.Int32”的参数“isUse”，参数字典包含一个 null 项。可选参数必须为引用类型、可以为 null 的类型或声明为可选参数。
+参数名: parameters
+____________________________________________________________________
+操作用户: admin
+用户IP: ::1
+操作时间: 2015/1/19 14:17:42
+操作类型: 系统错误
+操作地址: http://localhost:11969/User/SaveAdd
+操作内容: 对于“Napoleon.UserModule.Web.Controllers.UserController”中方法“System.Web.Mvc.ActionResult SaveAdd(System.String, System.String, System.String, Int32, System.String, System.Decimal, System.String)”的不可以为 null 的类型“System.Int32”的参数“isUse”，参数字典包含一个 null 项。可选参数必须为引用类型、可以为 null 的类型或声明为可选参数。
+参数名: parameters
+____________________________________________________________________

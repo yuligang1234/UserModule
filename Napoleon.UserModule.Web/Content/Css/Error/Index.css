@@ -1,0 +1,36 @@
+﻿body{
+    margin: 0;
+    padding: 0;
+}
+
+.Body_Bg {
+    background-color: #dff1f4;
+}
+
+.Main {
+    width: 700px;
+    overflow: hidden;
+    height: 542px;
+    margin: 20px auto;    
+}
+
+.Title {
+    font-size: 14px;
+    font-weight: bold;
+    margin: 254px 0 0 218px;
+    color: #d3d3d3;
+}
+
+#BtnLogin {
+    float: left;
+    margin-top: 160px;
+    margin-left: 302px;
+}
+
+.NoFound {
+    background: url(../../Image/Error/error_404.png) no-repeat 0 0;
+}
+
+.index {
+    background: url(../../Image/Error/error_other.png) no-repeat 0 0;
+}

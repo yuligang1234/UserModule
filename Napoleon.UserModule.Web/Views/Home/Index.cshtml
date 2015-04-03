@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <title>管理系统</title>
+    @RenderPage("~/Views/Shared/Easyui_Other.cshtml")
+    <link href="../../Content/Css/Home/Index.css" rel="stylesheet" />
+</head>
+<body class="easyui-layout">
+    <div region="north" split="true" style="overflow: hidden; height: 56px; line-height: 0;">
+        <div id="mainlogo">
+        </div>
+        <div class="user">
+            <div class="uset">
+                <a class="easyui-linkbutton" href="#" id="ChangePassword">修改密码</a>
+            </div>
+            <div class="uset">
+                <a class="easyui-linkbutton" id="loginOut">安全退出</a>
+            </div>
+        </div>
+    </div>
+    <div region="west" hide="true" split="true" title="导航菜单" style="width: 180px;" id="west">
+        <div id="leftAccordion" fit="true" border="false">
+        </div>
+    </div>
+    <div id="mainPanle" region="center" style="background: #eee; overflow-y: hidden;">
+        <div id="tabs" class="easyui-tabs" fit="true" border="false">
+        </div>
+    </div>
+    <div region="south" split="true" style="height: 30px;">
+        <div style="line-height: 20px; text-align: center;">
+            技术支持：Napoleon
+        </div>
+    </div>
+    <div id="mm" class="easyui-menu" style="width: 150px;">
+        <div id="mm-tabupdate">
+            刷新
+        </div>
+        <div class="menu-sep">
+        </div>
+        <div id="mm-tabclose">
+            关闭
+        </div>
+        <div id="closeother">关闭其他</div>
+        <div id="mm-tabAllclose">
+            全部关闭
+        </div>
+    </div>
+    <div id="myWindow">
+    </div>
+    <script type="text/javascript">
+        seajs.use(["Home/Index", "PublicFunc/Easyui"], function (index, easyui) {
+            $(function () {
+                easyui.LoadMenuTree("#leftAccordion");
+                easyui.AddTabs("首页", "/Home/HomeRight", "tu0108", false);
+                easyui.TabRightEvent();
+                $('#loginOut').on('click', index.LoginOut);
+                $('#ChangePassword').on('click', index.ChangePassWord);
+            });
+        });
+    </script>
+</body>
+</html>

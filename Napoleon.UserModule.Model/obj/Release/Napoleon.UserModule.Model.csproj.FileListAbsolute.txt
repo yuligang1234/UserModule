@@ -1,0 +1,10 @@
+E:\Napoleon\GitHub\功能模块\用户模块\UserModule\Napoleon.UserModule.Model\bin\Release\Napoleon.UserModule.Model.dll
+E:\Napoleon\GitHub\功能模块\用户模块\UserModule\Napoleon.UserModule.Model\bin\Release\Napoleon.UserModule.Model.pdb
+E:\Napoleon\GitHub\功能模块\用户模块\UserModule\Napoleon.UserModule.Model\obj\Release\Napoleon.UserModule.Model.dll
+E:\Napoleon\GitHub\功能模块\用户模块\UserModule\Napoleon.UserModule.Model\obj\Release\Napoleon.UserModule.Model.pdb
+E:\Napoleon\GitHub\功能模块\用户模块\UserModule\Napoleon.UserModule.Model\obj\Release\Napoleon.UserModule.Model.csprojResolveAssemblyReference.cache
+D:\Napoleon\GitHub\功能模块\用户模块\UserModule\Napoleon.UserModule.Model\bin\Release\Napoleon.UserModule.Model.dll
+D:\Napoleon\GitHub\功能模块\用户模块\UserModule\Napoleon.UserModule.Model\bin\Release\Napoleon.UserModule.Model.pdb
+D:\Napoleon\GitHub\功能模块\用户模块\UserModule\Napoleon.UserModule.Model\obj\Release\Napoleon.UserModule.Model.csprojResolveAssemblyReference.cache
+D:\Napoleon\GitHub\功能模块\用户模块\UserModule\Napoleon.UserModule.Model\obj\Release\Napoleon.UserModule.Model.dll
+D:\Napoleon\GitHub\功能模块\用户模块\UserModule\Napoleon.UserModule.Model\obj\Release\Napoleon.UserModule.Model.pdb

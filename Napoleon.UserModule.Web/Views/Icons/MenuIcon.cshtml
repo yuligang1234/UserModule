@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <title></title>
+    @RenderPage("~/Views/Shared/Easyui.cshtml")
+    <style type="text/css">
+        img {
+            width: 160px;
+            height: 128px;
+            border: 0;
+            cursor: pointer;
+        }
+    </style>
+    <script type="text/javascript">
+        function CheckImg(imgName) {
+            parent.window.$('#Icon').textbox('setValue', imgName);
+            parent.window.$('#myWindow').window('close');
+        }
+    </script>
+</head>
+<body>
+    <div title="请选择图标">
+        <img src="/Content/Image/tabicons.png" usemap="#Map" />
+        <map name="Map" id="Map">
+            <area shape="rect" coords="0, 0, 16, 16,  16, 16" onclick="CheckImg('tu0001')" />
+            <area shape="rect" coords="16, 0, 32, 16,  16, 16" onclick="CheckImg('tu0002')" />
+            <area shape="rect" coords="32, 0, 48, 16,  16, 16" onclick="CheckImg('tu0003')" />
+            <area shape="rect" coords="48, 0, 64, 16,  16, 16" onclick="CheckImg('tu0004')" />
+            <area shape="rect" coords="64, 0, 80, 16,  16, 16" onclick="CheckImg('tu0005')" />
+            <area shape="rect" coords="80, 0, 96, 16,  16, 16" onclick="CheckImg('tu0006')" />
+            <area shape="rect" coords="96, 0, 112, 16,  16, 16" onclick="CheckImg('tu0007')" />
+            <area shape="rect" coords="112, 0, 128, 16,  16, 16" onclick="CheckImg('tu0008')" />
+            <area shape="rect" coords="128, 0, 144, 16,  16, 16" onclick="CheckImg('tu0009')" />
+            <area shape="rect" coords="144, 0, 160, 16,  16, 16" onclick="CheckImg('tu0010')" />
+            <area shape="rect" coords="0, 16, 16, 32,  16, 16" onclick="CheckImg('tu0101')" />
+            <area shape="rect" coords="16, 16, 32, 32,  16, 16" onclick="CheckImg('tu0102')" />
+            <area shape="rect" coords="32, 16, 48, 32,  16, 16" onclick="CheckImg('tu0103')" />
+            <area shape="rect" coords="48, 16, 64, 32,  16, 16" onclick="CheckImg('tu0104')" />
+            <area shape="rect" coords="64, 16, 80, 32,  16, 16" onclick="CheckImg('tu0105')" />
+            <area shape="rect" coords="80, 16, 96, 32,  16, 16" onclick="CheckImg('tu0106')" />
+            <area shape="rect" coords="96, 16, 112, 32,  16, 16" onclick="CheckImg('tu0107')" />
+            <area shape="rect" coords="112, 16, 128, 32,  16, 16" onclick="CheckImg('tu0108')" />
+            <area shape="rect" coords="128, 16, 144, 32,  16, 16" onclick="CheckImg('tu0109')" />
+            <area shape="rect" coords="144, 16, 160, 32,  16, 16" onclick="CheckImg('tu0110')" />
+            <area shape="rect" coords="0, 32, 16, 48,  16, 16" onclick="CheckImg('tu0201')" />
+            <area shape="rect" coords="16, 32, 32, 48,  16, 16" onclick="CheckImg('tu0202')" />
+            <area shape="rect" coords="32, 32, 48, 48,  16, 16" onclick="CheckImg('tu0203')" />
+            <area shape="rect" coords="48, 32, 64, 48,  16, 16" onclick="CheckImg('tu0204')" />
+            <area shape="rect" coords="64, 32, 80, 48,  16, 16" onclick="CheckImg('tu0205')" />
+            <area shape="rect" coords="80, 32, 96, 48,  16, 16" onclick="CheckImg('tu0206')" />
+            <area shape="rect" coords="96, 32, 112, 48,  16, 16" onclick="CheckImg('tu0207')" />
+            <area shape="rect" coords="112, 32, 128, 48,  16, 16" onclick="CheckImg('tu0208')" />
+            <area shape="rect" coords="128, 32, 144, 48,  16, 16" onclick="CheckImg('tu0209')" />
+            <area shape="rect" coords="144, 32, 160, 48,  16, 16" onclick="CheckImg('tu0210')" />
+            <area shape="rect" coords="0, 48, 16, 64,  16, 16" onclick="CheckImg('tu0301')" />
+            <area shape="rect" coords="16, 48, 32, 64,  16, 16" onclick="CheckImg('tu0302')" />
+            <area shape="rect" coords="32, 48, 48, 64,  16, 16" onclick="CheckImg('tu0303')" />
+            <area shape="rect" coords="48, 48, 64, 64,  16, 16" onclick="CheckImg('tu0304')" />
+            <area shape="rect" coords="64, 48, 80, 64,  16, 16" onclick="CheckImg('tu0305')" />
+            <area shape="rect" coords="80, 48, 96, 64,  16, 16" onclick="CheckImg('tu0306')" />
+            <area shape="rect" coords="96, 48, 112, 64,  16, 16" onclick="CheckImg('tu0307')" />
+            <area shape="rect" coords="112, 48, 128, 64,  16, 16" onclick="CheckImg('tu0308')" />
+            <area shape="rect" coords="128, 48, 144, 64,  16, 16" onclick="CheckImg('tu0309')" />
+            <area shape="rect" coords="144, 48, 160, 64,  16, 16" onclick="CheckImg('tu0310')" />
+            <area shape="rect" coords="0, 64, 16, 80,  16, 16" onclick="CheckImg('tu0401')" />
+            <area shape="rect" coords="16, 64, 32, 80,  16, 16" onclick="CheckImg('tu0402')" />
+            <area shape="rect" coords="32, 64, 48, 80,  16, 16" onclick="CheckImg('tu0403')" />
+            <area shape="rect" coords="48, 64, 64, 80,  16, 16" onclick="CheckImg('tu0404')" />
+            <area shape="rect" coords="64, 64, 80, 80,  16, 16" onclick="CheckImg('tu0405')" />
+            <area shape="rect" coords="80, 64, 96, 80,  16, 16" onclick="CheckImg('tu0406')" />
+            <area shape="rect" coords="96, 64, 112, 80,  16, 16" onclick="CheckImg('tu0407')" />
+            <area shape="rect" coords="112, 64, 128, 80,  16, 16" onclick="CheckImg('tu0408')" />
+            <area shape="rect" coords="128, 64, 144, 80,  16, 16" onclick="CheckImg('tu0409')" />
+            <area shape="rect" coords="144, 64, 160, 80,  16, 16" onclick="CheckImg('tu0410')" />
+            <area shape="rect" coords="0, 80, 16, 96,  16, 16" onclick="CheckImg('tu0501')" />
+            <area shape="rect" coords="16, 80, 32, 96,  16, 16" onclick="CheckImg('tu0502')" />
+            <area shape="rect" coords="32, 80, 48, 96,  16, 16" onclick="CheckImg('tu0503')" />
+            <area shape="rect" coords="48, 80, 64, 96,  16, 16" onclick="CheckImg('tu0504')" />
+            <area shape="rect" coords="64, 80, 80, 96,  16, 16" onclick="CheckImg('tu0505')" />
+            <area shape="rect" coords="80, 80, 96, 96,  16, 16" onclick="CheckImg('tu0506')" />
+            <area shape="rect" coords="96, 80, 112, 96,  16, 16" onclick="CheckImg('tu0507')" />
+            <area shape="rect" coords="112, 80, 128, 96,  16, 16" onclick="CheckImg('tu0508')" />
+            <area shape="rect" coords="128, 80, 144, 96,  16, 16" onclick="CheckImg('tu0509')" />
+            <area shape="rect" coords="144, 80, 160, 96,  16, 16" onclick="CheckImg('tu0510')" />
+            <area shape="rect" coords="0, 96, 16, 112,  16, 16" onclick="CheckImg('tu0601')" />
+            <area shape="rect" coords="16, 96, 32, 112,  16, 16" onclick="CheckImg('tu0602')" />
+            <area shape="rect" coords="32, 96, 48, 112,  16, 16" onclick="CheckImg('tu0603')" />
+            <area shape="rect" coords="48, 96, 64, 112,  16, 16" onclick="CheckImg('tu0604')" />
+            <area shape="rect" coords="64, 96, 80, 112,  16, 16" onclick="CheckImg('tu0605')" />
+            <area shape="rect" coords="80, 96, 96, 112,  16, 16" onclick="CheckImg('tu0606')" />
+            <area shape="rect" coords="96, 96, 112, 112,  16, 16" onclick="CheckImg('tu0607')" />
+            <area shape="rect" coords="112, 96, 128, 112,  16, 16" onclick="CheckImg('tu0608')" />
+            <area shape="rect" coords="128, 96, 144, 112,  16, 16" onclick="CheckImg('tu0609')" />
+            <area shape="rect" coords="144, 96, 160, 112,  16, 16" onclick="CheckImg('tu0610')" />
+            <area shape="rect" coords="0, 112, 16, 128,  16, 16" onclick="CheckImg('tu0701')" />
+            <area shape="rect" coords="16, 112, 32, 128,  16, 16" onclick="CheckImg('tu0702')" />
+            <area shape="rect" coords="32, 112, 48, 128,  16, 16" onclick="CheckImg('tu0703')" />
+            <area shape="rect" coords="48, 112, 64, 128,  16, 16" onclick="CheckImg('tu0704')" />
+            <area shape="rect" coords="64, 112, 80, 128,  16, 16" onclick="CheckImg('tu0705')" />
+            <area shape="rect" coords="80, 112, 96, 128,  16, 16" onclick="CheckImg('tu0706')" />
+            <area shape="rect" coords="96, 112, 112, 128,  16, 16" onclick="CheckImg('tu0707')" />
+        </map>
+    </div>
+</body>
+</html>

@@ -1,0 +1,58 @@
+﻿@using System.Web.Optimization
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>管理系统</title>
+    @RenderPage("~/Views/Shared/Easyui.cshtml")
+    @Styles.Render("~/Content/Css/PublicCss/Css")
+    <link href="../../Content/Css/Login/Index.css" rel="stylesheet" />
+</head>
+<body>
+    <div style="height: 100%;">
+        <div id="Cloud">
+            <div id="Cloud1" class="Cloud"></div>
+            <div id="Cloud2" class="Cloud"></div>
+        </div>
+        <div class="LoginTop">
+            <span>欢迎登录后台管理界面平台</span>
+        </div>
+        <div class="LoginBody">
+            <span class="SystemLogo"></span>
+            <div class="LoginBox">
+                <ul>
+                    <li>
+                        <input id="UserName" type="text" class="Txt LoginUser" value="请输入帐号" />
+                    </li>
+                    <li>
+                        <input id="PassWord" type="password" class="Txt LoginPwd" style="display: none;" />
+                        <input id="ShowPassWord" type="text" class="Txt LoginPwd" value="请输入密码" />
+                    </li>
+                    <li>
+                        <input id="BtnLogin" type="button" class="Btn blue" value="登录" />
+                        <input id="BtnClear" type="button" class="Btn grey" value="重置" />
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="LoginBottom">版权所有 —— 绍兴标点电子技术有限公司　　　　地址：绍兴市舜江路283号科创大厦705室</div>
+    </div>
+    <script type="text/javascript">
+        seajs.use("Login/Index", function (index) {
+            $(document).ready(function () {
+                index.SetBoxWidth();
+                index.SetLoginText();
+                $('#BtnLogin').on("click", index.BtnLogin);
+                $('#BtnClear').on("click", index.BtnClear);
+            });
+            window.onresize = index.SetBoxWidth;
+            //回车登录事件
+            $(document).keypress(function (e) {
+                if (e.which === 13) {
+                    index.BtnLogin();
+                }
+            });
+        })
+    </script>
+</body>
+</html>

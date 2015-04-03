@@ -1,0 +1,93 @@
+操作用户: admin
+用户IP: ::1
+操作时间: 2015/1/17 9:46:07
+操作类型: 系统错误
+操作地址: http://localhost:11969/User/SaveUsers
+操作内容: 在控制器“Napoleon.UserModule.Web.Controllers.UserController”上未找到公共操作方法“SaveUsers”。
+____________________________________________________________________
+操作用户: admin
+用户IP: ::1
+操作时间: 2015/1/17 9:46:12
+操作类型: 系统错误
+操作地址: http://localhost:11969/User/SaveUsers
+操作内容: 在控制器“Napoleon.UserModule.Web.Controllers.UserController”上未找到公共操作方法“SaveUsers”。
+____________________________________________________________________
+操作用户: admin
+用户IP: ::1
+操作时间: 2015/1/17 11:27:53
+操作类型: 系统错误
+操作地址: http://localhost:11969/User/SaveUsers
+操作内容: 在控制器“Napoleon.UserModule.Web.Controllers.UserController”上未找到公共操作方法“SaveUsers”。
+____________________________________________________________________
+操作用户: admin
+用户IP: ::1
+操作时间: 2015/1/17 11:27:54
+操作类型: 系统错误
+操作地址: http://localhost:11969/User/SaveUsers
+操作内容: 在控制器“Napoleon.UserModule.Web.Controllers.UserController”上未找到公共操作方法“SaveUsers”。
+____________________________________________________________________
+操作用户: admin
+用户IP: ::1
+操作时间: 2015/1/17 11:28:22
+操作类型: 系统错误
+操作地址: http://localhost:11969/User/SaveUsers
+操作内容: 在控制器“Napoleon.UserModule.Web.Controllers.UserController”上未找到公共操作方法“SaveUsers”。
+____________________________________________________________________
+操作用户: admin
+用户IP: ::1
+操作时间: 2015/1/17 11:32:10
+操作类型: 系统错误
+操作地址: http://localhost:11969/User/SaveUsers
+操作内容: 在控制器“Napoleon.UserModule.Web.Controllers.UserController”上未找到公共操作方法“SaveUsers”。
+____________________________________________________________________
+操作用户: admin
+用户IP: ::1
+操作时间: 2015/1/17 12:40:12
+操作类型: 系统错误
+操作地址: http://localhost:11969/User/SaveUsers
+操作内容: 在控制器“Napoleon.UserModule.Web.Controllers.UserController”上未找到公共操作方法“SaveUsers”。
+____________________________________________________________________
+操作用户: admin
+用户IP: ::1
+操作时间: 2015/1/17 12:40:13
+操作类型: 系统错误
+操作地址: http://localhost:11969/User/SaveUsers
+操作内容: 在控制器“Napoleon.UserModule.Web.Controllers.UserController”上未找到公共操作方法“SaveUsers”。
+____________________________________________________________________
+操作用户: admin
+用户IP: ::1
+操作时间: 2015/1/17 14:11:26
+操作类型: 系统错误
+操作地址: http://localhost:11969/Log/LoadDataGrid
+操作内容: 对于“Napoleon.UserModule.Web.Controllers.LogController”中方法“System.Web.Mvc.ActionResult LoadDataGrid(System.String, System.String, System.String, System.String, Int32, Int32)”的不可以为 null 的类型“System.Int32”的参数“rows”，参数字典包含一个 null 项。可选参数必须为引用类型、可以为 null 的类型或声明为可选参数。
+参数名: parameters
+____________________________________________________________________
+操作用户: admin
+用户IP: ::1
+操作时间: 2015/1/17 14:11:27
+操作类型: 系统错误
+操作地址: http://localhost:11969/Log/LoadDataGrid
+操作内容: 对于“Napoleon.UserModule.Web.Controllers.LogController”中方法“System.Web.Mvc.ActionResult LoadDataGrid(System.String, System.String, System.String, System.String, Int32, Int32)”的不可以为 null 的类型“System.Int32”的参数“rows”，参数字典包含一个 null 项。可选参数必须为引用类型、可以为 null 的类型或声明为可选参数。
+参数名: parameters
+____________________________________________________________________
+操作用户: admin
+用户IP: ::1
+操作时间: 2015/1/17 15:27:17
+操作类型: 系统错误
+操作地址: http://localhost:11969/User/ViewInfo?id=2
+操作内容: 在控制器“Napoleon.UserModule.Web.Controllers.UserController”上未找到公共操作方法“ViewInfo”。
+____________________________________________________________________
+操作用户: admin
+用户IP: ::1
+操作时间: 2015/1/17 16:41:33
+操作类型: 系统错误
+操作地址: http://localhost:11969/User/DeleteUser
+操作内容: 未将对象引用设置到对象的实例。
+____________________________________________________________________
+操作用户: admin
+用户IP: ::1
+操作时间: 2015/1/17 16:42:22
+操作类型: 系统错误
+操作地址: http://localhost:11969/User/DeleteUser
+操作内容: 未将对象引用设置到对象的实例。
+____________________________________________________________________

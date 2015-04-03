@@ -1,0 +1,45 @@
+操作用户: admin
+用户IP: ::1
+操作时间: 2015/3/26 10:39:53
+操作类型: 系统错误
+操作地址: http://localhost:11969/User/DeleteUser
+操作内容: 未找到视图“Error”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Views/User/Error.aspx
+~/Views/User/Error.ascx
+~/Views/Shared/Error.aspx
+~/Views/Shared/Error.ascx
+~/Views/User/Error.cshtml
+~/Views/User/Error.vbhtml
+~/Views/Shared/Error.cshtml
+~/Views/Shared/Error.vbhtml
+____________________________________________________________________
+操作用户: admin
+用户IP: ::1
+操作时间: 2015/3/26 10:40:27
+操作类型: 系统错误
+操作地址: http://localhost:11969/User/DeleteUser
+操作内容: 未找到视图“Error”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Views/User/Error.aspx
+~/Views/User/Error.ascx
+~/Views/Shared/Error.aspx
+~/Views/Shared/Error.ascx
+~/Views/User/Error.cshtml
+~/Views/User/Error.vbhtml
+~/Views/Shared/Error.cshtml
+~/Views/Shared/Error.vbhtml
+____________________________________________________________________
+操作用户: admin
+用户IP: ::1
+操作时间: 2015/3/26 16:14:21
+操作类型: 系统错误
+操作地址: http://localhost:11969/User/UpdatePassWord
+操作内容: 未找到视图“Error”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Views/User/Error.aspx
+~/Views/User/Error.ascx
+~/Views/Shared/Error.aspx
+~/Views/Shared/Error.ascx
+~/Views/User/Error.cshtml
+~/Views/User/Error.vbhtml
+~/Views/Shared/Error.cshtml
+~/Views/Shared/Error.vbhtml
+____________________________________________________________________

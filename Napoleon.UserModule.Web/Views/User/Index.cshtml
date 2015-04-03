@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <title></title>
+    @RenderPage("~/Views/Shared/Easyui.cshtml")
+    <link href="../../Content/Css/PublicCss/DataGrid.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="searchTool" class="datagrid-toolbar">
+        <table>
+            <tr id="searchContent">
+                <td align="right">用户账号
+                </td>
+                <td align="left">
+                    <input type='text' id='userName' class='easyui-textbox' size='20' />
+                </td>
+                <td align="center">真实姓名
+                </td>
+                <td align="left">
+                    <input type='text' id='realName' class='easyui-textbox' size='20' />
+                </td>
+                <td align="right">联系电话
+                </td>
+                <td align="left">
+                    <input type='text' id='mobilePhone' class='easyui-textbox' size='20' />
+                </td>
+            </tr>
+            <tr id="LoadOperate">
+            </tr>
+        </table>
+    </div>
+    <div id="gridTool">
+    </div>
+    <script type="text/javascript">
+        seajs.use("User/Index", function (index) {
+            $(function () {
+                index.LoadOperate("#LoadOperate");
+                index.LoadGrid();
+                index.LoadBody();
+                $('#FixedSearch').on('click', index.FixedSearch);
+                $('#FixedInfo').on('click', index.FixedInfo);
+                $('#FixedAdd').on('click', index.FixedAdd);
+                $('#FixedEdit').on('click', index.FixedEdit);
+                $('#FixedDelete').on('click', index.FixedDelete);
+                $('#FixedPassWord').on('click', index.FixedPassWord);
+                $('#FixedPermit').on('click', index.FixedPermit);
+            });
+            $(window).resize(function () {
+                index.LoadBody();
+            });
+        });
+    </script>
+</body>
+</html>
+

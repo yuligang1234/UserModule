@@ -1,0 +1,126 @@
+操作用户: admin
+用户IP: ::1
+操作时间: 2015/1/16 13:41:00
+操作类型: 系统错误
+操作地址: http://localhost:11969/Home/Log/ViewInfo
+操作内容: 在控制器“Napoleon.UserModule.Web.Controllers.HomeController”上未找到公共操作方法“Log”。
+____________________________________________________________________
+操作用户: admin
+用户IP: ::1
+操作时间: 2015/1/16 13:41:03
+操作类型: 系统错误
+操作地址: http://localhost:11969/Home/Log/ViewInfo
+操作内容: 在控制器“Napoleon.UserModule.Web.Controllers.HomeController”上未找到公共操作方法“Log”。
+____________________________________________________________________
+操作用户: admin
+用户IP: ::1
+操作时间: 2015/1/16 13:41:03
+操作类型: 系统错误
+操作地址: http://localhost:11969/Home/Log/ViewInfo
+操作内容: 在控制器“Napoleon.UserModule.Web.Controllers.HomeController”上未找到公共操作方法“Log”。
+____________________________________________________________________
+操作用户: admin
+用户IP: ::1
+操作时间: 2015/1/16 13:41:03
+操作类型: 系统错误
+操作地址: http://localhost:11969/Home/Log/ViewInfo
+操作内容: 在控制器“Napoleon.UserModule.Web.Controllers.HomeController”上未找到公共操作方法“Log”。
+____________________________________________________________________
+操作用户: admin
+用户IP: ::1
+操作时间: 2015/1/16 13:41:03
+操作类型: 系统错误
+操作地址: http://localhost:11969/Home/Log/ViewInfo
+操作内容: 在控制器“Napoleon.UserModule.Web.Controllers.HomeController”上未找到公共操作方法“Log”。
+____________________________________________________________________
+操作用户: admin
+用户IP: ::1
+操作时间: 2015/1/16 13:41:03
+操作类型: 系统错误
+操作地址: http://localhost:11969/Home/Log/ViewInfo
+操作内容: 在控制器“Napoleon.UserModule.Web.Controllers.HomeController”上未找到公共操作方法“Log”。
+____________________________________________________________________
+操作用户: admin
+用户IP: ::1
+操作时间: 2015/1/16 13:41:03
+操作类型: 系统错误
+操作地址: http://localhost:11969/Home/Log/ViewInfo
+操作内容: 在控制器“Napoleon.UserModule.Web.Controllers.HomeController”上未找到公共操作方法“Log”。
+____________________________________________________________________
+操作用户: admin
+用户IP: ::1
+操作时间: 2015/1/16 13:41:04
+操作类型: 系统错误
+操作地址: http://localhost:11969/Home/Log/ViewInfo
+操作内容: 在控制器“Napoleon.UserModule.Web.Controllers.HomeController”上未找到公共操作方法“Log”。
+____________________________________________________________________
+操作用户: admin
+用户IP: ::1
+操作时间: 2015/1/16 13:41:04
+操作类型: 系统错误
+操作地址: http://localhost:11969/Home/Log/ViewInfo
+操作内容: 在控制器“Napoleon.UserModule.Web.Controllers.HomeController”上未找到公共操作方法“Log”。
+____________________________________________________________________
+操作用户: admin
+用户IP: ::1
+操作时间: 2015/1/16 13:41:04
+操作类型: 系统错误
+操作地址: http://localhost:11969/Home/Log/ViewInfo
+操作内容: 在控制器“Napoleon.UserModule.Web.Controllers.HomeController”上未找到公共操作方法“Log”。
+____________________________________________________________________
+操作用户: admin
+用户IP: ::1
+操作时间: 2015/1/16 13:41:04
+操作类型: 系统错误
+操作地址: http://localhost:11969/Home/Log/ViewInfo
+操作内容: 在控制器“Napoleon.UserModule.Web.Controllers.HomeController”上未找到公共操作方法“Log”。
+____________________________________________________________________
+操作用户: admin
+用户IP: ::1
+操作时间: 2015/1/16 13:41:04
+操作类型: 系统错误
+操作地址: http://localhost:11969/Home/Log/ViewInfo
+操作内容: 在控制器“Napoleon.UserModule.Web.Controllers.HomeController”上未找到公共操作方法“Log”。
+____________________________________________________________________
+操作用户: admin
+用户IP: ::1
+操作时间: 2015/1/16 13:41:05
+操作类型: 系统错误
+操作地址: http://localhost:11969/Home/Log/ViewInfo
+操作内容: 在控制器“Napoleon.UserModule.Web.Controllers.HomeController”上未找到公共操作方法“Log”。
+____________________________________________________________________
+操作用户: admin
+用户IP: ::1
+操作时间: 2015/1/16 13:44:02
+操作类型: 系统错误
+操作地址: http://localhost:11969/Home/Home/ChangePw
+操作内容: 在控制器“Napoleon.UserModule.Web.Controllers.HomeController”上未找到公共操作方法“Home”。
+____________________________________________________________________
+操作用户: admin
+用户IP: ::1
+操作时间: 2015/1/16 13:45:04
+操作类型: 系统错误
+操作地址: http://localhost:11969/Home/Home/ChangePw
+操作内容: 在控制器“Napoleon.UserModule.Web.Controllers.HomeController”上未找到公共操作方法“Home”。
+____________________________________________________________________
+操作用户: admin
+用户IP: ::1
+操作时间: 2015/1/16 13:46:54
+操作类型: 系统错误
+操作地址: http://localhost:11969/Home/Home/ChangePw
+操作内容: 在控制器“Napoleon.UserModule.Web.Controllers.HomeController”上未找到公共操作方法“Home”。
+____________________________________________________________________
+操作用户: admin
+用户IP: ::1
+操作时间: 2015/1/16 15:13:35
+操作类型: 系统错误
+操作地址: http://localhost:11969/User/SaveUser
+操作内容: 在控制器“Napoleon.UserModule.Web.Controllers.UserController”上未找到公共操作方法“SaveUser”。
+____________________________________________________________________
+操作用户: 
+用户IP: ::1
+操作时间: 2015/1/16 16:50:53
+操作类型: 系统错误
+操作地址: http://localhost:11969/Ajax/GetTree?randId=0.35254421889725923
+操作内容: 未将对象引用设置到对象的实例。
+____________________________________________________________________

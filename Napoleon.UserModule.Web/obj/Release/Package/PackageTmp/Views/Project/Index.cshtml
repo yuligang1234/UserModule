@@ -1,0 +1,51 @@
+﻿
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title></title>
+    @RenderPage("~/Views/Shared/Easyui.cshtml")
+    <link href="../../Content/Css/PublicCss/DataGrid.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="searchTool" class="datagrid-toolbar">
+        <table>
+            <tr id="searchContent">
+                <td align="right">系统代码
+                </td>
+                <td align="left">
+                    <input type='text' id='projectId' class='easyui-textbox' size='20' />
+                </td>
+                <td align="center">系统名称
+                </td>
+                <td align="left">
+                    <input type='text' id='projectName' class='easyui-textbox' size='20' />
+                </td>
+            </tr>
+            <tr id="LoadOperate">
+            </tr>
+        </table>
+    </div>
+    <div id="gridTool">
+    </div>
+    <script type="text/javascript">
+        seajs.use("Project/Index", function (index) {
+            $(function () {
+                index.LoadOperate("#LoadOperate");
+                index.LoadGrid();
+                index.LoadBody();
+                $('#FixedSearch').on('click', index.FixedSearch);
+                $('#FixedAdd').on('click', index.FixedAdd);
+                $('#FixedEdit').on('click', index.FixedEdit);
+                $('#FixedDelete').on('click', index.FixedDelete);
+                $('#FixedMenu').on('click', index.FixedMenu);
+                $('#FixedRule').on('click', index.FixedRule);
+            });
+            $(window).resize(function () {
+                index.LoadBody();
+            });
+        });
+    </script>
+</body>
+</html>
+

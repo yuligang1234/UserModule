@@ -1,0 +1,21 @@
+操作用户: 
+用户IP: ::1
+操作时间: 2015/2/12 11:02:10
+操作类型: 系统错误
+操作地址: http://localhost:11969/UserModuleService.asmx/HelloWorld
+操作内容: 未找到路径“/UserModuleService.asmx/HelloWorld”的控制器或该控制器未实现 IController。
+____________________________________________________________________
+操作用户: 
+用户IP: ::1
+操作时间: 2015/2/12 11:03:03
+操作类型: 系统错误
+操作地址: http://localhost:11969/UserModuleService.asmx/HelloWorld
+操作内容: 未找到路径“/UserModuleService.asmx/HelloWorld”的控制器或该控制器未实现 IController。
+____________________________________________________________________
+操作用户: 
+用户IP: ::1
+操作时间: 2015/2/12 11:05:21
+操作类型: 系统错误
+操作地址: http://localhost:11969/UserModuleService.asmx/HelloWorld
+操作内容: 未找到路径“/UserModuleService.asmx/HelloWorld”的控制器或该控制器未实现 IController。
+____________________________________________________________________

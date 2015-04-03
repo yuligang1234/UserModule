@@ -1,0 +1,193 @@
+﻿
+body {
+    font-family: '微软雅黑';
+    font-size: 12px;
+    padding: 0;
+    margin: 0 auto;
+    background-color: #1c77ac;
+    background-image: url(~/Content/Image/Login/light.png);
+    background-repeat: no-repeat;
+    background-position: center top;
+    overflow: hidden;
+}
+
+ul {
+    display: block;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+li {
+    display: block;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+span {
+    margin: 0;
+    padding: 0;
+    display: block;
+}
+
+/*#region 云朵样式*/
+
+#Cloud {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+}
+
+.Cloud {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url(../../Image/Login/cloud.png) no-repeat;
+    z-index: 1;
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+}
+
+#Cloud2 {
+    z-index: 2;
+}
+
+/*#endregion*/
+
+
+/*#region 登录模块*/
+.LoginTop {
+    width: 100%;
+    height: 47px;
+    position: absolute;
+    top: 0;
+    background: url(../../Image/Login/loginbg1.png) repeat-x;
+    z-index: 100;    
+}
+
+    .LoginTop span {
+        color: #fff;
+        line-height: 47px;
+        background: url(../../Image/Login/loginsj.png) no-repeat 21px 18px;
+        text-indent: 44px;
+        color: #afc5d2;
+        float: left;
+        width: 200px;
+    }
+
+    .LoginTop ul {
+        float: right;
+        padding-right: 30px;
+    }
+
+        .LoginTop ul li {
+            float: left;
+            margin-left: 20px;
+            line-height: 47px;
+        }
+
+            .LoginTop ul li a {
+                color: #afc5d2;
+            }
+
+                .LoginTop ul li a:hover {
+                    color: #fff;
+                }
+
+.LoginBody {    
+    width: 100%;
+    height: 585px;
+    overflow: hidden;
+    position: absolute;
+    top: 47px;
+    background: url(../../Image/Login/loginbg3.png) no-repeat center center;
+}
+
+.SystemLogo {    
+    width: 100%;
+    height: 71px;
+    margin-top: 75px;
+    background: url(../../Image/Login/loginlogo.png) no-repeat center;
+}
+
+.LoginBox {
+    width: 692px;
+    height: 336px;
+    background: url(../../Image/Login/logininfo.png) no-repeat;
+    margin-top: 30px;
+}
+
+    .LoginBox ul {
+        margin-top: 88px;
+        margin-left: 285px;
+    }
+
+        .LoginBox ul li {
+            margin-bottom: 25px;
+        }
+
+            .LoginBox ul li label {
+                color: #687f92;
+                padding-left: 25px;
+            }
+
+                .LoginBox ul li label a {
+                    color: #687f92;
+                }
+
+                    .LoginBox ul li label a:hover {
+                        color: #3d96c9;
+                    }
+
+                .LoginBox ul li label input {
+                    margin-right: 5px;
+                }
+
+.Txt {
+    width: 299px;
+    height: 48px;
+    border: none;
+    line-height: 48px;
+    padding-left: 44px;
+    font-size: 16px;
+}
+
+.LoginUser {
+    background: url(../../Image/Login/loginuser.png) no-repeat;
+    font-weight: bolder;
+}
+
+.Btn {
+    margin-left: 50px;
+}
+
+.LoginPwd {
+    background: url(../../Image/Login/loginpassword.png) no-repeat;
+    font-weight: bolder;
+}
+
+.LoginBottom {
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    background: url(../../Image/Login/loginbg2.png) repeat-x;
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
+    width: 100%;
+    color: #0b3a58;
+}
+
+    .LoginBottom a {
+        font-weight: bold;
+        color: #0b3a58;
+    }
+
+        .LoginBottom a:hover {
+            color: #fff;
+        }
+/*#endregion*/
