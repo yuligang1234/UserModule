@@ -1,7 +1,6 @@
 ﻿using System.Data;
 using System.Data.SqlTypes;
 using System.IO;
-using System.Threading;
 using System.Web.Mvc;
 using Napoleon.Log4Module.Log.DAL;
 using Napoleon.Log4Module.Log.Model;

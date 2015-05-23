@@ -8,8 +8,6 @@ using Napoleon.Log4Module.Log;
 using Napoleon.Log4Module.Log.Common;
 using Napoleon.Log4Module.Log.Model;
 using Napoleon.PublicCommon;
-using Napoleon.UserModule.Common;
-using Napoleon.UserModule.Model;
 
 namespace Napoleon.UserModule.Web
 {
@@ -42,19 +40,18 @@ namespace Napoleon.UserModule.Web
             log.IpAddress = IpFunc.GetIp();
             log.OperateTime = DateTime.Now;
             log.OperateUrl = Request.Url.ToString();
-            SystemUser user = CookieSessionFunc.ReadCookie<SystemUser>(PublicFields.UserCookie);
-            log.UserName = user == null ? "系统" : user.UserName;
+            log.UserName = "系统";
             log.OperateType = "系统错误";
             Exception exception = Server.GetLastError();
             Response.Clear();
             HttpException httpException = exception as HttpException;
-            string url = "../Error/Index";
+            string url = "/Error/Index";
             if (httpException != null)
             {
                 switch (httpException.GetHttpCode())
                 {
                     case 404:
-                        url = "../Error/NoFound";
+                        url = "/Error/NoFound";
                         break;
                 }
                 Server.ClearError();

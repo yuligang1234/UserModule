@@ -35,25 +35,24 @@
                 {
                     <table style="width: 100%;">
                         <tr>
-                            <td class="tableName">操作用户:</td>
-                            <td class="tableValue">
-                                <input id="userName" readonly="readonly" class="easyui-textbox" type="text" value="@systemlog.UserName" /></td>
                             <td class="tableName">操作地址:</td>
                             <td class="tableValue">
                                 <input id="operateUrl" readonly="readonly" class="easyui-textbox" type="text" value="@systemlog.OperateUrl" /></td>
-                        </tr>
-                        <tr>
+
                             <td class="tableName">IP地址:</td>
                             <td class="tableValue">
                                 <input id="ipAddress" readonly="readonly" class="easyui-textbox" value="@systemlog.IpAddress" type="text" /></td>
+                        </tr>
+                        <tr>
                             <td class="tableName">记录时间:</td>
                             <td class="tableValue">
                                 <input id="operateTime" readonly="readonly" value="@systemlog.OperateTime" class="easyui-datetimebox" /></td>
-                        </tr>
-                        <tr>
+
                             <td class="tableName">日志类型:</td>
                             <td class="tableValue">
                                 <input id="operateType" readonly="readonly" value="@systemlog.OperateType" class="easyui-textbox" type="text" /></td>
+                        </tr>
+                        <tr>
                             <td class="tableName">日志内容:</td>
                             <td class="tableValue">
                                 <input id="operateContent" readonly="readonly" class="easyui-textbox" type="text" data-options="multiline:true" value="@systemlog.OperateContent" style="height: 80px;" /></td>

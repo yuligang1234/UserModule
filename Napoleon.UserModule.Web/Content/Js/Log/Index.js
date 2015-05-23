@@ -15,7 +15,7 @@ define(function (require, exports, module) {
         url = '/Log/LoadDataGrid';
         title = '日志列表';
         gridColumns = [
-            { field: 'UserName', title: '操作用户', halign: 'center', align: 'center', width: 80 },
+            /*{ field: 'UserName', title: '操作用户', halign: 'center', align: 'center', width: 80 },*/
             { field: 'IpAddress', title: 'IP地址', halign: 'center', align: 'center', width: 100 },
             { field: 'OperateTime', title: '日志时间', halign: 'center', align: 'center', width: 100 },
             { field: 'OperateContent', title: '日志内容', halign: 'center', align: 'left', width: 300 },
