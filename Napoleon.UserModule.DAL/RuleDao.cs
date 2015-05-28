@@ -27,6 +27,11 @@ namespace Napoleon.UserModule.DAL
                 sb.AppendFormat(" AND ProjectId=@ProjectId");
                 list.Add(new SqlParameter("@ProjectId", projectId));
             }
+            SqlParameter[] parameters =
+            {
+                new SqlParameter("@id",id)
+            };
+            DbHelper.GetDataTable(sb.ToString(), parameters);
             return DbHelper.GetDataTable(sb.ToString(), list.ToArray());
         }
 
@@ -38,7 +43,7 @@ namespace Napoleon.UserModule.DAL
         /// Created : 2015-01-27 14:33:15
         public DataTable GetRuleTable(string projectId)
         {
-            string sql = "SELECT ProjectId,ParentId,Id,Name,Person,TelPhone,Address,Sort,Remark FROM dbo.System_Rule WHERE ProjectId=@ProjectId ORDER BY Sort";
+            string sql = string.Format("SELECT ProjectId,ParentId,Id,Name,Person,TelPhone,Address,Sort,Remark FROM dbo.System_Rule WHERE ProjectId=@ProjectId ORDER BY Sort");
             SqlParameter[] parameters = { new SqlParameter("@ProjectId", projectId) };
             return DbHelper.GetDataTable(sql, parameters);
         }
@@ -46,8 +51,8 @@ namespace Napoleon.UserModule.DAL
         /// <summary>
         ///  获取父节点下拉框
         /// </summary>
-        /// <param name="projectId">The project identifier.</param>
-        /// <param name="parentId">The parent identifier.</param>
+        /// <param name="projectId">projectId</param>
+        /// <param name="parentId">parentId</param>
         /// Author  : Napoleon
         /// Created : 2015-01-27 14:41:25
         public DataTable GetRuleCombobox(string projectId, string parentId = "")
@@ -68,7 +73,7 @@ namespace Napoleon.UserModule.DAL
         /// <summary>
         ///  新增角色
         /// </summary>
-        /// <param name="rule">The rule.</param>
+        /// <param name="rule">rule</param>
         /// Author  : Napoleon
         /// Created : 2015-01-27 15:29:05
         public int InsertRule(SystemRule rule)
@@ -92,7 +97,7 @@ namespace Napoleon.UserModule.DAL
         /// <summary>
         ///  根据ID查询
         /// </summary>
-        /// <param name="id">ID</param>
+        /// <param name="id">id</param>
         /// Author  : Napoleon
         /// Created : 2015-01-27 16:24:30
         public SystemRule GetRule(string id)

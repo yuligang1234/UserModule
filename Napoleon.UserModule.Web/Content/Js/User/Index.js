@@ -41,7 +41,7 @@ define(function (require, exports, module) {
         var realName = $('#realName').val();
         var mobilePhone = $('#mobilePhone').val();
         var parameters = { userName: userName, realName: realName, mobilePhone: mobilePhone, rows: 20, page: 1 };
-        easyui.ReloadDataGrid("#gridTool",  parameters);
+        easyui.ReloadDataGrid("#gridTool", parameters);
     };
 
     //详情页面
@@ -163,7 +163,7 @@ define(function (require, exports, module) {
     exports.FixedPassWord = function () {
         var ids = new Array(), row = $('#gridTool').datagrid('getChecked');
         if (row.length === 0) {
-            parent.window.$.messager.alert('提示', '请选择需要删除的数据！', 'info');
+            parent.window.$.messager.alert('提示', '请选择需要初始化密码的用户！', 'info');
             return;
         }
         for (var i = 0; i < row.length; i++) {

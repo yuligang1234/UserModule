@@ -85,7 +85,6 @@ namespace Napoleon.UserModule.Web.Controllers
         /// Created : 2015-01-17 15:52:54
         public ActionResult DeleteUser(string id)
         {
-            id = id.Split(BaseFields.CommaSplit).FormatArray(BaseFields.CommaSplit);
             int count = _userService.DeleteUser(id);
             string result;
             if (count > 0)
@@ -211,7 +210,6 @@ namespace Napoleon.UserModule.Web.Controllers
         /// Created : 2015-01-19 20:39:21
         public ActionResult UpdatePassWord(string ids)
         {
-            ids = ids.Split(BaseFields.CommaSplit).FormatArray(BaseFields.CommaSplit);//格式化成sql使用
             int count = _userService.UpdatePassWord(PublicFields.DefaultPw.EncrypteRc2(PublicFields.Rc2Key), ids);
             if (count > 0)
             {

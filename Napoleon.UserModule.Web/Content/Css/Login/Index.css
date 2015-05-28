@@ -5,7 +5,7 @@ body {
     padding: 0;
     margin: 0 auto;
     background-color: #1c77ac;
-    background-image: url(~/Content/Image/Login/light.png);
+    background-image: url(/Content/Image/Login/light.png);
     background-repeat: no-repeat;
     background-position: center top;
     overflow: hidden;

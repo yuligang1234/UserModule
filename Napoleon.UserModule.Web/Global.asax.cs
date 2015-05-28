@@ -45,13 +45,13 @@ namespace Napoleon.UserModule.Web
             Exception exception = Server.GetLastError();
             Response.Clear();
             HttpException httpException = exception as HttpException;
-            string url = "/Error/Index";
+            string url = "~/Error/Index";
             if (httpException != null)
             {
                 switch (httpException.GetHttpCode())
                 {
                     case 404:
-                        url = "/Error/NoFound";
+                        url = "~/Error/NoFound";
                         break;
                 }
                 Server.ClearError();

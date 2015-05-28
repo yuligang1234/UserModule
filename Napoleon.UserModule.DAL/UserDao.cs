@@ -2,6 +2,7 @@
 using System.Data;
 using System.Data.SqlClient;
 using Napoleon.Db;
+using Napoleon.PublicCommon;
 using Napoleon.UserModule.IDAL;
 using Napoleon.UserModule.Model;
 
@@ -96,12 +97,12 @@ namespace Napoleon.UserModule.DAL
         /// <summary>
         ///  根据ID删除用户信息
         /// </summary>
-        /// <param name="id">{'1','2'}</param>
+        /// <param name="id">{1,2}</param>
         /// Author  : Napoleon
         /// Created : 2015-01-17 15:01:07
         public int DeleteUser(string id)
         {
-            string sql = string.Format("SELECT * FROM dbo.System_UserAndRule WHERE UserId IN ({0})", id);
+            string sql = string.Format("SELECT Id FROM dbo.System_UserAndRule WHERE UserId IN ({0})", id.SwitchArray());
             DataTable dt = DbHelper.GetDataTable(sql);
             int count;
             if (dt.Rows.Count > 0)
@@ -110,8 +111,9 @@ namespace Napoleon.UserModule.DAL
             }
             else
             {
-                sql = string.Format("delete from dbo.[System_User] where Id in ({0})", id);
-                count = DbHelper.ExecuteSql(sql, null);
+                string[] ids = id.Split(BaseFields.CommaSplit);
+                sql = string.Format(@"delete from dbo.[System_User] where Id in @ids");
+                count = DbHelper.ExecuteSql(sql, new { @ids = ids });
             }
             return count;
         }
@@ -146,8 +148,8 @@ namespace Napoleon.UserModule.DAL
         /// Created : 2015-01-19 15:16:10
         public SystemUser GetUserById(string id)
         {
-            string sql = "SELECT Id,UserName,PassWords,RealName,MobilePhone,IsUse,UserAddress,Sort,Remark,Operator FROM dbo.[System_User] Where Id=@Id";
-            return DbHelper.GetEnumerable<SystemUser>(sql, new { Id = id });
+            string sql = "SELECT Id,UserName,PassWords,RealName,MobilePhone,IsUse,UserAddress,Sort,Remark,Operator FROM dbo.[System_User] Where Id=@id";
+            return DbHelper.GetEnumerable<SystemUser>(sql, new { @id = id });
         }
 
         /// <summary>
@@ -173,13 +175,14 @@ namespace Napoleon.UserModule.DAL
         ///  初始化密码
         /// </summary>
         /// <param name="passWord">The pass word.</param>
-        /// <param name="ids">The ids.</param>
+        /// <param name="id">The ids.</param>
         /// Author  : Napoleon
         /// Created : 2015-01-19 20:34:54
-        public int UpdatePassWord(string passWord, string ids)
+        public int UpdatePassWord(string passWord, string id)
         {
-            string sql = string.Format("UPDATE dbo.[System_User] SET PassWords='{0}' WHERE Id IN ({1})", passWord, ids);
-            return DbHelper.ExecuteSql(sql, null);
+            string[] ids = id.Split(BaseFields.CommaSplit);
+            string sql = string.Format("UPDATE dbo.[System_User] SET PassWords=@password WHERE Id in @ids");
+            return DbHelper.ExecuteSql(sql, new { @passWord = passWord, @ids = ids });
         }
 
 
