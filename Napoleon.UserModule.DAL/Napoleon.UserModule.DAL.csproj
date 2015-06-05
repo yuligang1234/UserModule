@@ -34,6 +34,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\DLL\Napoleon.Db.dll</HintPath>
     </Reference>
+    <Reference Include="Napoleon.Log4Module.Log">
+      <HintPath>..\DLL\Napoleon.Log4Module.Log.dll</HintPath>
+    </Reference>
     <Reference Include="Napoleon.PublicCommon, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\DLL\Napoleon.PublicCommon.dll</HintPath>
@@ -41,6 +44,7 @@
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -49,6 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CodeDao.cs" />
+    <Compile Include="Log4Dao.cs" />
     <Compile Include="MenuAndRuleDao.cs" />
     <Compile Include="MenuDao.cs" />
     <Compile Include="ProjectDao.cs" />

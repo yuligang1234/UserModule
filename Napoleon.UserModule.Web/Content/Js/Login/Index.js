@@ -57,7 +57,7 @@ define(function (require, exports, module) {
         $.ajax({
             url: '/Login/CheckUser',
             type: 'post',
-            data: { userName: userName, passWord: passWord },
+            data: { userName: userName, passWord: encodeURI(passWord) },
             beforeSend: function () {
                 $.messager.progress({
                     msg: '登录中......'

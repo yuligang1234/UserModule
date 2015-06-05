@@ -1,8 +1,9 @@
 ﻿using System.Web.Mvc;
+using Napoleon.PublicCommon.Cryptography;
+using Napoleon.PublicCommon.Http;
 using Napoleon.UserModule.Common;
 using Napoleon.UserModule.IBLL;
 using Napoleon.UserModule.Model;
-using Napoleon.PublicCommon;
 
 namespace Napoleon.UserModule.Web.Controllers
 {
@@ -41,6 +42,10 @@ namespace Napoleon.UserModule.Web.Controllers
                     user.WriteCookie(PublicFields.UserCookie);
                     //用户权限
                     SystemUserAndRule rule = _userAndRuleService.GetRule(user.Id, PublicFields.ProjectId);
+                    if (rule == null)
+                    {
+                        return Content("登录失败,该账号不能登录本系统!");
+                    }
                     rule.RuleId.WriteCookie(PublicFields.RuleIdCookies);
                     return Content("登录成功！");
                 }
@@ -56,8 +61,8 @@ namespace Napoleon.UserModule.Web.Controllers
         /// Created : 2015-01-12 10:04:29
         public void LoginOut()
         {
-            CookieSessionFunc.DeleteCookie(PublicFields.UserCookie);
-            CookieSessionFunc.DeleteCookie(PublicFields.RuleIdCookies);
+            PublicFields.UserCookie.DeleteCookie();
+            PublicFields.RuleIdCookies.DeleteCookie();
         }
 
     }

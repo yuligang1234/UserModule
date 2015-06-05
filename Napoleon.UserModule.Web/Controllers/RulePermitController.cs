@@ -2,7 +2,7 @@
 using System.Data;
 using System.Web;
 using System.Web.Mvc;
-using Napoleon.PublicCommon;
+using Napoleon.PublicCommon.Frame;
 using Napoleon.UserModule.IBLL;
 using Napoleon.UserModule.Model;
 using Newtonsoft.Json;

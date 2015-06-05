@@ -13,6 +13,7 @@ E:\Napoleon\GitHub\功能模块\用户模块\UserModule\Napoleon.UserModule.DAL\
 D:\Napoleon\GitHub\功能模块\用户模块\UserModule\Napoleon.UserModule.DAL\bin\Debug\Napoleon.UserModule.DAL.dll
 D:\Napoleon\GitHub\功能模块\用户模块\UserModule\Napoleon.UserModule.DAL\bin\Debug\Napoleon.UserModule.DAL.pdb
 D:\Napoleon\GitHub\功能模块\用户模块\UserModule\Napoleon.UserModule.DAL\bin\Debug\Napoleon.Db.dll
+D:\Napoleon\GitHub\功能模块\用户模块\UserModule\Napoleon.UserModule.DAL\bin\Debug\Napoleon.Log4Module.Log.dll
 D:\Napoleon\GitHub\功能模块\用户模块\UserModule\Napoleon.UserModule.DAL\bin\Debug\Napoleon.PublicCommon.dll
 D:\Napoleon\GitHub\功能模块\用户模块\UserModule\Napoleon.UserModule.DAL\bin\Debug\Napoleon.UserModule.Common.dll
 D:\Napoleon\GitHub\功能模块\用户模块\UserModule\Napoleon.UserModule.DAL\bin\Debug\Napoleon.UserModule.IDAL.dll

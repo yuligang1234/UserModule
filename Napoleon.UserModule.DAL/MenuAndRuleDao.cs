@@ -22,13 +22,22 @@ namespace Napoleon.UserModule.DAL
         /// Created : 2015-01-10 15:15:22
         public DataTable GetMenuTable(string ruleId, string projectId)
         {
-            string sql = "SELECT DISTINCT mu.Id,mu.Name,mu.ParentId,mu.Url,mu.Icon FROM dbo.System_MenuAndRule AS md LEFT JOIN dbo.System_Menu AS mu ON md.MenuId=mu.Id  WHERE md.RuleId=@RuleId and mu.ProjectId=@ProjectId";
-            SqlParameter[] parameters =
+            DataTable dt = new DataTable();
+            try
             {
-                new SqlParameter("@RuleId",ruleId), 
-                new SqlParameter("@ProjectId",projectId) 
-            };
-            return DbHelper.GetDataTable(sql, parameters);
+                string sql = "SELECT DISTINCT mu.Id,mu.Name,mu.ParentId,mu.Url,mu.Icon FROM dbo.System_MenuAndRule AS md LEFT JOIN dbo.System_Menu AS mu ON md.MenuId=mu.Id  WHERE md.RuleId=@RuleId and mu.ProjectId=@ProjectId";
+                SqlParameter[] parameters =
+                {
+                    new SqlParameter("@RuleId",ruleId), 
+                    new SqlParameter("@ProjectId",projectId) 
+                };
+                dt = DbHelper.GetDataTable(sql, parameters);
+            }
+            catch (Exception exception)
+            {
+                Log4Dao.InsertLog4(exception.Message);
+            }
+            return dt;
         }
 
         /// <summary>
@@ -41,8 +50,17 @@ namespace Napoleon.UserModule.DAL
         /// Created : 2015-01-12 20:03:14
         public List<SystemMenu> GetOperation(string ruleId, string menuId, string projectId)
         {
-            string sql = "SELECT * FROM dbo.System_Menu WHERE id IN (SELECT OperationId FROM dbo.System_MenuAndRule WHERE RuleId=@RuleId AND MenuId=@MenuId AND ProjectId=@ProjectId) AND ParentId != @ParentId ORDER BY Sort";
-            return DbHelper.GetEnumerables<SystemMenu>(sql, new { RuleId = ruleId, MenuId = menuId, ProjectId = projectId, ParentId = PublicFields.RuleParentId });
+            List<SystemMenu> menus = new List<SystemMenu>();
+            try
+            {
+                string sql = "SELECT * FROM dbo.System_Menu WHERE id IN (SELECT OperationId FROM dbo.System_MenuAndRule WHERE RuleId=@RuleId AND MenuId=@MenuId AND ProjectId=@ProjectId) AND ParentId != @ParentId ORDER BY Sort";
+                menus = DbHelper.GetEnumerables<SystemMenu>(sql, new { @RuleId = ruleId, @MenuId = menuId, @ProjectId = projectId, @ParentId = PublicFields.RuleParentId });
+            }
+            catch (Exception exception)
+            {
+                Log4Dao.InsertLog4(exception.Message);
+            }
+            return menus;
         }
 
         /// <summary>
@@ -54,13 +72,22 @@ namespace Napoleon.UserModule.DAL
         /// Created : 2015-01-10 15:15:22
         public DataTable GetOperatorTable(string projectId, string ruleId)
         {
-            string sql = "SELECT OperationId FROM dbo.System_MenuAndRule WHERE ProjectId=@ProjectId and RuleId=@RuleId";
-            SqlParameter[] parameters =
+            DataTable dt = new DataTable();
+            try
             {
-                new SqlParameter("@ProjectId",projectId),
-                new SqlParameter("@RuleId",ruleId) 
-            };
-            return DbHelper.GetDataTable(sql, parameters);
+                string sql = "SELECT OperationId FROM dbo.System_MenuAndRule WHERE ProjectId=@ProjectId and RuleId=@RuleId";
+                SqlParameter[] parameters =
+                {
+                    new SqlParameter("@ProjectId",projectId),
+                    new SqlParameter("@RuleId",ruleId) 
+                };
+                dt = DbHelper.GetDataTable(sql, parameters);
+            }
+            catch (Exception exception)
+            {
+                Log4Dao.InsertLog4(exception.Message);
+            }
+            return dt;
         }
 
         /// <summary>
@@ -73,15 +100,15 @@ namespace Napoleon.UserModule.DAL
         /// Created : 2015-02-04 20:22:08
         public int UpdateRuleMenu(string ruleId, string projectId, List<SystemMenuAndRule> list)
         {
+            int count;
             using (IDbConnection conn = DbHelper.OpenConnection())
             {
-                int count;
                 using (IDbTransaction transaction = conn.BeginTransaction())
                 {
                     try
                     {
                         string sql = string.Format("DELETE dbo.System_MenuAndRule WHERE RuleId=@RuleId AND ProjectId=@ProjectId");
-                        conn.Execute(sql, new { RuleId = ruleId, ProjectId = projectId }, transaction, 30, CommandType.Text);
+                        conn.Execute(sql, new { @RuleId = ruleId, @ProjectId = projectId }, transaction, 30, CommandType.Text);
                         sql = string.Format("INSERT dbo.System_MenuAndRule( RuleId ,MenuId ,OperationId ,ProjectId) VALUES(@RuleId ,@MenuId ,@OperationId ,@ProjectId)");
                         count = conn.Execute(sql, list, transaction, 30, CommandType.Text);
                     }

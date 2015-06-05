@@ -1,6 +1,8 @@
 ﻿using System.Data;
 using System.Web.Mvc;
-using Napoleon.PublicCommon;
+using Napoleon.PublicCommon.Base;
+using Napoleon.PublicCommon.Frame;
+using Napoleon.PublicCommon.Http;
 using Napoleon.UserModule.Common;
 using Napoleon.UserModule.IBLL;
 using Napoleon.UserModule.Model;
@@ -74,7 +76,7 @@ namespace Napoleon.UserModule.Web.Controllers
             rule.Name = name;
             rule.Sort = sort;
             rule.Remark = remark;
-            rule.Operator = CookieSessionFunc.ReadCookie<SystemUser>(PublicFields.UserCookie).UserName;
+            rule.Operator = PublicFields.UserCookie.ReadCookie<SystemUser>().UserName;
             int count = _ruleService.InsertRule(rule);
             string result;
             switch (count)
@@ -118,7 +120,7 @@ namespace Napoleon.UserModule.Web.Controllers
             rule.Name = name;
             rule.Sort = sort;
             rule.Remark = remark;
-            rule.Operator = CookieSessionFunc.ReadCookie<SystemUser>(PublicFields.UserCookie).UserName;
+            rule.Operator = PublicFields.UserCookie.ReadCookie<SystemUser>().UserName;
             int count = _ruleService.UpdateRule(rule);
             string result;
             switch (count)

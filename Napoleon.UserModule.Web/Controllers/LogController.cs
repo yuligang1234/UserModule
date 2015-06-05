@@ -4,7 +4,8 @@ using System.IO;
 using System.Web.Mvc;
 using Napoleon.Log4Module.Log.DAL;
 using Napoleon.Log4Module.Log.Model;
-using Napoleon.PublicCommon;
+using Napoleon.PublicCommon.Frame;
+using Napoleon.PublicCommon.Office;
 using Napoleon.UserModule.Common;
 
 namespace Napoleon.UserModule.Web.Controllers

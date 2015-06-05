@@ -2,7 +2,8 @@
 using System.Data;
 using System.Text;
 using System.Web.Mvc;
-using Napoleon.PublicCommon;
+using Napoleon.PublicCommon.Frame;
+using Napoleon.PublicCommon.Http;
 using Napoleon.UserModule.Common;
 using Napoleon.UserModule.IBLL;
 using Napoleon.UserModule.Model;
@@ -29,7 +30,7 @@ namespace Napoleon.UserModule.Web.Controllers
         /// Created : 2015-01-12 20:06:03
         public ActionResult GetOperate(string menuId)
         {
-            string ruleId = CookieSessionFunc.ReadCookie(PublicFields.RuleIdCookies);
+            string ruleId = PublicFields.RuleIdCookies.ReadCookie();
             List<SystemMenu> operations = _menuAndRuleService.GetOperation(ruleId, menuId, PublicFields.ProjectId);
             string html = FormatOperate(operations);
             return Content(html);
@@ -62,7 +63,7 @@ namespace Napoleon.UserModule.Web.Controllers
         /// Created : 2015-01-10 19:46:37
         public ActionResult GetTree()
         {
-            string ruleId = CookieSessionFunc.ReadCookie(PublicFields.RuleIdCookies);
+            string ruleId = PublicFields.RuleIdCookies.ReadCookie();
             DataTable dt = _menuAndRuleService.GetMenuTable(ruleId, PublicFields.ProjectId);
             string json = dt.ConvertToTreeJson(false);
             return Content(json);

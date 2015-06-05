@@ -1,4 +1,5 @@
 ﻿
+using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.Text;
@@ -19,13 +20,21 @@ namespace Napoleon.UserModule.DAL
         /// Created : 2015-01-24 15:11:11
         public DataTable GetMenuTable(string projectId)
         {
-            string sql =
-                "SELECT ProjectId,Id,Name,ParentId,HtmlId,Url,Icon,Sort,Remark,Operator,'false' as checked FROM dbo.System_Menu WHERE ProjectId=@ProjectId order by Sort";
-            SqlParameter[] parameters =
+            DataTable dt = new DataTable();
+            try
             {
-                new SqlParameter("@ProjectId",projectId) 
-            };
-            return DbHelper.GetDataTable(sql, parameters);
+                string sql = "SELECT ProjectId,Id,Name,ParentId,HtmlId,Url,Icon,Sort,Remark,Operator,'false' as checked FROM dbo.System_Menu WHERE ProjectId=@ProjectId order by Sort";
+                SqlParameter[] parameters =
+                {
+                    new SqlParameter("@ProjectId",projectId) 
+                };
+                dt = DbHelper.GetDataTable(sql, parameters);
+            }
+            catch (Exception exception)
+            {
+                Log4Dao.InsertLog4(exception.Message);
+            }
+            return dt;
         }
 
         /// <summary>
@@ -37,18 +46,27 @@ namespace Napoleon.UserModule.DAL
         /// Created : 2015-01-24 16:35:16
         public DataTable GetTreeParentId(string projectId, string parentId = "")
         {
-            StringBuilder sb = new StringBuilder();
-            sb.Append("SELECT Id,Name FROM dbo.System_Menu WHERE ProjectId=@ProjectId ");
-            if (!string.IsNullOrWhiteSpace(parentId))
+            DataTable dt = new DataTable();
+            try
             {
-                sb.AppendFormat("AND ParentId=@ParentId ");
+                StringBuilder sb = new StringBuilder();
+                sb.Append("SELECT Id,Name FROM dbo.System_Menu WHERE ProjectId=@ProjectId ");
+                if (!string.IsNullOrWhiteSpace(parentId))
+                {
+                    sb.AppendFormat("AND ParentId=@ParentId ");
+                }
+                SqlParameter[] parameters =
+                {
+                    new SqlParameter("@ProjectId",projectId),
+                    new SqlParameter("@ParentId",parentId)
+                };
+                dt = DbHelper.GetDataTable(sb.ToString(), parameters);
             }
-            SqlParameter[] parameters =
+            catch (Exception exception)
             {
-                new SqlParameter("@ProjectId",projectId),
-                new SqlParameter("@ParentId",parentId)
-            };
-            return DbHelper.GetDataTable(sb.ToString(), parameters);
+                Log4Dao.InsertLog4(exception.Message);
+            }
+            return dt;
         }
 
         /// <summary>
@@ -59,8 +77,18 @@ namespace Napoleon.UserModule.DAL
         /// Created : 2015-01-26 14:18:32
         public int InsertMenu(SystemMenu menu)
         {
-            string sql = "INSERT INTO dbo.System_Menu (ProjectId ,Id ,Name ,ParentId,HtmlId ,Url ,Icon, Sort ,Remark ,Operator) VALUES(@ProjectId,@Id,@Name,@ParentId,@HtmlId,@Url,@Icon,@Sort,@Remark,@Operator)";
-            return DbHelper.ExecuteSql(sql, menu);
+            int i;
+            try
+            {
+                string sql = "INSERT INTO dbo.System_Menu (ProjectId ,Id ,Name ,ParentId,HtmlId ,Url ,Icon, Sort ,Remark ,Operator) VALUES(@ProjectId,@Id,@Name,@ParentId,@HtmlId,@Url,@Icon,@Sort,@Remark,@Operator)";
+                i = DbHelper.ExecuteSql(sql, menu);
+            }
+            catch (Exception exception)
+            {
+                i = -1;
+                Log4Dao.InsertLog4(exception.Message);
+            }
+            return i;
         }
 
         /// <summary>
@@ -71,8 +99,17 @@ namespace Napoleon.UserModule.DAL
         /// Created : 2015-01-24 15:11:11
         public SystemMenu GetMenu(string id)
         {
-            string sql = "SELECT ProjectId,Id,Name,ParentId,HtmlId,Url,Icon,Sort,Remark,Operator FROM dbo.System_Menu WHERE Id=@Id order by Sort";
-            return DbHelper.GetEnumerable<SystemMenu>(sql, new { Id = id });
+            SystemMenu menu = new SystemMenu();
+            try
+            {
+                string sql = "SELECT ProjectId,Id,Name,ParentId,HtmlId,Url,Icon,Sort,Remark,Operator FROM dbo.System_Menu WHERE Id=@Id order by Sort";
+                menu = DbHelper.GetEnumerable<SystemMenu>(sql, new { @Id = id });
+            }
+            catch (Exception exception)
+            {
+                Log4Dao.InsertLog4(exception.Message);
+            }
+            return menu;
         }
 
         /// <summary>
@@ -83,21 +120,17 @@ namespace Napoleon.UserModule.DAL
         /// Created : 2015-01-26 16:06:40
         public int UpdateMenu(SystemMenu menu)
         {
-            /*string sql = "SELECT Id FROM dbo.System_Menu WHERE Name=@Name";
-            SqlParameter[] parameters = { new SqlParameter("@Name", menu.Name) };
-            DataTable dt = SqlHelper.GetDataTable(sql, parameters);
             int count;
-            if (dt.Rows.Count == 0 || dt.Rows[0][0].ToString().Equals(menu.Id))
+            try
             {
-                sql = "UPDATE dbo.System_Menu SET Name=@name,ParentId=@parentId,HtmlId=@htmlId,Url=@url,Icon=@icon,Sort=@sort,Remark=@remark,Operator=@operator WHERE Id=@id";
-                count = SqlHelper.ExecuteSql(sql, menu);
+                string sql = "UPDATE dbo.System_Menu SET Name=@name,ParentId=@parentId,HtmlId=@htmlId,Url=@url,Icon=@icon,Sort=@sort,Remark=@remark,Operator=@operator WHERE Id=@id";
+                count = DbHelper.ExecuteSql(sql, menu);
             }
-            else
+            catch (Exception exception)
             {
                 count = -1;
-            }*/
-            string sql = "UPDATE dbo.System_Menu SET Name=@name,ParentId=@parentId,HtmlId=@htmlId,Url=@url,Icon=@icon,Sort=@sort,Remark=@remark,Operator=@operator WHERE Id=@id";
-            int count = DbHelper.ExecuteSql(sql, menu);
+                Log4Dao.InsertLog4(exception.Message);
+            }
             return count;
         }
 
@@ -109,21 +142,29 @@ namespace Napoleon.UserModule.DAL
         /// Created : 2015-01-24 10:43:31
         public int DeleteMenu(string id)
         {
-            string sql = "SELECT * FROM dbo.System_Menu WHERE ParentId=@ParentId";
-            SqlParameter[] parameters =
-            {
-                new SqlParameter("@ParentId", id)
-            };
-            DataTable dt = DbHelper.GetDataTable(sql, parameters);
             int count;
-            if (dt.Rows.Count > 0)
+            try
             {
-                count = -1;
+                string sql = "SELECT * FROM dbo.System_Menu WHERE ParentId=@ParentId";
+                SqlParameter[] parameters =
+                {
+                    new SqlParameter("@ParentId", id)
+                };
+                DataTable dt = DbHelper.GetDataTable(sql, parameters);
+                if (dt.Rows.Count > 0)
+                {
+                    count = -1;
+                }
+                else
+                {
+                    sql = "DELETE FROM dbo.System_Menu WHERE Id=@Id";
+                    count = DbHelper.ExecuteSql(sql, new { @Id = id });
+                }
             }
-            else
+            catch (Exception exception)
             {
-                sql = "DELETE FROM dbo.System_Menu WHERE Id=@Id";
-                count = DbHelper.ExecuteSql(sql, new { Id = id });
+                count = 0;
+                Log4Dao.InsertLog4(exception.Message);
             }
             return count;
         }

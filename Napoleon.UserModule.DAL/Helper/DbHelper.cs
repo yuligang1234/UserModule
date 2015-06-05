@@ -4,7 +4,8 @@ using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
-using Napoleon.Log4Module.Log.Common;
+using Napoleon.PublicCommon.Cryptography;
+using Napoleon.PublicCommon.Field;
 
 namespace Napoleon.UserModule.DAL.Helper
 {
@@ -19,9 +20,8 @@ namespace Napoleon.UserModule.DAL.Helper
         /// Author  : 俞立钢
         /// Company : 绍兴标点电子技术有限公司
         /// Created : 2014-09-01 20:09:21
-        private static readonly string SqlConnection = _connectionString.DecrypteRc2(LogField.Rc2);
-        //private readonly static string SqlConnection = string.Format(@"Data Source=SKY-PC\SQL2005;Initial Catalog=UserModule;User Id=sa;Password=123456;");
-
+        private static readonly string SqlConnection = _connectionString.DecrypteRc2(BaseFields.Rc2);
+        //private static readonly string SqlConnection = string.Format(@"Data Source=SKY-PC\SQL2005;Initial Catalog=UserModule;User Id=sa;Password=123456;");
 
         #region MSSQL数据库方法
 
@@ -73,6 +73,40 @@ namespace Napoleon.UserModule.DAL.Helper
             SqlDataAdapter adapter = new SqlDataAdapter();
             adapter.SelectCommand = OpenCommand(sql, parameters);
             return adapter;
+        }
+
+        /// <summary>
+        ///  使用存储过程,返回int
+        /// </summary>
+        /// <param name="procedure">存储过程名称</param>
+        /// <param name="parameters">参数(StrSql,StrWhere,OrderBy,RecordCount)</param>
+        /// Author  : Napoleon
+        /// Created : 2015-03-25 16:25:26
+        public static void ExecuteProcedure(string procedure, DynamicParameters parameters)
+        {
+            using (IDbConnection conn = OpenConnection())
+            {
+                conn.Execute(procedure, parameters, null, null, CommandType.StoredProcedure);
+            }
+        }
+
+        /// <summary>
+        ///  使用存储过程,返回int
+        /// </summary>
+        /// <param name="procedure">存储过程名称</param>
+        /// <param name="parameters">参数(StrSql,StrWhere,OrderBy,RecordCount)</param>
+        /// <param name="intName">整型的参数名</param>
+        /// Author  : Napoleon
+        /// Created : 2015-03-25 16:25:26
+        public static int ExecuteProcedureOutInt(string procedure, DynamicParameters parameters, string intName)
+        {
+            int number;
+            using (IDbConnection conn = OpenConnection())
+            {
+                conn.Execute(procedure, parameters, commandType: CommandType.StoredProcedure);
+                number = parameters.Get<int>(intName);
+            }
+            return number;
         }
 
         #endregion
@@ -191,14 +225,14 @@ namespace Napoleon.UserModule.DAL.Helper
         }
 
         /// <summary>
-        ///  批量插入集合数据
+        ///  批量操作集合数据
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="sql">SQL</param>
         /// <param name="t">List</param>
         /// Author  : Napoleon
         /// Created : 2015-02-04 20:16:27
-        public static int InsertMultiple<T>(string sql, IEnumerable<T> t) where T : new()
+        public static int OperatorMultiple<T>(string sql, IEnumerable<T> t) where T : new()
         {
             using (IDbConnection conn = OpenConnection())
             {
@@ -221,7 +255,6 @@ namespace Napoleon.UserModule.DAL.Helper
         }
 
         #endregion
-
 
 
     }

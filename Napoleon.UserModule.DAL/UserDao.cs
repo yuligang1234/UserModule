@@ -2,7 +2,8 @@
 using System.Data;
 using System.Data.SqlClient;
 using Napoleon.Db;
-using Napoleon.PublicCommon;
+using Napoleon.PublicCommon.Field;
+using Napoleon.PublicCommon.Format;
 using Napoleon.UserModule.IDAL;
 using Napoleon.UserModule.Model;
 
@@ -20,9 +21,16 @@ namespace Napoleon.UserModule.DAL
         /// Created : 2015-01-05 19:49:26
         public SystemUser CheckUser(string userName, string passWord)
         {
-            string sql = "select Id,UserName,PassWords,RealName,MobilePhone,IsUse,UserAddress,Sort,Remark,Operator FROM [System_User] AS su where UserName=@UserName and PassWords=@PassWords";
-            SystemUser user = DbHelper.GetEnumerable<SystemUser>(sql, new { UserName = userName, PassWords = passWord });
-            return user;
+            try
+            {
+                string sql = "select Id,UserName,PassWords,RealName,MobilePhone,IsUse,UserAddress,Sort,Remark,Operator FROM [System_User] AS su where UserName=@UserName and PassWords=@PassWords";
+                SystemUser user = DbHelper.GetEnumerable<SystemUser>(sql, new { @UserName = userName, @PassWords = passWord });
+                return user;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
 
         /// <summary>
@@ -36,11 +44,11 @@ namespace Napoleon.UserModule.DAL
         public int SaveUser(string id, string password, string newPw)
         {
             string sql = "select count(*) from dbo.[System_User] where Id=@Id and PassWords=@PassWords";
-            int count = DbHelper.QueryCount(sql, new { Id = id, PassWords = password });
+            int count = DbHelper.QueryCount(sql, new { @Id = id, @PassWords = password });
             if (count > 0)
             {
                 sql = "UPDATE dbo.[System_User] SET PassWords=@PassWords where Id=@Id";
-                return DbHelper.ExecuteSql(sql, new { PassWords = newPw, Id = id });
+                return DbHelper.ExecuteSql(sql, new { @PassWords = newPw, @Id = id });
             }
             return -1;
         }

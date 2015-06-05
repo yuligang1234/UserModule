@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 using System.Data.SqlClient;
 using Napoleon.Db;
 using Napoleon.UserModule.IDAL;
@@ -16,9 +17,18 @@ namespace Napoleon.UserModule.DAL
         /// Created : 2015-01-19 09:29:19
         public DataTable GetTableByParentId(string parentId)
         {
-            string sql = "SELECT Id,Name FROM dbo.System_Code WHERE ParentId=@ParentId";
-            SqlParameter[] parameters = { new SqlParameter("@ParentId", parentId) };
-            return DbHelper.GetDataTable(sql, parameters);
+            DataTable dt = new DataTable();
+            try
+            {
+                string sql = "SELECT Id,Name FROM dbo.System_Code WHERE ParentId=@ParentId";
+                SqlParameter[] parameters = { new SqlParameter("@ParentId", parentId) };
+                dt = DbHelper.GetDataTable(sql, parameters);
+            }
+            catch (Exception exception)
+            {
+                Log4Dao.InsertLog4(exception.Message);
+            }
+            return dt;
         }
 
     }

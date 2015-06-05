@@ -55,6 +55,10 @@
     <Reference Include="Microsoft.CSharp">
       <Private>True</Private>
     </Reference>
+    <Reference Include="Napoleon.Db, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DLL\Napoleon.Db.dll</HintPath>
+    </Reference>
     <Reference Include="Napoleon.Log4Module.Log, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\DLL\Napoleon.Log4Module.Log.dll</HintPath>

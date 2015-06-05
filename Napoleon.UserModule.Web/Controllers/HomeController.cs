@@ -1,5 +1,6 @@
 ﻿using System.Web.Mvc;
 using Napoleon.PublicCommon;
+using Napoleon.PublicCommon.Http;
 using Napoleon.UserModule.Common;
 using Napoleon.UserModule.Model;
 
@@ -22,7 +23,7 @@ namespace Napoleon.UserModule.Web.Controllers
 
         public ActionResult ChangePw()
         {
-            SystemUser user = CookieSessionFunc.ReadCookie<SystemUser>(PublicFields.UserCookie);
+            SystemUser user = PublicFields.UserCookie.ReadCookie<SystemUser>();
             ViewData["User"] = user;
             return View();
         }

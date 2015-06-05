@@ -4,10 +4,7 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
-using Napoleon.Log4Module.Log;
-using Napoleon.Log4Module.Log.Common;
-using Napoleon.Log4Module.Log.Model;
-using Napoleon.PublicCommon;
+using Napoleon.UserModule.DAL;
 
 namespace Napoleon.UserModule.Web
 {
@@ -36,33 +33,28 @@ namespace Napoleon.UserModule.Web
         /// Created : 2014-10-27 14:17:41
         protected void Application_Error(object sender, EventArgs e)
         {
-            SystemLog log = new SystemLog();
-            log.IpAddress = IpFunc.GetIp();
-            log.OperateTime = DateTime.Now;
-            log.OperateUrl = Request.Url.ToString();
-            log.UserName = "系统";
-            log.OperateType = "系统错误";
+            string msg;
             Exception exception = Server.GetLastError();
             Response.Clear();
             HttpException httpException = exception as HttpException;
-            string url = "~/Error/Index";
+            string url = "/Error/Index";
             if (httpException != null)
             {
                 switch (httpException.GetHttpCode())
                 {
                     case 404:
-                        url = "~/Error/NoFound";
+                        url = "/Error/NoFound";
                         break;
                 }
                 Server.ClearError();
-                log.OperateContent = httpException.Message;
+                msg = httpException.Message;
             }
             else
             {
                 Server.ClearError();
-                log.OperateContent = exception.Message;
+                msg = exception.Message;
             }
-            log.InsertLog(LogType.Error, InsertType.All);
+            Log4Dao.InsertLog4(msg);
             Response.Write("<script>top.window.location.href='" + url + "'</script>");
         }
     }

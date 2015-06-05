@@ -1,7 +1,10 @@
 ﻿
 using System.Data;
 using System.Web.Mvc;
-using Napoleon.PublicCommon;
+using Napoleon.PublicCommon.Base;
+using Napoleon.PublicCommon.Cryptography;
+using Napoleon.PublicCommon.Frame;
+using Napoleon.PublicCommon.Http;
 using Napoleon.UserModule.Common;
 using Napoleon.UserModule.IBLL;
 using Napoleon.UserModule.Model;
@@ -131,8 +134,8 @@ namespace Napoleon.UserModule.Web.Controllers
             user.IsUse = isUse;
             user.UserAddress = userAddress;
             user.Sort = sort;
-            user.RealName = remark;
-            user.Operator = CookieSessionFunc.ReadCookie<SystemUser>(PublicFields.UserCookie).UserName;
+            user.Remark = remark;
+            user.Operator = PublicFields.UserCookie.ReadCookie<SystemUser>().UserName;
             int count = _userService.SaveAddUser(user);
             string result;
             switch (count)
@@ -181,7 +184,7 @@ namespace Napoleon.UserModule.Web.Controllers
             user.UserAddress = userAddress;
             user.Sort = sort;
             user.Remark = remark;
-            user.Operator = CookieSessionFunc.ReadCookie<SystemUser>(PublicFields.UserCookie).UserName;
+            user.Operator = PublicFields.UserCookie.ReadCookie<SystemUser>().UserName;
             int count = _userService.UpdateUser(user);
             string result;
             switch (count)
