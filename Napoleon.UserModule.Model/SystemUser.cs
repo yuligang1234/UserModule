@@ -11,8 +11,7 @@ namespace Napoleon.UserModule.Model
         /// <summary>
         ///  guid(10)+yyMMddhhmmssffffff
         /// </summary>
-        /// Author  :俞立钢
-        /// Company :绍兴标点电子技术有限公司
+        /// Author  :Napoleon
         /// Created :2015-01-07 10:22:09
         public string Id
         {
@@ -20,12 +19,23 @@ namespace Napoleon.UserModule.Model
             set { _id = value; }
         }
 
+        private string _projectId;
+        /// <summary>
+        ///  项目ID
+        /// </summary>
+        /// Author  :Napoleon
+        /// Created :2015-01-07 10:22:09
+        public string ProjectId
+        {
+            get { return _projectId; }
+            set { _projectId = value; }
+        }
+
         private string _userName;
         /// <summary>
         ///  用户账号
         /// </summary>
-        /// Author  :俞立钢
-        /// Company :绍兴标点电子技术有限公司
+        /// Author  :Napoleon
         /// Created :2015-01-07 10:22:09
         public string UserName
         {
@@ -37,8 +47,7 @@ namespace Napoleon.UserModule.Model
         /// <summary>
         ///  用户密码
         /// </summary>
-        /// Author  :俞立钢
-        /// Company :绍兴标点电子技术有限公司
+        /// Author  :Napoleon
         /// Created :2015-01-07 10:22:09
         public string PassWords
         {
@@ -50,8 +59,7 @@ namespace Napoleon.UserModule.Model
         /// <summary>
         ///  用户姓名
         /// </summary>
-        /// Author  :俞立钢
-        /// Company :绍兴标点电子技术有限公司
+        /// Author  :Napoleon
         /// Created :2015-01-07 10:22:09
         public string RealName
         {
@@ -63,8 +71,7 @@ namespace Napoleon.UserModule.Model
         /// <summary>
         ///  联系电话
         /// </summary>
-        /// Author  :俞立钢
-        /// Company :绍兴标点电子技术有限公司
+        /// Author  :Napoleon
         /// Created :2015-01-07 10:22:09
         public string MobilePhone
         {
@@ -76,8 +83,7 @@ namespace Napoleon.UserModule.Model
         /// <summary>
         ///  是否启用
         /// </summary>
-        /// Author  :俞立钢
-        /// Company :绍兴标点电子技术有限公司
+        /// Author  :Napoleon
         /// Created :2015-01-07 10:22:09
         public string IsUse
         {
@@ -89,8 +95,7 @@ namespace Napoleon.UserModule.Model
         /// <summary>
         ///  地址
         /// </summary>
-        /// Author  :俞立钢
-        /// Company :绍兴标点电子技术有限公司
+        /// Author  :Napoleon
         /// Created :2015-01-07 10:22:09
         public string UserAddress
         {
@@ -102,8 +107,7 @@ namespace Napoleon.UserModule.Model
         /// <summary>
         ///  排序
         /// </summary>
-        /// Author  :俞立钢
-        /// Company :绍兴标点电子技术有限公司
+        /// Author  :Napoleon
         /// Created :2015-01-07 10:22:09
         public decimal Sort
         {
@@ -115,8 +119,7 @@ namespace Napoleon.UserModule.Model
         /// <summary>
         ///  备注
         /// </summary>
-        /// Author  :俞立钢
-        /// Company :绍兴标点电子技术有限公司
+        /// Author  :Napoleon
         /// Created :2015-01-07 10:22:09
         public string Remark
         {
@@ -128,8 +131,7 @@ namespace Napoleon.UserModule.Model
         /// <summary>
         ///  操作者
         /// </summary>
-        /// Author  :俞立钢
-        /// Company :绍兴标点电子技术有限公司
+        /// Author  :Napoleon
         /// Created :2015-01-07 10:22:09
         public string Operator
         {

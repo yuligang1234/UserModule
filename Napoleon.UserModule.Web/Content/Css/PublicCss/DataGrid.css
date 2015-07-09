@@ -16,3 +16,18 @@
 #gridTool {
     float: left;
 }
+
+.tableContent {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 20px;
+}
+
+    .tableContent .tableName {
+        text-align: right;
+        width: 100px;
+    }
+
+    .tableContent .tableValue input {
+        width: 180px;
+    }

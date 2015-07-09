@@ -25,11 +25,11 @@ namespace Napoleon.UserModule.DAL
             DataTable dt = new DataTable();
             try
             {
-                string sql = "SELECT DISTINCT mu.Id,mu.Name,mu.ParentId,mu.Url,mu.Icon FROM dbo.System_MenuAndRule AS md LEFT JOIN dbo.System_Menu AS mu ON md.MenuId=mu.Id  WHERE md.RuleId=@RuleId and mu.ProjectId=@ProjectId";
+                string sql = "SELECT DISTINCT mu.Id,mu.Name,mu.ParentId,mu.Url,mu.Icon,mu.Sort FROM dbo.System_MenuAndRule AS md LEFT JOIN dbo.System_Menu AS mu ON md.MenuId=mu.Id  WHERE md.RuleId=@RuleId and mu.ProjectId=@ProjectId Order by mu.Sort ";
                 SqlParameter[] parameters =
                 {
-                    new SqlParameter("@RuleId",ruleId), 
-                    new SqlParameter("@ProjectId",projectId) 
+                    new SqlParameter("@RuleId",ruleId),
+                    new SqlParameter("@ProjectId",projectId)
                 };
                 dt = DbHelper.GetDataTable(sql, parameters);
             }

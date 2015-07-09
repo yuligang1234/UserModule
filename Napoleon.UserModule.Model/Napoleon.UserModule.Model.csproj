@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Result.cs" />
     <Compile Include="SystemCode.cs" />
     <Compile Include="SystemProject.cs" />
     <Compile Include="SystemRule.cs" />

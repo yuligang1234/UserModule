@@ -33,7 +33,8 @@ namespace Napoleon.UserModule.Web.Controllers
         /// Created : 2015-01-07 10:04:36
         public ActionResult CheckUser(string userName, string passWord)
         {
-            SystemUser user = _userService.CheckUser(userName, passWord.EncrypteRc2(PublicFields.Rc2Key));
+            SystemUser user = _userService.CheckUser(userName, passWord.EncrypteRc2(PublicFields.Rc2Key), PublicFields.ProjectId);
+            string status = "failue", msg = "登录失败！", json;
             if (user != null)
             {
                 if (user.IsUse.Equals(PublicFields.IsDefaultUse))
@@ -44,14 +45,22 @@ namespace Napoleon.UserModule.Web.Controllers
                     SystemUserAndRule rule = _userAndRuleService.GetRule(user.Id, PublicFields.ProjectId);
                     if (rule == null)
                     {
-                        return Content("登录失败,该账号不能登录本系统!");
+                        msg = "登录失败,该账号不能登录本系统!";
                     }
-                    rule.RuleId.WriteCookie(PublicFields.RuleIdCookies);
-                    return Content("登录成功！");
+                    else
+                    {
+                        rule.RuleId.WriteCookie(PublicFields.RuleIdCookies);
+                        status = "success";
+                        msg = "登录成功！";
+                    }
                 }
-                return Content("登录失败，该账号已禁用，请联系管理员！");
+                else
+                {
+                    msg = "登录失败，该账号已禁用，请联系管理员！";
+                }
             }
-            return Content("登录失败！");
+            json = PublicFunc.ModelToJson(status, msg);
+            return Content(json);
         }
 
         /// <summary>

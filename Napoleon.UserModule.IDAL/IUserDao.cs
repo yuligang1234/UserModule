@@ -12,9 +12,10 @@ namespace Napoleon.UserModule.IDAL
         /// </summary>
         /// <param name="userName">用户账号</param>
         /// <param name="passWord">用户密码</param>
+        /// <param name="projectId">项目ID</param>
         /// Author  : Napoleon
         /// Created : 2015-01-05 19:49:26
-        SystemUser CheckUser(string userName, string passWord);
+        SystemUser CheckUser(string userName, string passWord, string projectId);
 
         /// <summary>
         ///  保存密码

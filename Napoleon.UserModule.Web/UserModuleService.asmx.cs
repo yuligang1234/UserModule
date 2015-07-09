@@ -34,12 +34,13 @@ namespace Napoleon.UserModule.Web
         /// </summary>
         /// <param name="userName">userName</param>
         /// <param name="passWord">passWord</param>
+        /// <param name="projectId">projectId</param>
         /// Author  : Napoleon
         /// Created : 2015-02-12 16:20:23
         [WebMethod]
-        public SystemUser CheckUserXml(string userName, string passWord)
+        public SystemUser CheckUserXml(string userName, string passWord, string projectId)
         {
-            SystemUser user = _userService.CheckUser(userName, passWord.EncrypteRc2(PublicFields.Rc2Key));
+            SystemUser user = _userService.CheckUser(userName, passWord, projectId);
             return user;
         }
 
@@ -48,12 +49,13 @@ namespace Napoleon.UserModule.Web
         /// </summary>
         /// <param name="userName">userName</param>
         /// <param name="passWord">passWord</param>
+        /// <param name="projectId">projectId</param>
         /// Author  : Napoleon
         /// Created : 2015-02-12 16:20:46
         [WebMethod]
-        public string CheckUserJson(string userName, string passWord)
+        public string CheckUserJson(string userName, string passWord, string projectId)
         {
-            SystemUser user = _userService.CheckUser(userName, passWord.EncrypteRc2(PublicFields.Rc2Key));
+            SystemUser user = _userService.CheckUser(userName, passWord, projectId);
             return JsonConvert.SerializeObject(user);
         }
 
@@ -62,12 +64,13 @@ namespace Napoleon.UserModule.Web
         /// </summary>
         /// <param name="userName">userName</param>
         /// <param name="passWord">passWord</param>
+        /// <param name="projectId">projectId</param>
         /// Author  : Napoleon
         /// Created : 2015-02-12 16:21:12
         [WebMethod]
-        public void CheckUserAjaxJson(string userName, string passWord)
+        public void CheckUserAjaxJson(string userName, string passWord, string projectId)
         {
-            SystemUser user = _userService.CheckUser(userName, passWord.EncrypteRc2(PublicFields.Rc2Key));
+            SystemUser user = _userService.CheckUser(userName, passWord, projectId);
             Context.Response.Write(JsonConvert.SerializeObject(user));
             Context.Response.End();
         }
@@ -79,13 +82,13 @@ namespace Napoleon.UserModule.Web
         [WebMethod]
         public int ChangePwXml(string id, string password, string newPw)
         {
-            return _userService.SaveUser(id, password.EncrypteRc2(PublicFields.Rc2Key), newPw.EncrypteRc2(PublicFields.Rc2Key));
+            return _userService.SaveUser(id, password, newPw);
         }
 
         [WebMethod]
         public void ChangePwAjaxJson(string id, string password, string newPw)
         {
-            int i = _userService.SaveUser(id, password.EncrypteRc2(PublicFields.Rc2Key), newPw.EncrypteRc2(PublicFields.Rc2Key));
+            int i = _userService.SaveUser(id, password, newPw);
             Context.Response.Write(i);
             Context.Response.End();
         }
@@ -97,13 +100,13 @@ namespace Napoleon.UserModule.Web
         [WebMethod]
         public int UpdatePwXml(string passWord, string ids)
         {
-            return _userService.UpdatePassWord(passWord.EncrypteRc2(PublicFields.Rc2Key), ids);
+            return _userService.UpdatePassWord(passWord, ids);
         }
 
         [WebMethod]
         public void UpdatePwAjaxJson(string passWord, string ids)
         {
-            int i = _userService.UpdatePassWord(passWord.EncrypteRc2(PublicFields.Rc2Key), ids);
+            int i = _userService.UpdatePassWord(passWord, ids);
             Context.Response.Write(i);
             Context.Response.End();
         }

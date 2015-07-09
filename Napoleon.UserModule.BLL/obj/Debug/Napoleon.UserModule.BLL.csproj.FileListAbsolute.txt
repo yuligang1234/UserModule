@@ -17,6 +17,7 @@ D:\Napoleon\GitHub\功能模块\用户模块\UserModule\Napoleon.UserModule.BLL\
 D:\Napoleon\GitHub\功能模块\用户模块\UserModule\Napoleon.UserModule.BLL\bin\Debug\Napoleon.UserModule.IBLL.dll
 D:\Napoleon\GitHub\功能模块\用户模块\UserModule\Napoleon.UserModule.BLL\bin\Debug\Napoleon.UserModule.IDAL.dll
 D:\Napoleon\GitHub\功能模块\用户模块\UserModule\Napoleon.UserModule.BLL\bin\Debug\Napoleon.UserModule.Model.dll
+D:\Napoleon\GitHub\功能模块\用户模块\UserModule\Napoleon.UserModule.BLL\bin\Debug\Newtonsoft.Json.dll
 D:\Napoleon\GitHub\功能模块\用户模块\UserModule\Napoleon.UserModule.BLL\bin\Debug\Napoleon.UserModule.Common.pdb
 D:\Napoleon\GitHub\功能模块\用户模块\UserModule\Napoleon.UserModule.BLL\bin\Debug\Napoleon.UserModule.IBLL.pdb
 D:\Napoleon\GitHub\功能模块\用户模块\UserModule\Napoleon.UserModule.BLL\bin\Debug\Napoleon.UserModule.IDAL.pdb

@@ -2,6 +2,7 @@
 define(function (require, exports, module) {
 
     var easyui = require("../PublicFunc/Easyui.js");
+    var pubJs = require("../PublicFunc/Index.js");
 
     //加载权限
     exports.LoadOperate = function (selector) {
@@ -50,17 +51,15 @@ define(function (require, exports, module) {
         $('#AddProjectForm').form('submit', {
             url: '/Project/SaveAdd',
             success: function (data) {
-                switch (data.substring(0, 4)) {
-                    case "添加成功":
+                var json = pubJs.DeserializeJson(data);
+                switch (json.Status) {
+                    case "success":
                         parent.window.$('#myWindow').window('close');
-                        parent.window.$.messager.alert('提示', data, 'info');
+                        parent.window.$.messager.alert('提示', json.Msg, 'info');
                         $(window.parent.$('#tabs').tabs('getSelected').find('iframe'))[0].contentWindow.$('#gridTool').datagrid('reload');//标签页里获取iframe
                         break;
-                    case "添加失败":
-                        parent.window.$.messager.alert('提示', data, 'info');
-                        break;
-                    case "<!DO":
-                        document.write(data);
+                    default:
+                        parent.window.$.messager.alert('提示', json.Msg, 'info');
                         break;
                 }
             }
@@ -83,14 +82,15 @@ define(function (require, exports, module) {
         $('#UpdateProjectForm').form('submit', {
             url: '/Project/UpdateProject',
             success: function (data) {
-                switch (data.substring(0, 4)) {
-                    case "更新成功":
+                var json = pubJs.DeserializeJson(data);
+                switch (json.Status) {
+                    case "success":
                         parent.window.$('#myWindow').window('close');
-                        parent.window.$.messager.alert('提示', data, 'info');
+                        parent.window.$.messager.alert('提示', json.Msg, 'info');
                         $(window.parent.$('#tabs').tabs('getSelected').find('iframe'))[0].contentWindow.$('#gridTool').datagrid('reload');//标签页里获取iframe
                         break;
                     default:
-                        parent.window.$.messager.alert('提示', "更新失败！", 'info');
+                        parent.window.$.messager.alert('提示', json.Msg, 'info');
                         break;
                 }
             }
@@ -110,17 +110,15 @@ define(function (require, exports, module) {
                     url: '/Project/DeleteProject',
                     data: { projectId: row.ProjectId },
                     type: 'post',
-                    complete: function (msg) {
-                        switch (msg.responseText.substring(0, 4)) {
-                            case "删除成功":
-                                parent.window.$.messager.alert('提示', msg.responseText, 'info');
+                    complete: function (data) {
+                        var json = pubJs.DeserializeJson(data.responseText);
+                        switch (json.Status) {
+                            case "success":
+                                parent.window.$.messager.alert('提示', json.Msg, 'info');
                                 $('#gridTool').datagrid('reload');
                                 break;
-                            case "删除失败":
-                                parent.window.$.messager.alert('提示', msg.responseText, 'info');
-                                break;
-                            default:
-                                parent.window.$.messager.alert('提示', "删除失败！", 'info');
+                            default :
+                                parent.window.$.messager.alert('提示', json.Msg, 'info');
                                 break;
                         }
                     }

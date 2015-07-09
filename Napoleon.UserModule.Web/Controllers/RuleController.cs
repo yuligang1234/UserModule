@@ -78,20 +78,22 @@ namespace Napoleon.UserModule.Web.Controllers
             rule.Remark = remark;
             rule.Operator = PublicFields.UserCookie.ReadCookie<SystemUser>().UserName;
             int count = _ruleService.InsertRule(rule);
-            string result;
+            string status = "failue", msg, json;
             switch (count)
             {
                 case -1:
-                    result = "添加失败,该角色名称已经存在,请不要重复添加！";
+                    msg = "添加失败,该角色名称已经存在,请不要重复添加！";
                     break;
                 case 1:
-                    result = "添加成功！";
+                    status = "success";
+                    msg = "添加成功！";
                     break;
                 default:
-                    result = "添加失败！";
+                    msg = "添加失败！";
                     break;
             }
-            return Content(result);
+            json = PublicFunc.ModelToJson(status, msg);
+            return Content(json);
         }
 
         public ActionResult Edit(string id)
@@ -122,20 +124,22 @@ namespace Napoleon.UserModule.Web.Controllers
             rule.Remark = remark;
             rule.Operator = PublicFields.UserCookie.ReadCookie<SystemUser>().UserName;
             int count = _ruleService.UpdateRule(rule);
-            string result;
+            string status = "failue", msg, json;
             switch (count)
             {
                 case -1:
-                    result = "更新失败，角色名称重复！";
+                    msg = "更新失败，角色名称重复！";
                     break;
                 case 1:
-                    result = "更新成功！";
+                    status = "success";
+                    msg = "更新成功！";
                     break;
                 default:
-                    result = "更新失败！";
+                    msg = "更新失败！";
                     break;
             }
-            return Content(result);
+            json = PublicFunc.ModelToJson(status, msg);
+            return Content(json);
         }
 
         /// <summary>
@@ -147,20 +151,22 @@ namespace Napoleon.UserModule.Web.Controllers
         public ActionResult DeleteRule(string id)
         {
             int count = _ruleService.DeleteRule(id);
-            string result;
+            string status = "failue", msg, json;
             switch (count)
             {
                 case -1:
-                    result = "删除失败，请先删除对应父节点！";
+                    msg = "删除失败，请先删除对应父节点！";
                     break;
                 case 1:
-                    result = "删除成功！";
+                    status = "success";
+                    msg = "删除成功！";
                     break;
                 default:
-                    result = "删除失败！";
+                    msg = "删除失败！";
                     break;
             }
-            return Content(result);
+            json = PublicFunc.ModelToJson(status, msg);
+            return Content(json);
         }
 
     }

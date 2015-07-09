@@ -8,8 +8,7 @@ namespace Napoleon.UserModule.Model
         /// <summary>
         ///  形式: guid(10)+yyMMddhhmmssffffff
         /// </summary>
-        /// Author  :俞立钢
-        /// Company :绍兴标点电子技术有限公司
+        /// Author  :Napoelon
         /// Created :2015-01-07 10:19:42
         public string Id
         {
@@ -21,8 +20,7 @@ namespace Napoleon.UserModule.Model
         /// <summary>
         ///  编码名称
         /// </summary>
-        /// Author  :俞立钢
-        /// Company :绍兴标点电子技术有限公司
+        /// Author  :Napoelon
         /// Created :2015-01-07 10:19:42
         public string Name
         {
@@ -34,8 +32,7 @@ namespace Napoleon.UserModule.Model
         /// <summary>
         ///  父节点
         /// </summary>
-        /// Author  :俞立钢
-        /// Company :绍兴标点电子技术有限公司
+        /// Author  :Napoelon
         /// Created :2015-01-07 10:19:42
         public string ParentId
         {
@@ -47,8 +44,7 @@ namespace Napoleon.UserModule.Model
         /// <summary>
         ///  排序
         /// </summary>
-        /// Author  :俞立钢
-        /// Company :绍兴标点电子技术有限公司
+        /// Author  :Napoelon
         /// Created :2015-01-07 10:19:42
         public decimal Sort
         {

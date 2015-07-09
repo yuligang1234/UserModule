@@ -1,67 +1,40 @@
-﻿<!DOCTYPE html>
-
-<html>
-<head>
-    <title></title>
-    @RenderPage("~/Views/Shared/Easyui.cshtml")
-    <style type="text/css">
-        body {
-            margin: 0;
-            padding: 0;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: separate;
-            border-spacing: 15px;
-        }
-
-            table .tableName {
-                text-align: right;
-                width: 100px;
-            }
-
-            table .tableValue input {
-                width: 160px;
-            }
-    </style>
-</head>
-<body>
-    <div style="padding: 10px;">
-        <form id="SaveRuleForm" method="post" data-options="novalidate:true">
-            <table style="width: 100%;">
-                <tr>
-                    <td class="tableName">系统代码:</td>
-                    <td class="tableValue">
-                        <input type="hidden" name="UserId" value='@ViewData["UserId"]' />
-                        <input id="ProjectId" name="ProjectId" class="easyui-textbox" type="text" data-options="required:true" />
-                    </td>
-                </tr>
-                <tr>
-                    <td class="tableName">公司名称:</td>
-                    <td class="tableValue">
-                        <input id="Company" name="Company" class="easyui-textbox" type="text" data-options="required:true,editable:false" />
-                    </td>
-                </tr>
-                <tr>
-                    <td class="tableName">角色名称:</td>
-                    <td class="tableValue">
-                        <input id="Rule" name="Rule" class="easyui-textbox" type="text" data-options="required:true,editable:false" />
-                    </td>
-                </tr>
-            </table>
-        </form>
-        <div style="text-align: center;">
-            <a class="easyui-linkbutton" id="SaveRule" data-options="iconCls:'icon-save'">保存</a>
-        </div>
+﻿@{
+    ViewBag.Title = "";
+    Layout = "~/Views/Shared/_Header.cshtml";
+}
+<div style="padding: 10px;">
+    <form id="SaveRuleForm" method="post" data-options="novalidate:true">
+        <table class="tableContent">
+            <tr>
+                <td class="tableName">系统代码:</td>
+                <td class="tableValue">
+                    <input type="hidden" name="UserId" value='@ViewData["UserId"]' />
+                    <input id="ProjectId" name="ProjectId" class="easyui-textbox" type="text" data-options="required:true" />
+                </td>
+            </tr>
+            <tr>
+                <td class="tableName">公司名称:</td>
+                <td class="tableValue">
+                    <input id="Company" name="Company" class="easyui-textbox" type="text" data-options="required:true,editable:false" />
+                </td>
+            </tr>
+            <tr>
+                <td class="tableName">角色名称:</td>
+                <td class="tableValue">
+                    <input id="Rule" name="Rule" class="easyui-textbox" type="text" data-options="required:true,editable:false" />
+                </td>
+            </tr>
+        </table>
+    </form>
+    <div style="text-align: center;">
+        <a class="easyui-linkbutton" id="SaveRule" data-options="iconCls:'icon-save'">保存</a>
     </div>
-    <script type="text/javascript">
-        seajs.use(["User/Permit", "PublicFunc/Easyui"], function (permit, easyui) {
-            $(function () {
-                easyui.LoadCombobox("#ProjectId", '/User/PermitProject', false, 'auto', permit.Load2Combobox);
-                $('#SaveRule').on('click', permit.FixedSave);
-            });
+</div>
+<script type="text/javascript">
+    seajs.use(["User/Permit", "PublicFunc/Easyui"], function (permit, easyui) {
+        $(function () {
+            easyui.LoadCombobox("#ProjectId", '/User/PermitProject', false, 'auto', permit.Load2Combobox);
+            $('#SaveRule').on('click', permit.FixedSave);
         });
-    </script>
-</body>
-</html>
+    });
+</script>

@@ -8,6 +8,7 @@ using Napoleon.PublicCommon.Http;
 using Napoleon.UserModule.Common;
 using Napoleon.UserModule.IBLL;
 using Napoleon.UserModule.Model;
+using Newtonsoft.Json;
 
 namespace Napoleon.UserModule.Web.Controllers
 {
@@ -46,20 +47,22 @@ namespace Napoleon.UserModule.Web.Controllers
         public ActionResult SaveUser(string id, string password, string newPw)
         {
             int count = _userService.SaveUser(id, password.EncrypteRc2(PublicFields.Rc2Key), newPw.EncrypteRc2(PublicFields.Rc2Key));
-            string result;
+            string status = "failue", msg, json;
             switch (count)
             {
                 case -1:
-                    result = "修改失败，请输入正确的原密码！";
+                    msg = "修改失败，请输入正确的原密码！";
                     break;
                 case 1:
-                    result = "修改成功,请重新登陆系统";
+                    status = "success";
+                    msg = "修改成功,请重新登陆系统";
                     break;
                 default:
-                    result = "修改失败！";
+                    msg = "修改失败！";
                     break;
             }
-            return Content(result);
+            json = PublicFunc.ModelToJson(status, msg);
+            return Content(json);
         }
 
         /// <summary>
@@ -89,16 +92,18 @@ namespace Napoleon.UserModule.Web.Controllers
         public ActionResult DeleteUser(string id)
         {
             int count = _userService.DeleteUser(id);
-            string result;
+            string status = "failue", msg, json;
             if (count > 0)
             {
-                result = "删除成功！";
+                status = "success";
+                msg = "删除成功！";
             }
             else
             {
-                result = count == -1 ? "删除失败，请先删除用户对应的权限！" : "删除失败！";
+                msg = count == -1 ? "删除失败，请先删除用户对应的权限！" : "删除失败！";
             }
-            return Content(result);
+            json = PublicFunc.ModelToJson(status, msg);
+            return Content(json);
         }
 
         public ActionResult Add()
@@ -119,11 +124,24 @@ namespace Napoleon.UserModule.Web.Controllers
         }
 
         /// <summary>
+        ///  项目列表
+        /// </summary>
+        /// <returns>ActionResult.</returns>
+        /// Author  : Napoleon
+        /// Created : 2015-06-06 09:22:50
+        public ActionResult LoadProject()
+        {
+            DataTable dt = _projectService.GetProjecTable();
+            string json = dt.ConvertToComboboxJson("ProjectId", "ProjectName");
+            return Content(json);
+        }
+
+        /// <summary>
         ///  保存新增的用户信息
         /// </summary>
         /// Author  : Napoleon
         /// Created : 2015-01-19 10:46:59
-        public ActionResult SaveAdd(string userName, string realName, string mobilePhone, string isUse, string userAddress, decimal sort, string remark)
+        public ActionResult SaveAdd(string projectId, string userName, string realName, string mobilePhone, string isUse, string userAddress, decimal sort, string remark)
         {
             SystemUser user = new SystemUser();
             user.Id = CustomId.GetCustomId();
@@ -136,24 +154,24 @@ namespace Napoleon.UserModule.Web.Controllers
             user.Sort = sort;
             user.Remark = remark;
             user.Operator = PublicFields.UserCookie.ReadCookie<SystemUser>().UserName;
+            user.ProjectId = projectId;
             int count = _userService.SaveAddUser(user);
-            string result;
+            string status = "failue", msg, json;
             switch (count)
             {
                 case -1:
-                    result = "保存失败，该账号已存在！";
-                    break;
-                case 0:
-                    result = "保存失败！";
+                    msg = "保存失败，该账号已存在！";
                     break;
                 case 1:
-                    result = "保存成功！";
+                    status = "success";
+                    msg = "保存成功！";
                     break;
                 default:
-                    result = "保存失败！";
+                    msg = "保存失败！";
                     break;
             }
-            return Content(result);
+            json = PublicFunc.ModelToJson(status, msg);
+            return Content(json);
         }
 
         public ActionResult ViewInfo(string id)
@@ -173,7 +191,7 @@ namespace Napoleon.UserModule.Web.Controllers
         /// </summary>
         /// Author  : Napoleon
         /// Created : 2015-01-19 15:53:14
-        public ActionResult UpdateUser(string id, string userName, string realName, string mobilePhone, string isUse, string userAddress, decimal sort, string remark)
+        public ActionResult UpdateUser(string id, string projectId, string userName, string realName, string mobilePhone, string isUse, string userAddress, decimal sort, string remark)
         {
             SystemUser user = new SystemUser();
             user.Id = id;
@@ -185,24 +203,24 @@ namespace Napoleon.UserModule.Web.Controllers
             user.Sort = sort;
             user.Remark = remark;
             user.Operator = PublicFields.UserCookie.ReadCookie<SystemUser>().UserName;
+            user.ProjectId = projectId;
             int count = _userService.UpdateUser(user);
-            string result;
+            string status = "failue", msg, json;
             switch (count)
             {
                 case -1:
-                    result = "更新失败，该账号已存在！";
-                    break;
-                case 0:
-                    result = "更新失败！";
+                    msg = "更新失败，该账号已存在！";
                     break;
                 case 1:
-                    result = "更新成功！";
+                    status = "success";
+                    msg = "更新成功！";
                     break;
                 default:
-                    result = "更新成功！";
+                    msg = "更新失败！";
                     break;
             }
-            return Content(result);
+            json = PublicFunc.ModelToJson(status, msg);
+            return Content(json);
         }
 
         /// <summary>
@@ -214,11 +232,14 @@ namespace Napoleon.UserModule.Web.Controllers
         public ActionResult UpdatePassWord(string ids)
         {
             int count = _userService.UpdatePassWord(PublicFields.DefaultPw.EncrypteRc2(PublicFields.Rc2Key), ids);
+            string status = "failue", msg = "初始化失败", json;
             if (count > 0)
             {
-                return Content("初始化成功！");
+                status = "success";
+                msg = "初始化成功！";
             }
-            return Content("初始化失败");
+            json = PublicFunc.ModelToJson(status, msg);
+            return Content(json);
         }
 
         public ActionResult Permit(string userId)
@@ -252,17 +273,19 @@ namespace Napoleon.UserModule.Web.Controllers
         public ActionResult DeletePermit(string id)
         {
             int count = _userAndRuleService.DeleteRuleById(id);
-            string result;
+            string status = "failue", msg, json;
             switch (count)
             {
                 case 1:
-                    result = "删除成功！";
+                    status = "success";
+                    msg = "删除成功！";
                     break;
                 default:
-                    result = "删除失败！";
+                    msg = "删除失败！";
                     break;
             }
-            return Content(result);
+            json = PublicFunc.ModelToJson(status, msg);
+            return Content(json);
         }
 
         public ActionResult PermitAdd(string userId)
@@ -315,20 +338,22 @@ namespace Napoleon.UserModule.Web.Controllers
             rules.RuleParentId = company;
             rules.RuleId = rule;
             int count = _userAndRuleService.InsertUserRule(rules);
-            string result;
+            string status = "failue", msg, json;
             switch (count)
             {
                 case -1:
-                    result = "添加失败,该用户已经拥有类似权限，不能重复添加！";
+                    msg = "添加失败,该用户已经拥有类似权限，不能重复添加！";
                     break;
                 case 1:
-                    result = "添加成功！";
+                    status = "success";
+                    msg = "添加成功！";
                     break;
                 default:
-                    result = "添加失败！";
+                    msg = "添加失败！";
                     break;
             }
-            return Content(result);
+            json = PublicFunc.ModelToJson(status, msg);
+            return Content(json);
         }
 
     }

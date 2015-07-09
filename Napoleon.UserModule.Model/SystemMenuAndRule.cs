@@ -20,7 +20,7 @@ namespace Napoleon.UserModule.Model
         /// <summary>
         ///  角色ID
         /// </summary>
-        /// Author  :俞立钢
+        /// Author  :Napoelon
         /// Company :绍兴标点电子技术有限公司
         /// Created :2015-01-07 10:21:23
         public string RuleId
@@ -33,7 +33,7 @@ namespace Napoleon.UserModule.Model
         /// <summary>
         ///  菜单ID
         /// </summary>
-        /// Author  :俞立钢
+        /// Author  :Napoelon
         /// Company :绍兴标点电子技术有限公司
         /// Created :2015-01-07 10:21:23
         public string MenuId
@@ -46,7 +46,7 @@ namespace Napoleon.UserModule.Model
         /// <summary>
         ///  操作ID
         /// </summary>
-        /// Author  :俞立钢
+        /// Author  :Napoelon
         /// Company :绍兴标点电子技术有限公司
         /// Created :2015-01-07 10:21:23
         public string OperationId

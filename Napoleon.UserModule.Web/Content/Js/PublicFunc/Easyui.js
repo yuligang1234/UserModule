@@ -218,9 +218,6 @@ define(function (require, exports, module) {
     //重新加载表格
     //parameters:{id:1,name:123}
     exports.ReloadDataGrid = function (selector, parameters) {
-        /*$.getJSON(url, parameters, function (data) {
-            $(selector).datagrid('loadData', data);
-        });*/
         $(selector).datagrid('options').queryParams = parameters;
         $(selector).datagrid('reload');
     };
@@ -278,6 +275,7 @@ define(function (require, exports, module) {
             resizable: false,
             loadingMessage: '正在加载数据，请稍等......'
         });
+        /*parent.window.$(selector).window('refresh', url);//这种方式直接在页面上加载div内容,不是重新加载一个页面,比较方便,推荐使用*/
     };
 
     //下拉框
@@ -293,6 +291,19 @@ define(function (require, exports, module) {
                     selectFunc(data);
                 }
             }
+        });
+    };
+
+    //下拉框表格
+    exports.LoadComboGrid = function (selector, url, panelWidth, idField, textField, method, columns, fitColumns) {
+        $(selector).combogrid({
+            url: url,
+            method: method,
+            panelWidth: panelWidth,
+            idField: idField,
+            textField: textField,
+            columns: [columns],
+            fitColumns: fitColumns
         });
     };
 

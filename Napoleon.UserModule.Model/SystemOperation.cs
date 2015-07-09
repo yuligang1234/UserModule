@@ -8,8 +8,7 @@ namespace Napoleon.UserModule.Model
         /// <summary>
         ///  形式: guid(10)+yyMMddhhmmssffffff
         /// </summary>
-        /// Author  :俞立钢
-        /// Company :绍兴标点电子技术有限公司
+        /// Author  :Napoelon
         /// Created :2015-01-07 10:21:51
         public string Id
         {
@@ -21,8 +20,7 @@ namespace Napoleon.UserModule.Model
         /// <summary>
         ///  操作名称
         /// </summary>
-        /// Author  :俞立钢
-        /// Company :绍兴标点电子技术有限公司
+        /// Author  :Napoelon
         /// Created :2015-01-07 10:21:51
         public string Name
         {
@@ -34,8 +32,7 @@ namespace Napoleon.UserModule.Model
         /// <summary>
         ///  元素ID
         /// </summary>
-        /// Author  :俞立钢
-        /// Company :绍兴标点电子技术有限公司
+        /// Author  :Napoelon
         /// Created :2015-01-07 10:21:51
         public string HtmlId
         {
@@ -47,8 +44,7 @@ namespace Napoleon.UserModule.Model
         /// <summary>
         ///  链接
         /// </summary>
-        /// Author  :俞立钢
-        /// Company :绍兴标点电子技术有限公司
+        /// Author  :Napoelon
         /// Created :2015-01-07 10:21:51
         public string Url
         {
@@ -60,8 +56,7 @@ namespace Napoleon.UserModule.Model
         /// <summary>
         ///  图标
         /// </summary>
-        /// Author  :俞立钢
-        /// Company :绍兴标点电子技术有限公司
+        /// Author  :Napoelon
         /// Created :2015-01-07 10:21:51
         public string Icon
         {
@@ -73,8 +68,7 @@ namespace Napoleon.UserModule.Model
         /// <summary>
         ///  排序
         /// </summary>
-        /// Author  :俞立钢
-        /// Company :绍兴标点电子技术有限公司
+        /// Author  :Napoelon
         /// Created :2015-01-07 10:21:51
         public decimal Sort
         {
@@ -86,8 +80,7 @@ namespace Napoleon.UserModule.Model
         /// <summary>
         ///  备注
         /// </summary>
-        /// Author  :俞立钢
-        /// Company :绍兴标点电子技术有限公司
+        /// Author  :Napoelon
         /// Created :2015-01-07 10:21:51
         public string Remark
         {
@@ -99,8 +92,7 @@ namespace Napoleon.UserModule.Model
         /// <summary>
         ///  操作者
         /// </summary>
-        /// Author  :俞立钢
-        /// Company :绍兴标点电子技术有限公司
+        /// Author  :Napoelon
         /// Created :2015-01-07 10:21:51
         public string Operator
         {

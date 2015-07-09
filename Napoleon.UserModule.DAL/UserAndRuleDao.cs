@@ -23,7 +23,7 @@ namespace Napoleon.UserModule.DAL
             SystemUserAndRule userAndRule = new SystemUserAndRule();
             try
             {
-                string sql = "SELECT Id,UserId,RuleId,RuleParentId FROM dbo.System_UserAndRule WHERE UserId=@UserId AND ProjectId=@ProjectId";
+                string sql = "SELECT Id,ProjectId,UserId,RuleId,RuleParentId FROM dbo.System_UserAndRule WHERE UserId=@UserId AND ProjectId=@ProjectId";
                 userAndRule = DbHelper.GetEnumerable<SystemUserAndRule>(sql, new { @UserId = userId, @ProjectId = projectId });
             }
             catch (Exception exception)

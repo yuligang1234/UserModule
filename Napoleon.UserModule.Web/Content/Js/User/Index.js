@@ -2,6 +2,7 @@
 define(function (require, exports, module) {
 
     var easyui = require("../PublicFunc/Easyui.js");
+    var pubJs = require("../PublicFunc/Index.js");
 
     //加载权限
     exports.LoadOperate = function (selector) {
@@ -24,6 +25,7 @@ define(function (require, exports, module) {
             { field: 'Remark', title: '备注', halign: 'center', align: 'center', width: 100 }
         ];
         easyui.LoadDataGrid("#gridTool", url, gridColumns, title, false, undefined, undefined, undefined);
+        //easyui.LoadComboGrid('#mobilePhone', '/User/LoadDataGrids', 800, "Id", "RealName", 'get', columns, true);
     };
 
     //设置页面
@@ -61,7 +63,7 @@ define(function (require, exports, module) {
 
     //新增
     exports.FixedAdd = function () {
-        easyui.ShowParentWindow('#myWindow', '新增用户', '/User/Add', '720', '340');
+        easyui.ShowParentWindow('#myWindow', '新增用户3', '/User/Add', '720', '380');
     };
 
     //保存新增
@@ -69,17 +71,15 @@ define(function (require, exports, module) {
         $('#addUserForm').form('submit', {
             url: '/User/SaveAdd',
             success: function (data) {
-                switch (data.substring(0, 4)) {
-                    case "保存成功":
+                var json = pubJs.DeserializeJson(data);
+                switch (json.Status) {
+                    case "success":
                         parent.window.$('#myWindow').window('close');
-                        parent.window.$.messager.alert('提示', data, 'info');
+                        parent.window.$.messager.alert('提示', json.Msg, 'info');
                         $(window.parent.$('#tabs').tabs('getSelected').find('iframe'))[0].contentWindow.$('#gridTool').datagrid('reload');//标签页里获取iframe
                         break;
-                    case "保存失败":
-                        parent.window.$.messager.alert('提示', data, 'info');
-                        break;
-                    case "<!DO":
-                        document.write(data);
+                    default:
+                        parent.window.$.messager.alert('提示', json.Msg, 'info');
                         break;
                 }
             }
@@ -96,7 +96,7 @@ define(function (require, exports, module) {
                 parent.window.$.messager.alert('提示', '只能编辑一条数据！', 'info');
             } else {
                 var url = '/User/Edit?id=' + row[0].Id + '&randId=' + Math.random();
-                easyui.ShowParentWindow('#myWindow', '用户编辑', url, '720', '340');
+                easyui.ShowParentWindow('#myWindow', '用户编辑', url, '720', '380');
             }
         }
     };
@@ -106,17 +106,15 @@ define(function (require, exports, module) {
         $('#updateUserForm').form('submit', {
             url: '/User/UpdateUser',
             success: function (data) {
-                switch (data.substring(0, 4)) {
-                    case "更新成功":
+                var json = pubJs.DeserializeJson(data);
+                switch (json.Status) {
+                    case "success":
                         parent.window.$('#myWindow').window('close');
-                        parent.window.$.messager.alert('提示', data, 'info');
+                        parent.window.$.messager.alert('提示', json.Msg, 'info');
                         $(window.parent.$('#tabs').tabs('getSelected').find('iframe'))[0].contentWindow.$('#gridTool').datagrid('reload');//标签页里获取iframe
                         break;
-                    case "更新失败":
-                        parent.window.$.messager.alert('提示', data, 'info');
-                        break;
-                    case "<!DO":
-                        document.write(data);
+                    default:
+                        parent.window.$.messager.alert('提示', json.Msg, 'info');
                         break;
                 }
             }
@@ -139,17 +137,15 @@ define(function (require, exports, module) {
                     url: '/User/DeleteUser',
                     data: { id: ids.toString() },
                     type: 'post',
-                    complete: function (msg) {
-                        switch (msg.responseText.substring(0, 4)) {
-                            case "删除成功":
-                                parent.window.$.messager.alert('提示', msg.responseText, 'info');
+                    complete: function (data) {
+                        var json = pubJs.DeserializeJson(data.responseText);
+                        switch (json.Status) {
+                            case "success":
+                                parent.window.$.messager.alert('提示', json.Msg, 'info');
                                 $('#gridTool').datagrid('reload');
                                 break;
-                            case "删除失败":
-                                parent.window.$.messager.alert('提示', msg.responseText, 'info');
-                                break;
                             default:
-                                parent.window.$.messager.alert('提示', "删除失败！", 'info');
+                                parent.window.$.messager.alert('提示', json.Msg, 'info');
                                 break;
                         }
                     }
@@ -175,13 +171,14 @@ define(function (require, exports, module) {
                     url: '/User/UpdatePassWord',
                     data: { ids: ids.toString() },
                     type: 'post',
-                    complete: function (msg) {
-                        switch (msg.responseText.substring(0, 5)) {
-                            case "初始化成功":
-                                parent.window.$.messager.alert('提示', msg.responseText, 'info');
+                    complete: function (data) {
+                        var json = pubJs.DeserializeJson(data.responseText);
+                        switch (json.Status) {
+                            case "success":
+                                parent.window.$.messager.alert('提示', json.Msg, 'info');
                                 break;
                             default:
-                                parent.window.$.messager.alert('提示', "初始化失败！", 'info');
+                                parent.window.$.messager.alert('提示', json.Msg, 'info');
                                 break;
                         }
                     }

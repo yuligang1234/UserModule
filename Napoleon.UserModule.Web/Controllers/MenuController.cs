@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Data;
 using System.Web.Mvc;
-using Napoleon.PublicCommon;
 using Napoleon.PublicCommon.Base;
 using Napoleon.PublicCommon.Frame;
 using Napoleon.PublicCommon.Http;
@@ -76,22 +75,24 @@ namespace Napoleon.UserModule.Web.Controllers
             menu.Icon = icon;
             menu.Sort = Convert.ToDecimal(sort);
             menu.Remark = remark;
-            menu.Operator = CookieSessionFunc.ReadCookie<SystemUser>(PublicFields.UserCookie).UserName;
+            menu.Operator = PublicFields.UserCookie.ReadCookie<SystemUser>().UserName;
             int count = _menuDao.InsertMenu(menu);
-            string result;
+            string status = "failue", msg, json;
             switch (count)
             {
                 case -1:
-                    result = "添加失败，该菜单名称已经存在，请不要重复添加！";
+                    msg = "添加失败，该菜单名称已经存在，请不要重复添加！";
                     break;
                 case 1:
-                    result = "添加成功！";
+                    status = "success";
+                    msg = "添加成功！";
                     break;
                 default:
-                    result = "添加失败！";
+                    msg = "添加失败！";
                     break;
             }
-            return Content(result);
+            json = PublicFunc.ModelToJson(status, msg);
+            return Content(json);
         }
 
         public ActionResult Edit(string id)
@@ -116,22 +117,24 @@ namespace Napoleon.UserModule.Web.Controllers
             menu.Icon = icon;
             menu.Sort = Convert.ToDecimal(sort);
             menu.Remark = remark;
-            menu.Operator = CookieSessionFunc.ReadCookie<SystemUser>(PublicFields.UserCookie).UserName;
+            menu.Operator = PublicFields.UserCookie.ReadCookie<SystemUser>().UserName;
             int count = _menuDao.UpdateMenu(menu);
-            string result;
+            string status = "failue", msg, json;
             switch (count)
             {
                 case -1:
-                    result = "该菜单已经存在，请不要使用重复的菜单名！";
+                    msg = "该菜单已经存在，请不要使用重复的菜单名！";
                     break;
                 case 1:
-                    result = "更新成功！";
+                    status = "success";
+                    msg = "更新成功！";
                     break;
                 default:
-                    result = "更新失败！";
+                    msg = "更新失败！";
                     break;
             }
-            return Content(result);
+            json = PublicFunc.ModelToJson(status, msg);
+            return Content(json);
         }
 
         /// <summary>
@@ -143,16 +146,18 @@ namespace Napoleon.UserModule.Web.Controllers
         public ActionResult DeleteMenu(string id)
         {
             int count = _menuDao.DeleteMenu(id);
-            string result;
+            string status = "failue", msg, json;
             if (count > 0)
             {
-                result = "删除成功！";
+                status = "success";
+                msg = "删除成功！";
             }
             else
             {
-                result = count == -1 ? "删除失败，请先删除该对应的子菜单！" : "删除失败！";
+                msg = count == -1 ? "删除失败，请先删除该对应的子菜单！" : "删除失败！";
             }
-            return Content(result);
+            json = PublicFunc.ModelToJson(status, msg);
+            return Content(json);
         }
 
 

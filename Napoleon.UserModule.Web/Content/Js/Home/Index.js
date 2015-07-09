@@ -1,6 +1,7 @@
 ﻿define(function (require, exports, module) {
 
     var easyui = require('../PublicFunc/Easyui.js');
+    var pubJs = require('../PublicFunc/Index.js');
 
     //退出
     exports.LoginOut = function () {
@@ -26,10 +27,11 @@
         $('#pwForm').form('submit', {
             url: '/User/SaveUser',
             success: function (data) {
-                switch (data.substring(0, 4)) {
-                    case "修改成功":
+                var json = pubJs.DeserializeJson(data);
+                switch (json.Status) {
+                    case "success":
                         parent.window.$('#myWindow').window('close');
-                        parent.window.$.messager.alert('提示', data, 'info', function () {
+                        parent.window.$.messager.alert('提示', json.Msg, 'info', function () {
                             $.ajax({
                                 url: '/Login/LoginOut',
                                 complete: function () {
@@ -38,11 +40,8 @@
                             });
                         });
                         break;
-                    case "修改失败":
-                        parent.window.$.messager.alert('提示', data, 'info');
-                        break;
-                    case "<!DO":
-                        document.write(data);
+                    default:
+                        parent.window.$.messager.alert('提示', json.Msg, 'info');
                         break;
                 }
             }

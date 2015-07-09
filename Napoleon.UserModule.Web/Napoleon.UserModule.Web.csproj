@@ -652,7 +652,7 @@
     <None Include="Properties\PublishProfiles\用户权限模块.pubxml" />
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Shared\Easyui.cshtml" />
+    <Content Include="Views\Shared\Easyuis.cshtml" />
     <Content Include="Views\Home\HomeRight.cshtml" />
     <Content Include="Views\Error\Index.cshtml" />
     <Content Include="Views\Error\NoFound.cshtml" />
@@ -674,9 +674,10 @@
     <Content Include="Views\Rule\Index.cshtml" />
     <Content Include="Views\Rule\Add.cshtml" />
     <Content Include="Views\Rule\Edit.cshtml" />
-    <Content Include="Views\Shared\Easyui_Other.cshtml" />
+    <Content Include="Views\Shared\Easyui.cshtml" />
     <Content Include="Views\Error\Message.cshtml" />
     <Content Include="Views\RulePermit\Index.cshtml" />
+    <Content Include="Views\Shared\_Header.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

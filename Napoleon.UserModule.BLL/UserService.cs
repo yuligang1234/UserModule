@@ -21,11 +21,12 @@ namespace Napoleon.UserModule.BLL
         /// </summary>
         /// <param name="userName">用户账号</param>
         /// <param name="passWord">用户密码</param>
+        /// <param name="projectId">项目ID</param>
         /// Author  : Napoleon
         /// Created : 2015-01-05 19:49:26
-        public SystemUser CheckUser(string userName, string passWord)
+        public SystemUser CheckUser(string userName, string passWord, string projectId)
         {
-            return _userDao.CheckUser(userName, passWord);
+            return _userDao.CheckUser(userName, passWord, projectId);
         }
 
         /// <summary>

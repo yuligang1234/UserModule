@@ -1,6 +1,8 @@
 ﻿
 define(function (require, exports, module) {
 
+    var pubJs = require("../PublicFunc/Index.js");
+
     //设置输入框的宽度
     exports.SetBoxWidth = function () {
         $('.LoginBox').css({ 'position': 'absolute', 'left': ($(window).width() - 692) / 2 });
@@ -63,17 +65,15 @@ define(function (require, exports, module) {
                     msg: '登录中......'
                 });
             },
-            complete: function (msg) {
+            complete: function (data) {
                 $.messager.progress('close');
-                switch (msg.responseText.substring(0, 4)) {
-                    case "登录成功":
+                var json = pubJs.DeserializeJson(data.responseText);
+                switch (json.Status) {
+                    case "success":
                         window.location.href = "/Home/Index";
                         break;
-                    case "登录失败":
-                        $.messager.alert('提示', msg.responseText, 'info');
-                        break;
                     default:
-                        $.messager.alert('提示', "登录失败!", 'info');
+                        $.messager.alert('提示', json.Msg, 'info');
                         break;
                 }
             }

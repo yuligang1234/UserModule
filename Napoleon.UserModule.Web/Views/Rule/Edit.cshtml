@@ -1,76 +1,49 @@
 ﻿@using Napoleon.UserModule.Model
-<!DOCTYPE html>
-
-<html>
-<head>
-    <title></title>
-    @RenderPage("~/Views/Shared/Easyui.cshtml")
-    <style type="text/css">
-        body {
-            margin: 0;
-            padding: 0;
+@{
+    ViewBag.Title = "";
+    Layout = "~/Views/Shared/_Header.cshtml";
+}
+<div style="padding: 15px;">
+    <form id="UpdateRuleForm" method="post" data-options="novalidate:true">
+        @{
+            SystemRule rule = (SystemRule) ViewData["Rule"];
+            <table class="tableContent">
+                <tr>
+                    <td class="tableName">菜单名称:</td>
+                    <td class="tableValue">
+                        <input type="hidden" id="ProjectId" name="projectId" value='@rule.ProjectId' />
+                        <input type="hidden" id="Id" name="id" value='@rule.Id' />
+                        <input name="name" class="easyui-textbox" type="text" value="@rule.Name" data-options="required:true" />
+                    </td>
+                    <td class="tableName">菜单父节点:</td>
+                    <td class="tableValue">
+                        <input id="ParentId" name="parentId" class="easyui-combobox" type="text" value="@rule.ParentId" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tableName">排序:</td>
+                    <td class="tableValue">
+                        <input name="sort" class="easyui-numberbox" precision="2" data-options="required:true" type="text" value="@rule.Sort" />
+                    </td>
+                    <td class="tableName">备注:</td>
+                    <td class="tableValue">
+                        <input name="remark" style="height: 60px;" value="@rule.Remark" class="easyui-textbox" type="text" data-options="multiline:true" />
+                    </td>
+                </tr>
+            </table>
         }
-
-        table {
-            width: 100%;
-            border-collapse: separate;
-            border-spacing: 20px;
-        }
-
-            table .tableName {
-                text-align: right;
-                width: 100px;
-            }
-
-            table .tableValue input {
-                width: 180px;
-            }
-    </style>
-</head>
-<body>
-    <div style="padding: 15px;">
-        <form id="UpdateRuleForm" method="post" data-options="novalidate:true">
-            @{
-                SystemRule rule = (SystemRule) ViewData["Rule"];
-                <table style="width: 100%;">
-                    <tr>
-                        <td class="tableName">菜单名称:</td>
-                        <td class="tableValue">
-                            <input type="hidden" id="ProjectId" name="projectId" value='@rule.ProjectId' />
-                            <input type="hidden" id="Id" name="id" value='@rule.Id' />
-                            <input name="name" class="easyui-textbox" type="text" value="@rule.Name" data-options="required:true" />
-                        </td>
-                        <td class="tableName">菜单父节点:</td>
-                        <td class="tableValue">
-                            <input id="ParentId" name="parentId" class="easyui-combobox" type="text" value="@rule.ParentId" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="tableName">排序:</td>
-                        <td class="tableValue">
-                            <input name="sort" class="easyui-numberbox" precision="2" data-options="required:true" type="text" value="@rule.Sort" />
-                        </td>
-                        <td class="tableName">备注:</td>
-                        <td class="tableValue">
-                            <input name="remark" style="height: 60px;" value="@rule.Remark" class="easyui-textbox" type="text" data-options="multiline:true" />
-                        </td>
-                    </tr>
-                </table>
-            }
-        </form>
-        <div style="text-align: center;">
-            <a class="easyui-linkbutton" id="UpdateRule" data-options="iconCls:'icon-save'">更新</a>
-        </div>
+    </form>
+    <div style="text-align: center;">
+        <a class="easyui-linkbutton" id="UpdateRule" data-options="iconCls:'icon-save'">更新</a>
     </div>
-    <div id="myWindow"></div>
-    <script type="text/javascript">
-        seajs.use(["Rule/Index", "PublicFunc/Easyui"], function (index, easyui) {
-            $(function () {
-                var projectId = $('#ProjectId').val();
-                easyui.LoadCombobox("#ParentId", '/Rule/LoadParentId?projectId=' + projectId);
-                $('#UpdateRule').on('click', index.UpdateRule);
-            });
+</div>
+<div id="myWindow"></div>
+<script type="text/javascript">
+    seajs.use(["Rule/Index", "PublicFunc/Easyui"], function (index, easyui) {
+        $(function () {
+            var projectId = $('#ProjectId').val();
+            easyui.LoadCombobox("#ParentId", '/Rule/LoadParentId?projectId=' + projectId);
+            $('#UpdateRule').on('click', index.UpdateRule);
         });
-    </script>
-</body>
-</html>
+    });
+</script>

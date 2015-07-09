@@ -11,6 +11,7 @@ D:\Napoleon\GitHub\功能模块\用户模块\UserModule\Napoleon.UserModule.IBLL
 D:\Napoleon\GitHub\功能模块\用户模块\UserModule\Napoleon.UserModule.IBLL\bin\Debug\Napoleon.UserModule.IBLL.pdb
 D:\Napoleon\GitHub\功能模块\用户模块\UserModule\Napoleon.UserModule.IBLL\bin\Debug\Napoleon.UserModule.Common.dll
 D:\Napoleon\GitHub\功能模块\用户模块\UserModule\Napoleon.UserModule.IBLL\bin\Debug\Napoleon.UserModule.Model.dll
+D:\Napoleon\GitHub\功能模块\用户模块\UserModule\Napoleon.UserModule.IBLL\bin\Debug\Newtonsoft.Json.dll
 D:\Napoleon\GitHub\功能模块\用户模块\UserModule\Napoleon.UserModule.IBLL\bin\Debug\Napoleon.UserModule.Common.pdb
 D:\Napoleon\GitHub\功能模块\用户模块\UserModule\Napoleon.UserModule.IBLL\bin\Debug\Napoleon.UserModule.Model.pdb
 D:\Napoleon\GitHub\功能模块\用户模块\UserModule\Napoleon.UserModule.IBLL\obj\Debug\Napoleon.UserModule.IBLL.csprojResolveAssemblyReference.cache

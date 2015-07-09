@@ -1,40 +1,34 @@
-﻿<!DOCTYPE html>
-
-<html>
-<head>
-    <title></title>
-    @RenderPage("~/Views/Shared/Easyui_Other.cshtml")
-</head>
-<body style="margin: 0; padding: 0;">
-    <div id="searchTool" class="datagrid-toolbar">
-        <table>
-            <tr id="LoadOperate">
-                <td colspan="2">
-                    <div style="float: left;">
-                        <input type="hidden" id="ProjectId" value='@ViewData["ProjectId"]' />
-                        <input type="hidden" id="RuleId" value='@ViewData["RuleId"]' />
-                        <a href="javascript:void(0);" id="FixedSave" class="easyui-linkbutton" data-options="iconCls:'icon-save',plain:true" style="float: left;">保存</a>
-                        <div class="datagrid-btn-separator"></div>
-                    </div>
-                </td>
-            </tr>
-        </table>
-    </div>
-    <div id="treeTool">
-    </div>
-    <div id="myWindow"></div>
-    <script type="text/javascript">
-        seajs.use("RulePermit/Index", function (index) {
-            $(function () {
-                var projectId = $('#ProjectId').val();
-                var ruleId = $('#RuleId').val();
-                index.LoadTrees(projectId, ruleId);
-                index.LoadBody();
-                $('#FixedSave').on('click', function () { index.SaveRule(projectId, ruleId); });
-            });
+﻿@{
+    ViewBag.Title = "";
+    Layout = "~/Views/Shared/_Header.cshtml";
+}
+<div id="searchTool" class="datagrid-toolbar">
+    <table>
+        <tr id="LoadOperate">
+            <td colspan="2">
+                <div style="float: left;">
+                    <input type="hidden" id="ProjectId" value='@ViewData["ProjectId"]' />
+                    <input type="hidden" id="RuleId" value='@ViewData["RuleId"]' />
+                    <a href="javascript:void(0);" id="FixedSave" class="easyui-linkbutton" data-options="iconCls:'icon-save',plain:true" style="float: left;">保存</a>
+                    <div class="datagrid-btn-separator"></div>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>
+<div id="treeTool">
+</div>
+<div id="myWindow"></div>
+<script type="text/javascript">
+    seajs.use("RulePermit/Index", function (index) {
+        $(function () {
+            var projectId = $('#ProjectId').val();
+            var ruleId = $('#RuleId').val();
+            index.LoadTrees(projectId, ruleId);
+            index.LoadBody();
+            $('#FixedSave').on('click', function () { index.SaveRule(projectId, ruleId); });
         });
-    </script>
-</body>
-</html>
+    });
+</script>
 
 

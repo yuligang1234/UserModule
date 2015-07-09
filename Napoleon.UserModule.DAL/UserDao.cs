@@ -17,14 +17,15 @@ namespace Napoleon.UserModule.DAL
         /// </summary>
         /// <param name="userName">用户账号</param>
         /// <param name="passWord">用户密码</param>
+        /// <param name="projectId">项目ID</param>
         /// Author  : Napoleon
         /// Created : 2015-01-05 19:49:26
-        public SystemUser CheckUser(string userName, string passWord)
+        public SystemUser CheckUser(string userName, string passWord, string projectId)
         {
             try
             {
-                string sql = "select Id,UserName,PassWords,RealName,MobilePhone,IsUse,UserAddress,Sort,Remark,Operator FROM [System_User] AS su where UserName=@UserName and PassWords=@PassWords";
-                SystemUser user = DbHelper.GetEnumerable<SystemUser>(sql, new { @UserName = userName, @PassWords = passWord });
+                string sql = "select Id,ProjectId,UserName,PassWords,RealName,MobilePhone,IsUse,UserAddress,Sort,Remark,Operator FROM [System_User] AS su where UserName=@UserName and PassWords=@PassWords and ProjectId=@ProjectId";
+                SystemUser user = DbHelper.GetEnumerable<SystemUser>(sql, new { @UserName = userName, @PassWords = passWord, @ProjectId = projectId });
                 return user;
             }
             catch (Exception)
@@ -134,7 +135,7 @@ namespace Napoleon.UserModule.DAL
         /// Created : 2015-01-19 10:43:24
         public int SaveAddUser(SystemUser user)
         {
-            string sql = "select Id from System_User where UserName=@UserName";
+            string sql = "select Id from System_User where UserName=@UserName and ProjectId=@ProjectId";
             int count = DbHelper.QueryCount(sql, user);
             if (count > 0)
             {
@@ -142,7 +143,7 @@ namespace Napoleon.UserModule.DAL
             }
             else
             {
-                sql = "Insert into dbo.[System_User](Id,UserName ,PassWords ,RealName ,MobilePhone ,IsUse ,UserAddress ,Sort ,Remark ,Operator) values(@Id,@UserName,@PassWords,@RealName,@MobilePhone,@IsUse,@UserAddress,@Sort,@Remark,@Operator)";
+                sql = "Insert into dbo.[System_User](Id,ProjectId,UserName ,PassWords ,RealName ,MobilePhone ,IsUse ,UserAddress ,Sort ,Remark ,Operator) values(@Id,@ProjectId,@UserName,@PassWords,@RealName,@MobilePhone,@IsUse,@UserAddress,@Sort,@Remark,@Operator)";
                 count = DbHelper.ExecuteSql(sql, user);
             }
             return count;
@@ -156,7 +157,7 @@ namespace Napoleon.UserModule.DAL
         /// Created : 2015-01-19 15:16:10
         public SystemUser GetUserById(string id)
         {
-            string sql = "SELECT Id,UserName,PassWords,RealName,MobilePhone,IsUse,UserAddress,Sort,Remark,Operator FROM dbo.[System_User] Where Id=@id";
+            string sql = "SELECT Id,ProjectId,UserName,PassWords,RealName,MobilePhone,IsUse,UserAddress,Sort,Remark,Operator FROM dbo.[System_User] Where Id=@id";
             return DbHelper.GetEnumerable<SystemUser>(sql, new { @id = id });
         }
 
@@ -168,8 +169,12 @@ namespace Napoleon.UserModule.DAL
         /// Created : 2015-01-19 16:24:22
         public int UpdateUser(SystemUser user)
         {
-            string sql = "SELECT Id FROM dbo.[System_User] WHERE UserName=@UserName";
-            SqlParameter[] parameters = { new SqlParameter("@UserName", user.UserName) };
+            string sql = "SELECT Id FROM dbo.[System_User] WHERE UserName=@UserName and @ProjectId=ProjectId";
+            SqlParameter[] parameters =
+            {
+                new SqlParameter("@UserName", user.UserName),
+                new SqlParameter("@ProjectId",user.ProjectId) 
+            };
             DataTable dt = DbHelper.GetDataTable(sql, parameters);
             if (dt.Rows.Count > 0 && !dt.Rows[0][0].ToString().Equals(user.Id))
             {

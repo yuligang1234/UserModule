@@ -12,7 +12,7 @@ namespace Napoleon.UserModule.Web.Common
         {
             get
             {
-                return (CookieSessionFunc.ReadCookie<SystemUser>(PublicFields.UserCookie) != null);
+                return (PublicFields.UserCookie.ReadCookie<SystemUser>() != null);
             }
         }
 

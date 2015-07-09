@@ -1,6 +1,7 @@
 ﻿define(function (require, exports, module) {
 
     var easyui = require("../PublicFunc/Easyui.js");
+    var pubJs = require("../PublicFunc/Index.js");
 
     //加载用户信息列表
     exports.LoadGrid = function (projectId) {
@@ -39,17 +40,15 @@
         $('#AddMenuForm').form('submit', {
             url: '/Menu/SaveMenu',
             success: function (data) {
-                switch (data.substring(0, 4)) {
-                    case "添加成功":
+                var json = pubJs.DeserializeJson(data);
+                switch (json.Status) {
+                    case "success":
                         parent.window.$('#myWindow').window('close');
-                        parent.window.$.messager.alert('提示', data, 'info');
+                        parent.window.$.messager.alert('提示', json.Msg, 'info');
                         parent.window.$('#gridTool').treegrid('reload');
                         break;
-                    case "添加失败":
-                        parent.window.$.messager.alert('提示', data, 'info');
-                        break;
                     default:
-                        parent.window.$.messager.alert('提示', "添加失败!", 'info');
+                        parent.window.$.messager.alert('提示', json.Msg, 'info');
                         break;
                 }
             }
@@ -72,14 +71,15 @@
         $('#UpdateMenuForm').form('submit', {
             url: '/Menu/UpdateMenu',
             success: function (data) {
-                switch (data.substring(0, 4)) {
-                    case "更新成功":
+                var json = pubJs.DeserializeJson(data);
+                switch (json.Status) {
+                    case "success":
                         parent.window.$('#myWindow').window('close');
-                        parent.window.$.messager.alert('提示', data, 'info');
+                        parent.window.$.messager.alert('提示', json.Msg, 'info');
                         parent.window.$('#gridTool').treegrid('reload');
                         break;
                     default:
-                        parent.window.$.messager.alert('提示', "更新失败！", 'info');
+                        parent.window.$.messager.alert('提示', json.Msg, 'info');
                         break;
                 }
             }
@@ -99,17 +99,15 @@
                     url: '/Menu/DeleteMenu',
                     data: { id: row.Id },
                     type: 'post',
-                    complete: function (msg) {
-                        switch (msg.responseText.substring(0, 4)) {
-                            case "删除成功":
-                                parent.window.$.messager.alert('提示', msg.responseText, 'info');
+                    complete: function (data) {
+                        var json = pubJs.DeserializeJson(data.responseText);
+                        switch (json.Status) {
+                            case "success":
+                                parent.window.$.messager.alert('提示', json.Msg, 'info');
                                 $('#gridTool').treegrid('reload');
                                 break;
-                            case "删除失败":
-                                parent.window.$.messager.alert('提示', msg.responseText, 'info');
-                                break;
                             default:
-                                parent.window.$.messager.alert('提示', "删除失败！", 'info');
+                                parent.window.$.messager.alert('提示', json.Msg, 'info');
                                 break;
                         }
                     }
@@ -122,23 +120,6 @@
     //选择图片
     exports.CheckImg = function () {
         easyui.ShowWindow('#myWindow', '选择图片', '/Icons/MenuIcon', '440', '300');
-        /*var result = $('#myWindow').window({
-            width: 440,
-            height: 300,
-            content: '<iframe scrolling="yes" frameborder="0"  src="/Icons/MenuIcon" style="width:100%;height:98%;"></iframe>',
-            modal: true,
-            minimizable: false,
-            maximizable: false,
-            shadow: false,
-            cache: false,
-            closed: false,
-            collapsible: false,
-            resizable: false,
-            loadingMessage: '正在加载数据，请稍等......',
-            onClose: function () {
-                $('#Icon').textbox('setValue', window.returnValue);
-            }
-        });*/
     };
 
 });

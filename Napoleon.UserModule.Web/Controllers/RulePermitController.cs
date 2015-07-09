@@ -3,6 +3,7 @@ using System.Data;
 using System.Web;
 using System.Web.Mvc;
 using Napoleon.PublicCommon.Frame;
+using Napoleon.UserModule.Common;
 using Napoleon.UserModule.IBLL;
 using Napoleon.UserModule.Model;
 using Newtonsoft.Json;
@@ -67,8 +68,11 @@ namespace Napoleon.UserModule.Web.Controllers
             json = HttpUtility.UrlDecode(json);
             List<SystemMenuAndRule> list = JsonConvert.DeserializeObject<List<SystemMenuAndRule>>(json);
             int count = _menuAndRuleService.UpdateRuleMenu(list[0].RuleId, list[0].ProjectId, list);
-            string result = count > 0 ? "更新成功，请重新登陆！" : "更新失败！";
-            return Content(result);
+            string status = "failue", msg, jsons;
+            msg = count > 0 ? "更新成功，请重新登陆！" : "更新失败！";
+            status = count > 0 ? "success" : "failue";
+            jsons = PublicFunc.ModelToJson(status, msg);
+            return Content(jsons);
         }
 
     }

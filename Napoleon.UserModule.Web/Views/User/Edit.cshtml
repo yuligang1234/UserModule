@@ -1,89 +1,69 @@
 ﻿@using Napoleon.UserModule.Model
-<!DOCTYPE html>
-
-<html>
-<head>
-    <title></title>
-    @RenderPage("~/Views/Shared/Easyui.cshtml")
-    <style type="text/css">
-        body {
-            margin: 0;
-            padding: 0;
+@{
+    ViewBag.Title = "";
+    Layout = "~/Views/Shared/_Header.cshtml";
+}
+<div style="padding: 15px;">
+    <form id="updateUserForm" method="post" data-options="novalidate:true">
+        @{
+            SystemUser user = (SystemUser) ViewData["User"];
+            <table class="tableContent">
+                <tr>
+                    <td class="tableName">用户账号:</td>
+                    <td class="tableValue">
+                        <input name="id" type="hidden" value="@user.Id" />
+                        <input name="userName" class="easyui-textbox" type="text" value="@user.UserName" data-options="required:true" />
+                    </td>
+                    <td class="tableName">真实姓名:</td>
+                    <td class="tableValue">
+                        <input name="realName" class="easyui-textbox" type="text" value="@user.RealName" data-options="required:true" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tableName">联系电话:</td>
+                    <td class="tableValue">
+                        <input id="mobilePhone" name="mobilePhone" value="@user.MobilePhone" class="easyui-textbox" type="text" />
+                    </td>
+                    <td class="tableName">是否启用:</td>
+                    <td class="tableValue">
+                        <input id="isUse" name="isUse" value="@user.IsUse" class="easyui-textbox" type="text" data-options="required:true" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tableName">用户地址:</td>
+                    <td class="tableValue">
+                        <input name="userAddress" value="@user.UserAddress" class="easyui-textbox" type="text" />
+                    </td>
+                    <td class="tableName">排序:</td>
+                    <td class="tableValue">
+                        <input name="sort" value="@user.Sort" class="easyui-numberbox" precision="2" type="text" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tableName">所属项目:</td>
+                    <td class="tableValue">
+                        <input id="projectId" name="projectId" value="@user.ProjectId" type="text" data-options="required:true" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tableName">备注:</td>
+                    <td colspan="3" class="tableValue">
+                        <input name="remark" style="height: 60px; width: 100%;" value="@user.Remark" class="easyui-textbox" type="text" data-options="multiline:true" />
+                    </td>
+                </tr>
+            </table>
         }
-
-        table {
-            width: 100%;
-            border-collapse: separate;
-            border-spacing: 20px;
-        }
-
-            table .tableName {
-                text-align: right;
-                width: 100px;
-            }
-
-            table .tableValue input {
-                width: 180px;
-            }
-    </style>
-</head>
-<body>
-    <div style="padding: 15px;">
-        <form id="updateUserForm" method="post" data-options="novalidate:true">
-            @{
-                SystemUser user = (SystemUser) ViewData["User"];
-                <table style="width: 100%;">
-                    <tr>
-                        <td class="tableName">用户账号:</td>
-                        <td class="tableValue">
-                            <input name="id" type="hidden" value="@user.Id" />
-                            <input name="userName" class="easyui-textbox" type="text" value="@user.UserName" data-options="required:true" />
-                        </td>
-                        <td class="tableName">真实姓名:</td>
-                        <td class="tableValue">
-                            <input name="realName" class="easyui-textbox" type="text" value="@user.RealName" data-options="required:true" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="tableName">联系电话:</td>
-                        <td class="tableValue">
-                            <input id="mobilePhone" name="mobilePhone" value="@user.MobilePhone" class="easyui-textbox" type="text" />
-                        </td>
-                        <td class="tableName">是否启用:</td>
-                        <td class="tableValue">
-                            <input id="isUse" name="isUse" value="@user.IsUse" class="easyui-textbox" type="text" data-options="required:true" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="tableName">用户地址:</td>
-                        <td class="tableValue">
-                            <input name="userAddress" value="@user.UserAddress" class="easyui-textbox" type="text" />
-                        </td>
-                        <td class="tableName">排序:</td>
-                        <td class="tableValue">
-                            <input name="sort" value="@user.Sort" class="easyui-numberbox" precision="2" type="text" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="tableName">备注:</td>
-                        <td colspan="3" class="tableValue">
-                            <input name="remark" style="height: 60px; width: 100%;" value="@user.Remark" class="easyui-textbox" type="text" data-options="multiline:true" />
-                        </td>
-                    </tr>
-                </table>
-            }
-        </form>
-        <div style="text-align: center;">
-            <a class="easyui-linkbutton" id="updateUser" data-options="iconCls:'icon-save'">更新</a>
-        </div>
+    </form>
+    <div style="text-align: center;">
+        <a class="easyui-linkbutton" id="updateUser" data-options="iconCls:'icon-save'">更新</a>
     </div>
-    <script type="text/javascript">
-        seajs.use(["User/Index", "PublicFunc/Easyui"], function (index, easyui) {
-            $(function () {
-                easyui.LoadCombobox("#isUse", '/User/LoadIsUse');
-                $('#updateUser').on('click', index.UpdateUser);
-            });
+</div>
+<script type="text/javascript">
+    seajs.use(["User/Index", "PublicFunc/Easyui"], function (index, easyui) {
+        $(function () {
+            easyui.LoadCombobox("#isUse", '/User/LoadIsUse');
+            easyui.LoadCombobox("#projectId", '/User/LoadProject');
+            $('#updateUser').on('click', index.UpdateUser);
         });
-    </script>
-</body>
-</html>
+    });
+</script>

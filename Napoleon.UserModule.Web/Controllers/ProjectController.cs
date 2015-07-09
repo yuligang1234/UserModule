@@ -1,6 +1,5 @@
 ﻿using System.Data;
 using System.Web.Mvc;
-using Napoleon.PublicCommon;
 using Napoleon.PublicCommon.Frame;
 using Napoleon.PublicCommon.Http;
 using Napoleon.UserModule.Common;
@@ -59,17 +58,24 @@ namespace Napoleon.UserModule.Web.Controllers
             project.ProjectId = projectId;
             project.ProjectName = projectName;
             project.Remark = remark;
-            project.Operator = CookieSessionFunc.ReadCookie<SystemUser>(PublicFields.UserCookie).UserName;
+            project.Operator = PublicFields.UserCookie.ReadCookie<SystemUser>().UserName;
             int count = _projectService.InsertProject(project);
+            string status = "failue", msg, json;
             if (count > 0)
             {
-                return Content("添加成功！");
+                status = "success";
+                msg = "添加成功！";
             }
-            if (count == 0)
+            else if (count == 0)
             {
-                return Content("添加失败！");
+                msg = "添加失败！";
             }
-            return Content("添加失败，该系统代码已经存在，请不要重复添加！");
+            else
+            {
+                msg = "添加失败，该系统代码已经存在，请不要重复添加！";
+            }
+            json = PublicFunc.ModelToJson(status, msg);
+            return Content(json);
         }
 
         public ActionResult Edit(string projectId)
@@ -93,8 +99,14 @@ namespace Napoleon.UserModule.Web.Controllers
             project.ProjectName = projectName;
             project.Remark = remark;
             int count = _projectService.UpdateProject(project);
-            string result = count > 0 ? "更新成功！" : "更新失败！";
-            return Content(result);
+            string status = "failue", msg = "更新失败!", json;
+            if (count > 0)
+            {
+                status = "success";
+                msg = "更新成功!";
+            }
+            json = PublicFunc.ModelToJson(status, msg);
+            return Content(json);
         }
 
         /// <summary>
@@ -106,16 +118,18 @@ namespace Napoleon.UserModule.Web.Controllers
         public ActionResult DeleteProject(string projectId)
         {
             int count = _projectService.DeleteProject(projectId);
-            string result;
+            string status = "failue", msg, json;
             if (count > 0)
             {
-                result = "删除成功！";
+                status = "success";
+                msg = "删除成功！";
             }
             else
             {
-                result = count == -1 ? "删除失败，请先删除该系统对应的菜单或权限！" : "删除失败！";
+                msg = count == -1 ? "删除失败，请先删除该系统对应的菜单或权限！" : "删除失败！";
             }
-            return Content(result);
+            json = PublicFunc.ModelToJson(status, msg);
+            return Content(json);
         }
 
     }

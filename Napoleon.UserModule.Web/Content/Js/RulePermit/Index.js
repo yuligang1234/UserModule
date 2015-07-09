@@ -1,6 +1,7 @@
 ﻿define(function (require, exports, module) {
 
     var easyui = require("../PublicFunc/Easyui.js");
+    var pubJs = require("../PublicFunc/Index.js");
 
     //加载用户信息列表
     exports.LoadTrees = function (projectId, ruleId) {
@@ -40,9 +41,10 @@
             data: { json: encodeURI(json) },
             type: 'post',
             complete: function (data) {
-                switch (data.responseText.substring(0, 4)) {
-                    case "更新成功":
-                        parent.window.$.messager.confirm('提示', "更新成功，是否重新登陆系统！", function (r) {
+                var jsons = pubJs.DeserializeJson(data.responseText);
+                switch (jsons.Status) {
+                    case "success":
+                        parent.window.$.messager.confirm('提示', jsons.Msg, function (r) {
                             if (r) {
                                 $.ajax({
                                     url: '/Login/LoginOut',
@@ -53,11 +55,8 @@
                             }
                         });
                         break;
-                    case "更新失败":
-                        parent.window.$.messager.alert('提示', data.responseText, 'info');
-                        break;
                     default:
-                        parent.window.$.messager.alert('提示', "更新失败！", 'info');
+                        parent.window.$.messager.alert('提示', jsons.Msg, 'info');
                         break;
                 }
             }
