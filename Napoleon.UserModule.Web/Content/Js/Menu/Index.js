@@ -1,7 +1,7 @@
 ﻿define(function (require, exports, module) {
 
-    var easyui = require("../PublicFunc/Easyui.js");
-    var pubJs = require("../PublicFunc/Index.js");
+    var easyui = require("../PublicJs/Frame/Easyui.js");
+    var serialize = require("../PublicJs/Format/SerializeFunc.js");
 
     //加载用户信息列表
     exports.LoadGrid = function (projectId) {
@@ -40,7 +40,7 @@
         $('#AddMenuForm').form('submit', {
             url: '/Menu/SaveMenu',
             success: function (data) {
-                var json = pubJs.DeserializeJson(data);
+                var json = serialize.DeserializeJson(data);
                 switch (json.Status) {
                     case "success":
                         parent.window.$('#myWindow').window('close');
@@ -71,7 +71,7 @@
         $('#UpdateMenuForm').form('submit', {
             url: '/Menu/UpdateMenu',
             success: function (data) {
-                var json = pubJs.DeserializeJson(data);
+                var json = serialize.DeserializeJson(data);
                 switch (json.Status) {
                     case "success":
                         parent.window.$('#myWindow').window('close');
@@ -100,7 +100,7 @@
                     data: { id: row.Id },
                     type: 'post',
                     complete: function (data) {
-                        var json = pubJs.DeserializeJson(data.responseText);
+                        var json = serialize.DeserializeJson(data.responseText);
                         switch (json.Status) {
                             case "success":
                                 parent.window.$.messager.alert('提示', json.Msg, 'info');

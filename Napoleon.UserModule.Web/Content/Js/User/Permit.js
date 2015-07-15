@@ -1,7 +1,7 @@
 ﻿
 define(function (require, exports, module) {
 
-    var easyui = require("../PublicFunc/Easyui.js");
+    var easyui = require("../PublicJs/Frame/Easyui.js");
 
     //加载权限列表
     exports.LoadGrid = function (userId) {
@@ -35,14 +35,15 @@ define(function (require, exports, module) {
                     url: '/User/DeletePermit',
                     data: { id: row.Id },
                     type: 'post',
-                    complete: function (msg) {
-                        switch (msg.responseText.substring(0, 4)) {
+                    complete: function (data) {
+                        var json = serialize.DeserializeJson(data.responseText);
+                        switch (json.Status) {
                             case "删除成功":
-                                parent.window.$.messager.alert('提示', msg.responseText, 'info');
+                                parent.window.$.messager.alert('提示', json.Msg, 'info');
                                 $('#gridTool').datagrid('reload');
                                 break;
                             default:
-                                parent.window.$.messager.alert('提示', '删除失败！', 'info');
+                                parent.window.$.messager.alert('提示', json.Msg, 'info');
                         }
                     }
                 });
@@ -55,17 +56,15 @@ define(function (require, exports, module) {
         $('#SaveRuleForm').form('submit', {
             url: '/User/SavePermitAdd',
             success: function (data) {
-                switch (data.substring(0, 4)) {
+                var json = serialize.DeserializeJson(data);
+                switch (json.Status) {
                     case "添加成功":
                         parent.window.$('#myWindow').window('close');
-                        parent.window.$.messager.alert('提示', data, 'info');
+                        parent.window.$.messager.alert('提示', json.Msg, 'info');
                         parent.window.$('#gridTool').datagrid('reload');
                         break;
-                    case "添加失败":
-                        parent.window.$.messager.alert('提示', data, 'info');
-                        break;
                     default:
-                        parent.window.$.messager.alert('提示', "添加失败！", 'info');
+                        parent.window.$.messager.alert('提示', json.Msg, 'info');
                         break;
                 }
             }

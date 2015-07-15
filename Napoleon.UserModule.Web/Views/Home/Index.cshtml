@@ -49,7 +49,7 @@
     <div id="myWindow">
     </div>
     <script type="text/javascript">
-        seajs.use(["Home/Index", "PublicFunc/Easyui"], function (index, easyui) {
+        seajs.use(["Home/Index", "PublicJs/Frame/Easyui"], function (index, easyui) {
             $(function () {
                 easyui.LoadMenuTree("#leftAccordion");
                 easyui.AddTabs("首页", "/Home/HomeRight", "tu0108", false);

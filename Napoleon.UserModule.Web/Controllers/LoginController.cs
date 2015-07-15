@@ -1,5 +1,4 @@
 ﻿using System.Web.Mvc;
-using Napoleon.PublicCommon.Cryptography;
 using Napoleon.PublicCommon.Http;
 using Napoleon.UserModule.Common;
 using Napoleon.UserModule.IBLL;
@@ -33,7 +32,7 @@ namespace Napoleon.UserModule.Web.Controllers
         /// Created : 2015-01-07 10:04:36
         public ActionResult CheckUser(string userName, string passWord)
         {
-            SystemUser user = _userService.CheckUser(userName, passWord.EncrypteRc2(PublicFields.Rc2Key), PublicFields.ProjectId);
+            SystemUser user = _userService.CheckUser(userName, passWord, PublicFields.ProjectId);
             string status = "failue", msg = "登录失败！", json;
             if (user != null)
             {

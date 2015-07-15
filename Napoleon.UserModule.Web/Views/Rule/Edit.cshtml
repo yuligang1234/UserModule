@@ -39,7 +39,7 @@
 </div>
 <div id="myWindow"></div>
 <script type="text/javascript">
-    seajs.use(["Rule/Index", "PublicFunc/Easyui"], function (index, easyui) {
+    seajs.use(["Rule/Index", "PublicJs/Frame/Easyui"], function (index, easyui) {
         $(function () {
             var projectId = $('#ProjectId').val();
             easyui.LoadCombobox("#ParentId", '/Rule/LoadParentId?projectId=' + projectId);

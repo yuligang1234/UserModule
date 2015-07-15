@@ -1,8 +1,8 @@
 ﻿
 define(function (require, exports, module) {
 
-    var easyui = require("../PublicFunc/Easyui.js");
-    var pubJs = require("../PublicFunc/Index.js");
+    var easyui = require("../PublicJs/Frame/Easyui.js");
+    var serialize = require("../PublicJs/Format/SerializeFunc.js");
 
     //加载权限
     exports.LoadOperate = function (selector) {
@@ -71,7 +71,7 @@ define(function (require, exports, module) {
         $('#addUserForm').form('submit', {
             url: '/User/SaveAdd',
             success: function (data) {
-                var json = pubJs.DeserializeJson(data);
+                var json = serialize.DeserializeJson(data);
                 switch (json.Status) {
                     case "success":
                         parent.window.$('#myWindow').window('close');
@@ -106,7 +106,7 @@ define(function (require, exports, module) {
         $('#updateUserForm').form('submit', {
             url: '/User/UpdateUser',
             success: function (data) {
-                var json = pubJs.DeserializeJson(data);
+                var json = serialize.DeserializeJson(data);
                 switch (json.Status) {
                     case "success":
                         parent.window.$('#myWindow').window('close');
@@ -138,7 +138,7 @@ define(function (require, exports, module) {
                     data: { id: ids.toString() },
                     type: 'post',
                     complete: function (data) {
-                        var json = pubJs.DeserializeJson(data.responseText);
+                        var json = serialize.DeserializeJson(data.responseText);
                         switch (json.Status) {
                             case "success":
                                 parent.window.$.messager.alert('提示', json.Msg, 'info');
@@ -172,7 +172,7 @@ define(function (require, exports, module) {
                     data: { ids: ids.toString() },
                     type: 'post',
                     complete: function (data) {
-                        var json = pubJs.DeserializeJson(data.responseText);
+                        var json = serialize.DeserializeJson(data.responseText);
                         switch (json.Status) {
                             case "success":
                                 parent.window.$.messager.alert('提示', json.Msg, 'info');

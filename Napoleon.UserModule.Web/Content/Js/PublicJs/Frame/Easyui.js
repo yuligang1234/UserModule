@@ -1,11 +1,17 @@
 ﻿
 define(function (require, exports, module) {
 
+    //#region PageFrame
+
     //创建新页面
     exports.CreateFrame = function (url, id) {
         var s = '<iframe id="' + id + '" scrolling="auto" frameborder="0"  src="' + url + '" style="width:100%;height:99%;overflow-y: auto; "></iframe>';
         return s;
     };
+
+    //#endregion
+
+    //#region 选项卡(Tabs)
 
     //新增选项卡
     exports.AddTabs = function (subtitle, url, icon, closable, id) {
@@ -13,7 +19,7 @@ define(function (require, exports, module) {
             $('#tabs').tabs('add', {
                 title: subtitle,
                 content: exports.CreateFrame(url, id),
-                closable: closable,
+                closable: closable == null ? false : closable,
                 icon: icon
             });
         } else {
@@ -41,6 +47,10 @@ define(function (require, exports, module) {
             return false;
         });
     };
+
+    //#endregion
+
+    //#region 事件(Event)
 
     //右键事件
     exports.TabRightEvent = function () {
@@ -105,7 +115,10 @@ define(function (require, exports, module) {
         });
     };
 
-    //自定义验证
+    //#endregion
+
+    //#region easyui的自定义验证
+
     exports.ValidateExtend = function () {
         $.extend($.fn.validatebox.defaults.rules, {
             //两个值判断是否相等
@@ -114,9 +127,20 @@ define(function (require, exports, module) {
                     return $(param[0]).val() == value;
                 },
                 message: '两次输入密码不匹配'
+            },
+            //两个值判断是否相等
+            equalNotTo: {
+                validator: function (value, param) {
+                    return $(param[0]).val() != value;
+                },
+                message: '原密码和新密码不能相同!'
             }
         });
     };
+
+    //#endregion
+
+    //#region 树节点(Tree)
 
     //获取操作权限
     exports.LoadOperate = function (selector, id) {
@@ -163,6 +187,10 @@ define(function (require, exports, module) {
         });
     };
 
+    //#endregion
+
+    //#region TreeGrid
+
     //加载treegrid
     //gridColumns:[{filed:'123',title:'123',rowspan:1,colspan:1,width:100,align:'left',halign:'center'}]
     exports.LoadTreeGrid = function (selector, url, gridColumns, idField, treeField, title) {
@@ -172,6 +200,7 @@ define(function (require, exports, module) {
             idField: idField,
             treeField: treeField,
             animate: true,
+            fitColumns: true, //配合Columns的Width属性，根据table的宽度，自动调整
             title: title
         });
     };
@@ -192,9 +221,13 @@ define(function (require, exports, module) {
         });
     };
 
-    //加载表格
+    //#endregion
+
+    //#region DataGrid
+
+    //加载分页表格
     //gridColumns:[{filed:'123',title:'123',rowspan:1,colspan:1,width:100,align:'left',halign:'center'}]
-    exports.LoadDataGrid = function (selector, url, gridColumns, title, isSingle, pageSizes, pageList, dbClickFunc) {
+    exports.LoadPageDataGrid = function (selector, url, gridColumns, title, isSingle, pageSizes, pageList, dbClickFunc) {
         $(selector).datagrid({
             url: url,
             columns: [gridColumns],
@@ -215,10 +248,30 @@ define(function (require, exports, module) {
         });
     };
 
+    //加载表格
+    exports.LoadDataGrid = function (selector, url, gridColumns, title, isSingle, dbClickFunc) {
+        $(selector).datagrid({
+            url: url,
+            columns: [gridColumns],
+            singleSelect: isSingle === undefined ? true : isSingle, //单选
+            title: title,
+            rownumbers: true, //序号
+            fitColumns: true, //配合Columns的Width属性，根据table的宽度，自动调整
+            onDblClickRow: function () {
+                if (dbClickFunc === undefined) {
+                    return;
+                }
+                dbClickFunc();
+            }
+        });
+    };
+
     //重新加载表格
     //parameters:{id:1,name:123}
     exports.ReloadDataGrid = function (selector, parameters) {
-        $(selector).datagrid('options').queryParams = parameters;
+        if (parameters != undefined) {//如果不需要分页,就不用传递参数
+            $(selector).datagrid('options').queryParams = parameters;
+        }
         $(selector).datagrid('reload');
     };
 
@@ -229,6 +282,30 @@ define(function (require, exports, module) {
             width: width
         });
     };
+
+    //#endregion
+
+    //#region 下拉框(Combobox)
+
+    //下拉框
+    exports.LoadCombobox = function (selector, url, isEdit, panelHeight, selectFunc) {
+        $(selector).combobox({
+            url: url,
+            valueField: 'id',
+            textField: 'text',
+            editable: isEdit === undefined ? false : isEdit,
+            panelHeight: panelHeight === undefined ? 'auto' : panelHeight,
+            onSelect: function (data) {
+                if (selectFunc != undefined) {
+                    selectFunc(data);
+                }
+            }
+        });
+    };
+
+    //#endregion
+
+    //#region 窗体Window
 
     //显示小窗体
     //width:宽度,height:高度,isModal:是否显示遮罩效果,minimizable:是否显示最小化按钮,maximizable:是否显示最大化按钮
@@ -275,36 +352,8 @@ define(function (require, exports, module) {
             resizable: false,
             loadingMessage: '正在加载数据，请稍等......'
         });
-        /*parent.window.$(selector).window('refresh', url);//这种方式直接在页面上加载div内容,不是重新加载一个页面,比较方便,推荐使用*/
     };
 
-    //下拉框
-    exports.LoadCombobox = function (selector, url, isEdit, panelHeight, selectFunc) {
-        $(selector).combobox({
-            url: url,
-            valueField: 'id',
-            textField: 'text',
-            editable: isEdit === undefined ? false : isEdit,
-            panelHeight: panelHeight === undefined ? 'auto' : panelHeight,
-            onSelect: function (data) {
-                if (selectFunc != undefined) {
-                    selectFunc(data);
-                }
-            }
-        });
-    };
-
-    //下拉框表格
-    exports.LoadComboGrid = function (selector, url, panelWidth, idField, textField, method, columns, fitColumns) {
-        $(selector).combogrid({
-            url: url,
-            method: method,
-            panelWidth: panelWidth,
-            idField: idField,
-            textField: textField,
-            columns: [columns],
-            fitColumns: fitColumns
-        });
-    };
+    //#endregion
 
 })

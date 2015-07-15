@@ -1,8 +1,8 @@
 ﻿
 define(function (require, exports, module) {
 
-    var easyui = require("../PublicFunc/Easyui.js");
-    var pubJs = require("../PublicFunc/Index.js");
+    var easyui = require("../PublicJs/Frame/Easyui.js");
+    var serialize = require("../PublicJs/Format/SerializeFunc.js");
 
     //加载权限
     exports.LoadOperate = function (selector) {
@@ -51,7 +51,7 @@ define(function (require, exports, module) {
         $('#AddProjectForm').form('submit', {
             url: '/Project/SaveAdd',
             success: function (data) {
-                var json = pubJs.DeserializeJson(data);
+                var json = serialize.DeserializeJson(data);
                 switch (json.Status) {
                     case "success":
                         parent.window.$('#myWindow').window('close');
@@ -82,7 +82,7 @@ define(function (require, exports, module) {
         $('#UpdateProjectForm').form('submit', {
             url: '/Project/UpdateProject',
             success: function (data) {
-                var json = pubJs.DeserializeJson(data);
+                var json = serialize.DeserializeJson(data);
                 switch (json.Status) {
                     case "success":
                         parent.window.$('#myWindow').window('close');
@@ -111,7 +111,7 @@ define(function (require, exports, module) {
                     data: { projectId: row.ProjectId },
                     type: 'post',
                     complete: function (data) {
-                        var json = pubJs.DeserializeJson(data.responseText);
+                        var json = serialize.DeserializeJson(data.responseText);
                         switch (json.Status) {
                             case "success":
                                 parent.window.$.messager.alert('提示', json.Msg, 'info');

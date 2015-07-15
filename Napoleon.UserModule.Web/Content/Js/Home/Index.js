@@ -1,7 +1,8 @@
 ﻿define(function (require, exports, module) {
 
-    var easyui = require('../PublicFunc/Easyui.js');
-    var pubJs = require('../PublicFunc/Index.js');
+    var easyui = require('../PublicJs/Frame/Easyui.js');
+    var serialize = require('../PublicJs/Format/SerializeFunc.js');
+    var md5 = require("../PublicJs/Cryptography/md5.js");
 
     //退出
     exports.LoginOut = function () {
@@ -26,8 +27,12 @@
     exports.SavePw = function () {
         $('#pwForm').form('submit', {
             url: '/User/SaveUser',
+            onSubmit: function (param) {
+                param.password = md5.hex_md5($('#password').val());
+                param.newPw = md5.hex_md5($('#newPw').val());
+            },
             success: function (data) {
-                var json = pubJs.DeserializeJson(data);
+                var json = serialize.DeserializeJson(data);
                 switch (json.Status) {
                     case "success":
                         parent.window.$('#myWindow').window('close');

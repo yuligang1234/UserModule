@@ -31,7 +31,7 @@
     </div>
 </div>
 <script type="text/javascript">
-    seajs.use(["User/Permit", "PublicFunc/Easyui"], function (permit, easyui) {
+    seajs.use(["User/Permit", "PublicJs/Frame/Easyui"], function (permit, easyui) {
         $(function () {
             easyui.LoadCombobox("#ProjectId", '/User/PermitProject', false, 'auto', permit.Load2Combobox);
             $('#SaveRule').on('click', permit.FixedSave);

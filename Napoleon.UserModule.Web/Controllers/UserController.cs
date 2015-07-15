@@ -8,7 +8,6 @@ using Napoleon.PublicCommon.Http;
 using Napoleon.UserModule.Common;
 using Napoleon.UserModule.IBLL;
 using Napoleon.UserModule.Model;
-using Newtonsoft.Json;
 
 namespace Napoleon.UserModule.Web.Controllers
 {
@@ -46,7 +45,7 @@ namespace Napoleon.UserModule.Web.Controllers
         /// Created : 2015-01-17 13:30:42
         public ActionResult SaveUser(string id, string password, string newPw)
         {
-            int count = _userService.SaveUser(id, password.EncrypteRc2(PublicFields.Rc2Key), newPw.EncrypteRc2(PublicFields.Rc2Key));
+            int count = _userService.SaveUser(id, password, newPw);
             string status = "failue", msg, json;
             switch (count)
             {

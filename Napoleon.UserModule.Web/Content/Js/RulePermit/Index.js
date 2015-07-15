@@ -1,7 +1,7 @@
 ﻿define(function (require, exports, module) {
 
-    var easyui = require("../PublicFunc/Easyui.js");
-    var pubJs = require("../PublicFunc/Index.js");
+    var easyui = require("../PublicJs/Frame/Easyui.js");
+    var serialize = require("../PublicJs/Format/SerializeFunc.js");
 
     //加载用户信息列表
     exports.LoadTrees = function (projectId, ruleId) {
@@ -41,7 +41,7 @@
             data: { json: encodeURI(json) },
             type: 'post',
             complete: function (data) {
-                var jsons = pubJs.DeserializeJson(data.responseText);
+                var jsons = serialize.DeserializeJson(data.responseText);
                 switch (jsons.Status) {
                     case "success":
                         parent.window.$.messager.confirm('提示', jsons.Msg, function (r) {

@@ -1,7 +1,8 @@
 ﻿
 define(function (require, exports, module) {
 
-    var pubJs = require("../PublicFunc/Index.js");
+    var serialize = require("../PublicJs/Format/SerializeFunc.js");
+    var md5 = require("../PublicJs/Cryptography/md5.js");
 
     //设置输入框的宽度
     exports.SetBoxWidth = function () {
@@ -59,7 +60,7 @@ define(function (require, exports, module) {
         $.ajax({
             url: '/Login/CheckUser',
             type: 'post',
-            data: { userName: userName, passWord: encodeURI(passWord) },
+            data: { userName: userName, passWord: md5.hex_md5(passWord) },
             beforeSend: function () {
                 $.messager.progress({
                     msg: '登录中......'
@@ -67,7 +68,7 @@ define(function (require, exports, module) {
             },
             complete: function (data) {
                 $.messager.progress('close');
-                var json = pubJs.DeserializeJson(data.responseText);
+                var json = serialize.DeserializeJson(data.responseText);
                 switch (json.Status) {
                     case "success":
                         window.location.href = "/Home/Index";

@@ -51,7 +51,7 @@
 </div>
 <div id="myWindow"></div>
 <script type="text/javascript">
-    seajs.use(["Menu/Index", "PublicFunc/Easyui"], function (index, easyui) {
+    seajs.use(["Menu/Index", "PublicJs/Frame/Easyui"], function (index, easyui) {
         $(function () {
             var projectId = $('#ProjectId').val();
             easyui.LoadCombobox("#ParentId", '/Menu/LoadParentId?projectId=' + projectId, false, '200');

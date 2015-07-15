@@ -587,11 +587,15 @@
     <Content Include="Content\Js\Log\Index.js" />
     <Content Include="Content\Js\Menu\Index.js" />
     <Content Include="Content\Js\Project\Index.js" />
-    <Content Include="Content\Js\PublicFunc\Easyui.js" />
-    <Content Include="Content\Js\PublicFunc\Index.js" />
+    <Content Include="Content\Js\PublicJs\Base\StringFunc.js" />
+    <Content Include="Content\Js\PublicJs\Cryptography\md5.js" />
+    <Content Include="Content\Js\PublicJs\Event\KeyboardEvent.js" />
+    <Content Include="Content\Js\PublicJs\Format\SerializeFunc.js" />
+    <Content Include="Content\Js\PublicJs\Frame\Easyui.js" />
+    <Content Include="Content\Js\PublicJs\Http\UrlJs.js" />
+    <Content Include="Content\Js\PublicJs\Reg\RegJs.js" />
     <Content Include="Content\Js\RulePermit\Index.js" />
     <Content Include="Content\Js\Rule\Index.js" />
-    <Content Include="Content\Js\sea-debug.js" />
     <Content Include="Content\Js\sea.js" />
     <Content Include="Content\Js\User\Index.js" />
     <Content Include="Content\Js\User\Permit.js" />
@@ -652,7 +656,6 @@
     <None Include="Properties\PublishProfiles\用户权限模块.pubxml" />
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Shared\Easyuis.cshtml" />
     <Content Include="Views\Home\HomeRight.cshtml" />
     <Content Include="Views\Error\Index.cshtml" />
     <Content Include="Views\Error\NoFound.cshtml" />

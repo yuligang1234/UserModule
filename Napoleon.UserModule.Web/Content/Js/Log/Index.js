@@ -1,7 +1,7 @@
 ﻿
 define(function (require, exports, module) {
 
-    var easyui = require("../PublicFunc/Easyui.js");
+    var easyui = require("../PublicJs/Frame/Easyui.js");
 
     //加载权限
     exports.LoadOperate = function (selector) {
