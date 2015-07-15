@@ -13,7 +13,7 @@ define(function (require, exports, module) {
             { field: 'Company', title: '单位名称', halign: 'center', align: 'center', width: 100 },
             { field: 'RuleName', title: '角色名称', halign: 'center', align: 'center', width: 100 }
         ];
-        easyui.LoadDataGrid("#gridTool", url, gridColumns, title, true, undefined, undefined, undefined);
+        easyui.LoadPageDataGrid("#gridTool", url, gridColumns, title, true, undefined, undefined, undefined);
     };
 
     //新增用户权限

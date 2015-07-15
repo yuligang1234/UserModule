@@ -21,7 +21,7 @@ define(function (require, exports, module) {
             { field: 'Remark', title: '备注', halign: 'center', align: 'center', width: 300 },
             { field: 'Operator', title: '操作者', halign: 'center', align: 'center', width: 100 }
         ];
-        easyui.LoadDataGrid("#gridTool", url, gridColumns, title, true, undefined, undefined, undefined);
+        easyui.LoadPageDataGrid("#gridTool", url, gridColumns, title, true, undefined, undefined, undefined);
     };
 
     //设置页面

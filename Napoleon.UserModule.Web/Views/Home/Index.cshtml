@@ -1,9 +1,11 @@
-﻿<!DOCTYPE html>
+﻿@using System.Web.Optimization
+<!DOCTYPE html>
 
 <html>
 <head>
     <title>管理系统</title>
     @RenderPage("~/Views/Shared/Easyui.cshtml")
+    @Styles.Render("~/Content/Css/PublicCss/Icons")
     <link href="../../Content/Css/Home/Index.css" rel="stylesheet" />
 </head>
 <body class="easyui-layout">

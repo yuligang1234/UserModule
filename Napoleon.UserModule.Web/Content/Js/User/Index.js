@@ -24,7 +24,7 @@ define(function (require, exports, module) {
             { field: 'UserAddress', title: '地址', halign: 'center', align: 'center', width: 200 },
             { field: 'Remark', title: '备注', halign: 'center', align: 'center', width: 100 }
         ];
-        easyui.LoadDataGrid("#gridTool", url, gridColumns, title, false, undefined, undefined, undefined);
+        easyui.LoadPageDataGrid("#gridTool", url, gridColumns, title, false, undefined, undefined, undefined);
         //easyui.LoadComboGrid('#mobilePhone', '/User/LoadDataGrids', 800, "Id", "RealName", 'get', columns, true);
     };
 

@@ -4,17 +4,9 @@
     font-size: 12px;
 }
 
-#searchTool {
-    float: left;
-}
-
 #searchContent td {
     width: 90px;
     padding: 1px 5px 1px 5px;
-}
-
-#gridTool {
-    float: left;
 }
 
 .tableContent {

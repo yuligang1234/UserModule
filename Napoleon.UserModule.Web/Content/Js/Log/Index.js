@@ -22,7 +22,7 @@ define(function (require, exports, module) {
             { field: 'OperateUrl', title: '地址', halign: 'center', align: 'center', width: 100 },
             { field: 'OperateType', title: '日志类型', halign: 'center', align: 'center', width: 100 }
         ];
-        easyui.LoadDataGrid("#gridTool", url, gridColumns, title, undefined, undefined, undefined, exports.FixedInfo);
+        easyui.LoadPageDataGrid("#gridTool", url, gridColumns, title, undefined, undefined, undefined, exports.FixedInfo);
     };
 
     //设置页面
@@ -44,7 +44,7 @@ define(function (require, exports, module) {
             parent.window.$.messager.alert('警告', '结束时间不能小于开始时间！', 'warning');
             return;
         }
-        easyui.ReloadDataGrid("#gridTool", parameters);
+        easyui.LoadPageDataGrid("#gridTool", parameters);
     };
 
     //导出Excel
