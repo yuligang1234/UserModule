@@ -46,7 +46,7 @@ namespace Napoleon.UserModule.Common
         /// </summary>
         /// Author  : Napoleon
         /// Created : 2015-01-19 10:39:11
-        public static string DefaultPw = "123456";
+        public static string DefaultPw = "Napoleon";
 
         /// <summary>
         ///  当前系统的父节点

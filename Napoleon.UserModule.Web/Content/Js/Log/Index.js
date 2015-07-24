@@ -53,7 +53,19 @@ define(function (require, exports, module) {
         var content = $('#content').val();
         var datetime1 = $('#datetime1').datebox('getValue');
         var datetime2 = $('#datetime2').datebox('getValue');
-        window.location.href = '/Log/ExcelLog?userName=' + userName + '&content=' + content + '&datetime1=' + datetime1 + '&datetime2=' + datetime2;
+        //window.location.href = '/Log/ExcelLog?userName=' + userName + '&content=' + content + '&datetime1=' + datetime1 + '&datetime2=' + datetime2;
+        parent.window.$.messager.progress({
+            msg: '导出Excel中...'
+        });
+        $.ajax({
+            url: '/Log/ExcelLog',
+            type: 'post',
+            data: { userName: userName, content: content, datetime1: datetime1, datetime2: datetime2 },
+            success: function (data) {
+                window.location = data;
+                parent.window.$.messager.progress('close');
+            }
+        });
     };
 
     //详情页面

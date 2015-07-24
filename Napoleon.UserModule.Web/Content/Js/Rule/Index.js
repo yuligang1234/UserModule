@@ -39,7 +39,7 @@
             url: '/Rule/SaveRule',
             success: function (data) {
                 var json = serialize.DeserializeJson(data);
-                switch (data.substring(0, 4)) {
+                switch (json.Status) {
                     case "success":
                         parent.window.$('#myWindow').window('close');
                         parent.window.$.messager.alert('提示', json.Msg, 'info');

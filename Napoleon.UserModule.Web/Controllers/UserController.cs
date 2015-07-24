@@ -230,7 +230,7 @@ namespace Napoleon.UserModule.Web.Controllers
         /// Created : 2015-01-19 20:39:21
         public ActionResult UpdatePassWord(string ids)
         {
-            int count = _userService.UpdatePassWord(PublicFields.DefaultPw.EncrypteRc2(PublicFields.Rc2Key), ids);
+            int count = _userService.UpdatePassWord(PublicFields.DefaultPw.GetMd5(), ids);
             string status = "failue", msg = "初始化失败", json;
             if (count > 0)
             {

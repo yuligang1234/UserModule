@@ -1,12 +1,13 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 using System.Data.SqlTypes;
 using System.IO;
 using System.Web.Mvc;
 using Napoleon.Log4Module.Log.DAL;
 using Napoleon.Log4Module.Log.Model;
+using Napoleon.PublicCommon.File;
 using Napoleon.PublicCommon.Frame;
 using Napoleon.PublicCommon.Office;
-using Napoleon.UserModule.Common;
 
 namespace Napoleon.UserModule.Web.Controllers
 {
@@ -53,8 +54,14 @@ namespace Napoleon.UserModule.Web.Controllers
         /// <param name="datetime2">The datetime2.</param>
         /// Author  : Napoleon
         /// Created : 2015-01-14 14:15:33
-        public FileResult ExcelLog(string userName, string content, string datetime1, string datetime2)
+        public ActionResult ExcelLog(string userName, string content, string datetime1, string datetime2)
         {
+            string fileName = "系统日志" + DateTime.Now.ToString("yyyyMMddhhmmssff") + ".xls";
+            string filePath = Server.MapPath("../Export/");
+            if (!Directory.Exists(filePath))
+            {
+                Directory.CreateDirectory(filePath);
+            }
             SystemLog log = new SystemLog();
             log.UserName = userName;
             log.OperateContent = content;
@@ -63,12 +70,11 @@ namespace Napoleon.UserModule.Web.Controllers
             DataTable dt = log.SelectLogTable(datetime1, datetime2);
             string[] titles = { "ID", "操作用户", "IP地址", "日志时间", "日志类型", "错误地址", "日志内容" };
             string[] columns = { "Id", "UserName", "IpAddress", "OperateTime", "OperateType", "OperateUrl", "OperateContent" };
-            //string excel = dt.Excel("", columns, titles, false, null, "");
-            //MemoryStream fileStream = new MemoryStream(Encoding.Default.GetBytes(excel));
-            //return File(fileStream, "application/ms-excel", PublicFields.LogExcelName);
             MemoryStream fileStream = dt.CreateSheet(titles, columns);
             fileStream.Seek(0, SeekOrigin.Begin);
-            return File(fileStream, "application/vnd.ms-excel", PublicFields.LogExcelName);
+            fileStream.StreamToFile(filePath + fileName);
+            return Content("../Export/" + fileName);
+            //return File(fileStream, "application/vnd.ms-excel", PublicFields.LogExcelName);
         }
 
         public ActionResult ViewInfo(string id)
