@@ -10,7 +10,7 @@ using Newtonsoft.Json;
 
 namespace Napoleon.UserModule.Web.Controllers
 {
-    public class RulePermitController : Controller
+    public class RulePermitController : BaseController
     {
 
         private IMenuService _menuService;

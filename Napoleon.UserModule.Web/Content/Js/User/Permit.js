@@ -2,6 +2,7 @@
 define(function (require, exports, module) {
 
     var easyui = require("../PublicJs/Frame/Easyui.js");
+    var serialize = require("../PublicJs/Format/SerializeFunc.js");
 
     //加载权限列表
     exports.LoadGrid = function (userId) {
@@ -38,7 +39,7 @@ define(function (require, exports, module) {
                     complete: function (data) {
                         var json = serialize.DeserializeJson(data.responseText);
                         switch (json.Status) {
-                            case "删除成功":
+                            case "success":
                                 parent.window.$.messager.alert('提示', json.Msg, 'info');
                                 $('#gridTool').datagrid('reload');
                                 break;
@@ -58,7 +59,7 @@ define(function (require, exports, module) {
             success: function (data) {
                 var json = serialize.DeserializeJson(data);
                 switch (json.Status) {
-                    case "添加成功":
+                    case "success":
                         parent.window.$('#myWindow').window('close');
                         parent.window.$.messager.alert('提示', json.Msg, 'info');
                         parent.window.$('#gridTool').datagrid('reload');

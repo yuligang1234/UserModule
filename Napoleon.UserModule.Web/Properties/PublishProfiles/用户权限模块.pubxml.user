@@ -43,46 +43,46 @@
       <publishTime>07/16/2015 15:12:10</publishTime>
     </File>
     <File Include="bin/Napoleon.UserModule.BLL.dll">
-      <publishTime>07/24/2015 10:27:29</publishTime>
+      <publishTime>09/19/2015 11:16:58</publishTime>
     </File>
     <File Include="bin/Napoleon.UserModule.BLL.pdb">
-      <publishTime>07/24/2015 10:27:29</publishTime>
+      <publishTime>09/19/2015 11:16:58</publishTime>
     </File>
     <File Include="bin/Napoleon.UserModule.Common.dll">
-      <publishTime>07/24/2015 10:27:28</publishTime>
+      <publishTime>09/19/2015 11:16:57</publishTime>
     </File>
     <File Include="bin/Napoleon.UserModule.Common.pdb">
-      <publishTime>07/24/2015 10:27:28</publishTime>
+      <publishTime>09/19/2015 11:16:57</publishTime>
     </File>
     <File Include="bin/Napoleon.UserModule.DAL.dll">
-      <publishTime>07/24/2015 10:27:29</publishTime>
+      <publishTime>09/19/2015 11:16:58</publishTime>
     </File>
     <File Include="bin/Napoleon.UserModule.DAL.pdb">
-      <publishTime>07/24/2015 10:27:29</publishTime>
+      <publishTime>09/19/2015 11:16:58</publishTime>
     </File>
     <File Include="bin/Napoleon.UserModule.IBLL.dll">
-      <publishTime>07/24/2015 10:27:28</publishTime>
+      <publishTime>09/19/2015 11:16:57</publishTime>
     </File>
     <File Include="bin/Napoleon.UserModule.IBLL.pdb">
-      <publishTime>07/24/2015 10:27:28</publishTime>
+      <publishTime>09/19/2015 11:16:57</publishTime>
     </File>
     <File Include="bin/Napoleon.UserModule.IDAL.dll">
-      <publishTime>07/24/2015 10:27:28</publishTime>
+      <publishTime>09/19/2015 11:16:57</publishTime>
     </File>
     <File Include="bin/Napoleon.UserModule.IDAL.pdb">
-      <publishTime>07/24/2015 10:27:28</publishTime>
+      <publishTime>09/19/2015 11:16:57</publishTime>
     </File>
     <File Include="bin/Napoleon.UserModule.Model.dll">
-      <publishTime>07/24/2015 10:27:28</publishTime>
+      <publishTime>09/19/2015 11:16:57</publishTime>
     </File>
     <File Include="bin/Napoleon.UserModule.Model.pdb">
-      <publishTime>07/24/2015 10:27:28</publishTime>
+      <publishTime>09/19/2015 11:16:57</publishTime>
     </File>
     <File Include="bin/Napoleon.UserModule.Web.dll">
-      <publishTime>07/24/2015 10:27:29</publishTime>
+      <publishTime>09/19/2015 11:16:58</publishTime>
     </File>
     <File Include="bin/Napoleon.UserModule.Web.pdb">
-      <publishTime>07/24/2015 10:27:29</publishTime>
+      <publishTime>09/19/2015 11:16:58</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
       <publishTime>01/05/2015 16:01:34</publishTime>
@@ -121,13 +121,13 @@
       <publishTime>03/18/2010 19:31:26</publishTime>
     </File>
     <File Include="bin/System.Net.Http.dll">
-      <publishTime>07/10/2012 12:07:38</publishTime>
+      <publishTime>07/09/2013 11:04:48</publishTime>
     </File>
     <File Include="bin/System.Net.Http.Formatting.dll">
       <publishTime>12/24/2014 16:54:21</publishTime>
     </File>
     <File Include="bin/System.Net.Http.WebRequest.dll">
-      <publishTime>07/10/2012 12:07:38</publishTime>
+      <publishTime>07/09/2013 11:04:48</publishTime>
     </File>
     <File Include="bin/System.Web.Abstractions.dll">
       <publishTime>03/18/2010 19:31:26</publishTime>
@@ -2365,13 +2365,13 @@
       <publishTime>01/05/2015 20:09:22</publishTime>
     </File>
     <File Include="Content/Js/Log/Index.js">
-      <publishTime>07/24/2015 10:25:48</publishTime>
+      <publishTime>08/01/2015 10:20:23</publishTime>
     </File>
     <File Include="Content/Js/Login/Index.js">
-      <publishTime>07/15/2015 13:51:36</publishTime>
+      <publishTime>07/29/2015 13:59:30</publishTime>
     </File>
     <File Include="Content/Js/Menu/Index.js">
-      <publishTime>07/15/2015 10:47:04</publishTime>
+      <publishTime>09/19/2015 09:06:46</publishTime>
     </File>
     <File Include="Content/Js/Project/Index.js">
       <publishTime>07/15/2015 14:24:13</publishTime>
@@ -2395,7 +2395,7 @@
       <publishTime>06/12/2015 11:29:40</publishTime>
     </File>
     <File Include="Content/Js/PublicJs/Frame/Easyui.js">
-      <publishTime>07/15/2015 11:31:46</publishTime>
+      <publishTime>09/18/2015 19:57:51</publishTime>
     </File>
     <File Include="Content/Js/PublicJs/Http/UrlJs.js">
       <publishTime>06/08/2015 15:54:51</publishTime>
@@ -2419,7 +2419,7 @@
       <publishTime>07/15/2015 14:25:36</publishTime>
     </File>
     <File Include="Content/Js/User/Permit.js">
-      <publishTime>07/15/2015 14:25:30</publishTime>
+      <publishTime>09/19/2015 11:15:37</publishTime>
     </File>
     <File Include="FavIcon.ico">
       <publishTime>01/05/2015 16:57:49</publishTime>
@@ -2455,13 +2455,13 @@
       <publishTime>04/02/2015 09:14:59</publishTime>
     </File>
     <File Include="Views/Log/Index.cshtml">
-      <publishTime>07/09/2015 09:15:08</publishTime>
+      <publishTime>07/31/2015 16:00:25</publishTime>
     </File>
     <File Include="Views/Log/ViewInfo.cshtml">
       <publishTime>07/09/2015 09:17:58</publishTime>
     </File>
     <File Include="Views/Login/Index.cshtml">
-      <publishTime>07/24/2015 09:54:14</publishTime>
+      <publishTime>09/18/2015 19:52:52</publishTime>
     </File>
     <File Include="Views/Menu/Add.cshtml">
       <publishTime>07/15/2015 11:21:24</publishTime>
@@ -2470,7 +2470,7 @@
       <publishTime>07/09/2015 09:18:32</publishTime>
     </File>
     <File Include="Views/Menu/Index.cshtml">
-      <publishTime>07/17/2015 15:20:00</publishTime>
+      <publishTime>09/19/2015 09:07:06</publishTime>
     </File>
     <File Include="Views/Project/Add.cshtml">
       <publishTime>07/09/2015 09:19:13</publishTime>
@@ -2488,7 +2488,7 @@
       <publishTime>07/15/2015 11:21:56</publishTime>
     </File>
     <File Include="Views/Rule/Index.cshtml">
-      <publishTime>07/09/2015 09:20:31</publishTime>
+      <publishTime>07/29/2015 15:42:48</publishTime>
     </File>
     <File Include="Views/RulePermit/Index.cshtml">
       <publishTime>07/15/2015 14:40:46</publishTime>
@@ -2503,7 +2503,7 @@
       <publishTime>01/30/2015 10:20:53</publishTime>
     </File>
     <File Include="Views/Shared/_Header.cshtml">
-      <publishTime>07/15/2015 14:45:25</publishTime>
+      <publishTime>08/01/2015 11:06:52</publishTime>
     </File>
     <File Include="Views/User/Add.cshtml">
       <publishTime>07/15/2015 11:22:10</publishTime>
@@ -2527,7 +2527,7 @@
       <publishTime>12/24/2014 16:54:16</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>07/24/2015 10:27:34</publishTime>
+      <publishTime>09/19/2015 11:17:04</publishTime>
     </File>
   </ItemGroup>
 </Project>

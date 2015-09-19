@@ -9,7 +9,7 @@ using Napoleon.UserModule.Model;
 
 namespace Napoleon.UserModule.Web.Controllers
 {
-    public class RuleController : Controller
+    public class RuleController : BaseController
     {
 
         private IRuleService _ruleService;

@@ -1,10 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Data;
 using System.Web.Services;
-using Napoleon.PublicCommon.Cryptography;
 using Napoleon.PublicCommon.Frame;
 using Napoleon.UserModule.BLL;
-using Napoleon.UserModule.Common;
 using Napoleon.UserModule.DAL;
 using Napoleon.UserModule.IBLL;
 using Napoleon.UserModule.Model;

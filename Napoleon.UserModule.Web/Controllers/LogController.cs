@@ -46,6 +46,30 @@ namespace Napoleon.UserModule.Web.Controllers
         }
 
         /// <summary>
+        ///  加载表格
+        /// </summary>
+        /// <param name="userName">Name of the user.</param>
+        /// <param name="content">The content.</param>
+        /// <param name="datetime1">The datetime1.</param>
+        /// <param name="datetime2">The datetime2.</param>
+        /// <param name="rows">The rows.</param>
+        /// <param name="page">The page.</param>
+        /// Author  : Napoleon
+        /// Created : 2015-01-17 11:00:34
+        public ActionResult LoadDataGrids(string userName, string content, string datetime1, string datetime2)
+        {
+            SystemLog log = new SystemLog();
+            log.UserName = userName;
+            log.OperateContent = content;
+            datetime1 = string.IsNullOrWhiteSpace(datetime1) ? SqlDateTime.MinValue.ToString() : datetime1;
+            datetime2 = string.IsNullOrWhiteSpace(datetime2) ? SqlDateTime.MaxValue.ToString() : datetime2;
+            DataTable dt = log.SelectLog(datetime1, datetime2, 0, 100);
+            //int count = log.LogCount(datetime1, datetime2);
+            string json = dt.ConvertTableToGridJson(100);
+            return Content(json);
+        }
+
+        /// <summary>
         ///  导出Excel
         /// </summary>
         /// <param name="userName">Name of the user.</param>

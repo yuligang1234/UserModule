@@ -287,7 +287,7 @@ define(function (require, exports, module) {
 
     //#region 下拉框(Combobox)
 
-    //下拉框
+    //简单下拉框
     exports.LoadCombobox = function (selector, url, isEdit, panelHeight, selectFunc) {
         $(selector).combobox({
             url: url,
@@ -295,6 +295,23 @@ define(function (require, exports, module) {
             textField: 'text',
             editable: isEdit === undefined ? false : isEdit,
             panelHeight: panelHeight === undefined ? 'auto' : panelHeight,
+            onSelect: function (data) {
+                if (selectFunc != undefined) {
+                    selectFunc(data);
+                }
+            }
+        });
+    };
+
+    //列表下拉框
+    exports.LoadComboGrid = function (selector, url, isEdit, columns, selectFunc) {
+        $(selector).combogrid({
+            url: url,
+            idField: 'IpAddress',
+            textField: 'IpAddress',
+            editable: isEdit === undefined ? false : isEdit,
+            panelWidth: 1000,
+            columns: [columns],
             onSelect: function (data) {
                 if (selectFunc != undefined) {
                     selectFunc(data);

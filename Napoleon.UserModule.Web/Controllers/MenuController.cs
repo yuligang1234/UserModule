@@ -5,7 +5,7 @@ using Napoleon.PublicCommon.Base;
 using Napoleon.PublicCommon.Frame;
 using Napoleon.PublicCommon.Http;
 using Napoleon.UserModule.Common;
-using Napoleon.UserModule.IDAL;
+using Napoleon.UserModule.IBLL;
 using Napoleon.UserModule.Model;
 
 namespace Napoleon.UserModule.Web.Controllers
@@ -13,13 +13,12 @@ namespace Napoleon.UserModule.Web.Controllers
     public class MenuController : BaseController
     {
 
-        private IMenuDao _menuDao;
+        private IMenuService _menuService;
 
-        public MenuController(IMenuDao menuDao)
+        public MenuController(IMenuService menuService)
         {
-            _menuDao = menuDao;
+            _menuService = menuService;
         }
-
 
         public ActionResult Index(string projectId)
         {
@@ -34,7 +33,7 @@ namespace Napoleon.UserModule.Web.Controllers
         /// Created : 2015-01-24 14:50:39
         public ActionResult LoadMenuGrid(string projectId)
         {
-            DataTable dt = _menuDao.GetMenuTable(projectId);
+            DataTable dt = _menuService.GetMenuTable(projectId);
             string json = dt.ConvertToTreeGridJson("Icon");
             return Content(json);
         }
@@ -53,7 +52,7 @@ namespace Napoleon.UserModule.Web.Controllers
         /// Created : 2015-01-24 16:39:33
         public ActionResult LoadParentId(string projectId)
         {
-            DataTable dt = _menuDao.GetTreeParentId(projectId);
+            DataTable dt = _menuService.GetTreeParentId(projectId);
             string json = dt.ConvertToComboboxJson("Id", "Name");
             return Content(json);
         }
@@ -76,7 +75,7 @@ namespace Napoleon.UserModule.Web.Controllers
             menu.Sort = Convert.ToDecimal(sort);
             menu.Remark = remark;
             menu.Operator = PublicFields.UserCookie.ReadCookie<SystemUser>().UserName;
-            int count = _menuDao.InsertMenu(menu);
+            int count = _menuService.InsertMenu(menu);
             string status = "failue", msg, json;
             switch (count)
             {
@@ -97,7 +96,7 @@ namespace Napoleon.UserModule.Web.Controllers
 
         public ActionResult Edit(string id)
         {
-            ViewData["Menu"] = _menuDao.GetMenu(id);
+            ViewData["Menu"] = _menuService.GetMenu(id);
             return View();
         }
 
@@ -118,7 +117,7 @@ namespace Napoleon.UserModule.Web.Controllers
             menu.Sort = Convert.ToDecimal(sort);
             menu.Remark = remark;
             menu.Operator = PublicFields.UserCookie.ReadCookie<SystemUser>().UserName;
-            int count = _menuDao.UpdateMenu(menu);
+            int count = _menuService.UpdateMenu(menu);
             string status = "failue", msg, json;
             switch (count)
             {
@@ -145,7 +144,7 @@ namespace Napoleon.UserModule.Web.Controllers
         /// Created : 2015-01-24 10:40:18
         public ActionResult DeleteMenu(string id)
         {
-            int count = _menuDao.DeleteMenu(id);
+            int count = _menuService.DeleteMenu(id);
             string status = "failue", msg, json;
             if (count > 0)
             {

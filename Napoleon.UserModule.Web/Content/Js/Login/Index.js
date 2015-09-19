@@ -60,6 +60,7 @@ define(function (require, exports, module) {
         $.ajax({
             url: '/Login/CheckUser',
             type: 'post',
+            dataType: 'json',
             data: { userName: userName, passWord: md5.hex_md5(passWord) },
             beforeSend: function () {
                 $.messager.progress({

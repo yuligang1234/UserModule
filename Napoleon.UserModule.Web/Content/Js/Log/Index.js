@@ -22,6 +22,14 @@ define(function (require, exports, module) {
             { field: 'OperateUrl', title: '地址', halign: 'center', align: 'center', width: 100 },
             { field: 'OperateType', title: '日志类型', halign: 'center', align: 'center', width: 100 }
         ];
+        var columns = [
+            { field: 'IpAddress', title: 'IP地址',  width: 100 },
+            { field: 'OperateTime', title: '日志时间',  width: 100 },
+            { field: 'OperateContent', title: '日志内容',  width: 100 },
+            { field: 'OperateUrl', title: '地址',  width: 100 },
+            { field: 'OperateType', title: '日志类型',  width: 100 }
+        ];
+        easyui.LoadComboGrid('#content', '/Log/LoadDataGrids', false, columns, undefined);
         easyui.LoadPageDataGrid("#gridTool", url, gridColumns, title, undefined, undefined, undefined, exports.FixedInfo);
     };
 

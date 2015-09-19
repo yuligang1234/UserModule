@@ -10,7 +10,7 @@ using Napoleon.UserModule.Model;
 
 namespace Napoleon.UserModule.Web.Controllers
 {
-    public class AjaxController : Controller
+    public class AjaxController : BaseController
     {
 
         private IMenuAndRuleService _menuAndRuleService;

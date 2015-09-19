@@ -2,7 +2,7 @@
 
 namespace Napoleon.UserModule.Web.Controllers
 {
-    public class IconsController : Controller
+    public class IconsController : BaseController
     {
         
 
